@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="assets/images/ocs-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Open Chat Studio — AI Chatbots for Global Health</title>
+<meta name="description" content="An easy-to-use, open-source platform to develop and test LLM-based chatbots. Harnessing Large Language Models to overcome worldwide disparities.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/open-chat-studio/">
+<meta property="og:title" content="Open Chat Studio — Enhancing Impact with AI">
+<meta property="og:description" content="An easy-to-use, open-source platform to develop and test LLM-based chatbots.">
+<meta property="og:image" content="assets/images/platform-screenshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* ── Dark purple nav ── */
+  .nav-wrap {
+    background: #180F60 !important;
+    border-bottom: none !important;
+    box-shadow: none;
+  }
+  .nav-wrap .nav-links a { color: rgba(255,255,255,0.72) !important; }
+  .nav-wrap .nav-links a:hover { color: #fff !important; }
+  .nav-wrap .nav-links a.nav-active { color: #fff !important; font-weight: 500; }
+  .nav-wrap .nav-links a.nav-sep::before { background: rgba(255,255,255,0.25) !important; }
+  .nav-wrap .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.35) !important; }
+  .nav-wrap .btn-ghost:hover { background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.6) !important; color: #fff !important; }
+  .nav-wrap .btn-primary { background: var(--indigo) !important; color: #fff !important; }
+  .nav-wrap .btn-primary:hover { background: #007575 !important; }
+  .nav-wrap .nav-hamburger span { background: rgba(255,255,255,0.9) !important; }
+
+  /* ── Dark purple hero ── */
+  .hero-ocs {
+    background: #180F60;
+    padding: 100px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-ocs::before {
+    content: "";
+    position: absolute;
+    top: -200px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,144,144,0.20) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-ocs::after {
+    content: "";
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(80,196,255,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-ocs .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-ocs h1.hero-title {
+    font-size: clamp(38px, 4.6vw, 60px);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    font-weight: 200;
+    margin: 0 0 24px;
+    color: #fff;
+  }
+  .hero-ocs h1.hero-title em {
+    font-style: normal;
+    background: linear-gradient(90deg, #fff 0%, #7DD8D6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+  .hero-ocs .eyebrow { color: rgba(80,196,255,0.85); }
+  .hero-ocs .eyebrow::before { background: rgba(80,196,255,0.7); }
+  .hero-ocs .hero-sub {
+    font-size: 19px;
+    color: rgba(255,255,255,0.72);
+    margin: 0 0 32px;
+    max-width: 560px;
+    font-weight: 400;
+  }
+  .hero-ocs .btn-ghost {
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.35) !important;
+  }
+  .hero-ocs .btn-ghost:hover {
+    background: rgba(255,255,255,0.12) !important;
+    border-color: rgba(255,255,255,0.6) !important;
+  }
+  @media (max-width: 860px) {
+    .hero-ocs .hero-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Feature bullets ── */
+  .feature-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .feature-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    list-style: none;
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .feature-bullets li::before {
+    content: "→";
+    color: var(--indigo);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── Metrics band ── */
+  .metrics-band {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .metrics-band-label {
+    padding: 28px 0 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .metrics-band-label span {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .metrics-band-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .metrics-band-cell {
+    padding: 28px 32px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .metrics-band-cell:last-child { border-right: none; }
+  .metrics-band-icon {
+    width: 40px;
+    height: 40px;
+    background: #F2F3F5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .metrics-band-icon img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+  .metrics-band-cell h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 720px) {
+    .metrics-band-grid { grid-template-columns: repeat(2, 1fr); }
+    .metrics-band-cell:nth-child(2) { border-right: none; }
+    .metrics-band-cell:nth-child(1),
+    .metrics-band-cell:nth-child(2) { border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 420px) {
+    .metrics-band-grid { grid-template-columns: 1fr; }
+    .metrics-band-cell { border-right: none !important; border-bottom: 1px solid var(--line); }
+    .metrics-band-cell:last-child { border-bottom: none; }
+  }
+
+  /* ── Bot cards ── */
+  .bots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .bot-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+    color: inherit;
+  }
+  .bot-card:hover {
+    box-shadow: 0 8px 32px -8px rgba(0,144,144,0.18);
+    transform: translateY(-3px);
+    color: inherit;
+  }
+  .bot-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--ink);
+  }
+  .bot-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+    margin: 0;
+  }
+  .bot-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .bot-card-link {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--indigo);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 150ms ease;
+  }
+  .bot-card:hover .bot-card-link { gap: 10px; }
+  .bot-disclaimer {
+    font-size: 0.8rem;
+    color: var(--muted-soft);
+    line-height: 1.6;
+    margin-top: 24px;
+    padding: 14px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  @media (max-width: 700px) {
+    .bots-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Resources grid ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .resource-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+    color: inherit;
+  }
+  .resource-card:hover {
+    box-shadow: 0 8px 32px -8px rgba(0,144,144,0.18);
+    transform: translateY(-3px);
+    color: inherit;
+  }
+  .resource-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+  }
+  .resource-card-body {
+    padding: 24px 28px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .resource-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .resource-card-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 0;
+  }
+  .resource-card-body .btn {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+  @media (max-width: 860px) {
+    .resources-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Dark purple footer ── */
+  footer { background: #180F60 !important; }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="index.html">
+        <img src="assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-active">Overview</a>
+        <a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener" class="nav-sep">GitHub</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Get in touch</a>
+        <a class="btn btn-primary" href="https://chatbots.dimagi.com/" target="_blank" rel="noopener">Try a Bot</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero-ocs">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">// OPEN CHAT STUDIO BY DIMAGI</span>
+        <h1 class="hero-title"><em>Open Chat Studio</em></h1>
+        <p class="hero-sub">Harnessing Large Language Models to Overcome Worldwide Disparities</p>
+        <div class="hero-ctas">
+          <a class="btn btn-indigo btn-arrow" href="https://chatbots.dimagi.com/" target="_blank" rel="noopener">Try a Demo Bot</a>
+          <a class="btn btn-ghost btn-arrow" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 24px 64px -16px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.10);">
+          <img src="assets/images/platform-screenshot.png" alt="Open Chat Studio platform interface" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── THE CHALLENGE ───── -->
+<section class="section" id="challenge">
+  <div class="container">
+    <div style="max-width:800px;">
+      <span class="eyebrow">// THE CHALLENGE</span>
+      <h2 class="section-title"><em>The Challenge</em></h2>
+      <p style="color:var(--muted);font-size:1.1rem;line-height:1.8;margin:24px 0 0;">
+        Artificial Intelligence is progressing more rapidly than ever before. The emergence of Large Language Models (LLMs) like GPT-4 could greatly enhance organizational efficiency, improve knowledge management, revolutionize support for frontline workers, and provide new ways to serve clients.
+        </p>
+        <p style="color:var(--muted);font-size:1.1rem;line-height:1.8;margin:20px 0 0;">
+        Our shared challenge is to ensure that the benefits of this new technology are effectively distributed, that its significant risks are managed responsibly, and that efforts to leverage AI are guided by local expertise and priorities. To meet this challenge, Dimagi is developing Open Chat Studio.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ───── INTRODUCING OCS ───── -->
+<section class="section" style="background:#F2F3F5;" id="platform">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+      <div>
+        <span class="eyebrow">// THE PLATFORM</span>
+        <h2 class="section-title">Introducing <em>Open Chat Studio</em></h2>
+        <ul class="feature-bullets" style="margin-top:32px;">
+          <li>An easy-to-use, open-source platform to develop and test LLM-based chatbots</li>
+          <li>Works with any LLM with an API such as the GPT-4 API</li>
+          <li>Enables a variety of guardrails to improve the safety and accuracy of chatbots</li>
+          <li>Can be deployed on the web, over Telegram and WhatsApp with SMS and other messaging platforms coming soon</li>
+          <li>Supports research to assess chatbots on a wide range of measures</li>
+        </ul>
+        <div style="margin-top:36px;padding-top:32px;border-top:1px solid var(--line);display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <a class="btn btn-indigo btn-arrow" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">See GitHub</a>
+          <p style="margin:0;color:var(--muted);font-size:0.88rem;line-height:1.5;">The full repository is now available — open source and free to use.</p>
+        </div>
+      </div>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);box-shadow:0 16px 48px -12px rgba(0,0,0,0.12);">
+        <img src="assets/images/platform-screenshot.png" alt="Open Chat Studio platform" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── METRICS BAND ───── -->
+<div class="metrics-band" id="metrics">
+  <div class="container">
+    <div class="metrics-band-label">
+      <span>New Metrics for LLM-based Chatbots</span>
+    </div>
+    <div class="metrics-band-grid">
+      <div class="metrics-band-cell">
+        <div class="metrics-band-icon"><img src="assets/images/icon-utility.png" alt=""></div>
+        <h4>Utility</h4>
+      </div>
+      <div class="metrics-band-cell">
+        <div class="metrics-band-icon"><img src="assets/images/icon-safety.png" alt=""></div>
+        <h4>Safety</h4>
+      </div>
+      <div class="metrics-band-cell">
+        <div class="metrics-band-icon"><img src="assets/images/icon-accuracy.png" alt=""></div>
+        <h4>Accuracy</h4>
+      </div>
+      <div class="metrics-band-cell">
+        <div class="metrics-band-icon"><img src="assets/images/icon-adherence.png" alt=""></div>
+        <h4>Adherence to purpose</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── TRY OUR BOTS ───── -->
+<section class="section" style="background:#F2F3F5;" id="bots">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// LIVE DEMONSTRATIONS</span>
+      <h2 class="section-title">Try our <em>Bots</em></h2>
+    </div>
+    <div class="bots-grid">
+      <a class="bot-card" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/f4219b24-3f35-45c3-91e8-60949439ce3a/start/" target="_blank" rel="noopener">
+        <h3>TB Adherence</h3>
+        <p>Building provider capacity to improve adherence to medication</p>
+        <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+      </a>
+      <a class="bot-card" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/ba01847e-09a3-4744-bafc-90f95143e5de/start/" target="_blank" rel="noopener">
+        <h3>Yoruba Bilingual Demo</h3>
+        <p>Chatbot that converses in Yoruba and English on any topic, in simple short sentences</p>
+        <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+      </a>
+      <a class="bot-card" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/6d5abc50-167d-4e78-a2a1-6ff6d3cb229c/start/" target="_blank" rel="noopener">
+        <h3>NaniBot</h3>
+        <p>Counselling expectant mothers to prepare for birth</p>
+        <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+      </a>
+      <a class="bot-card" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/d61f49c1-ebea-4d1e-98ec-d0b5cb111c10/start/" target="_blank" rel="noopener">
+        <h3>FP CHW Bot</h3>
+        <p>Coaching for holistic growth (available in French)</p>
+        <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+      </a>
+    </div>
+    <p class="bot-disclaimer">Please note: these bots are for demonstration and research purposes only, and may not be available at all times or in all locations.</p>
+  </div>
+</section>
+
+<!-- ───── OPPORTUNITIES ───── -->
+<section class="section" id="get-involved" style="background:#F2F3F5;">
+  <div class="container">
+    <div style="max-width:680px;margin:0 auto;text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">// OPPORTUNITIES</span>
+      <h2 class="section-title" style="margin-bottom:24px;"><em>Opportunities</em></h2>
+      <p style="color:var(--muted);font-size:1.08rem;line-height:1.75;margin-bottom:40px;">
+        Dimagi is currently seeking expressions of interest from developers, implementers, and researchers looking to contribute to the Open Chat Studio ecosystem.
+      </p>
+      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── MORE RESOURCES ───── -->
+<section class="section" id="resources">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// RESOURCES</span>
+      <h2 class="section-title"><em>Resources</em></h2>
+    </div>
+    <div class="resources-grid">
+      <a class="resource-card" href="https://www.dimagi.com/blog/harnessing-ais-potential-to-improve-equity/" target="_blank" rel="noopener">
+        <img src="assets/images/blog-harnessing-ai.png" alt="Harnessing AI's Potential to Improve Equity" class="resource-card-img">
+        <div class="resource-card-body">
+          <span class="resource-type">Blog</span>
+          <h3>Harnessing AI's Potential to Improve Equity</h3>
+          <span class="btn btn-ghost btn-arrow">Read post</span>
+        </div>
+      </a>
+      <a class="resource-card" href="https://open.spotify.com/episode/7Bma40sS9YwkF7TF8KTVvc" target="_blank" rel="noopener">
+        <img src="assets/images/high-impact-growth-podcast.jpeg" alt="Equity and AI in Global Health podcast" class="resource-card-img" style="object-position:center;">
+        <div class="resource-card-body">
+          <span class="resource-type">Podcast</span>
+          <h3>Equity and AI in Global Health</h3>
+          <span class="btn btn-ghost btn-arrow">Listen now</span>
+        </div>
+      </a>
+      <a class="resource-card" href="https://www.dimagi.com/blog/grand-challenges-catalyzing-equitable-ai/" target="_blank" rel="noopener">
+        <div style="height:180px;background:linear-gradient(135deg,var(--indigo-deep) 0%,var(--indigo) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+          <span style="font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);">Grand Challenges</span>
+          <span style="font-family:var(--mono);font-size:36px;font-weight:700;color:#fff;letter-spacing:-0.02em;">GC7</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.08em;color:rgba(255,255,255,0.45);">Award Winner</span>
+        </div>
+        <div class="resource-card-body">
+          <span class="resource-type">Award</span>
+          <h3>Global Grand Challenges Award winner for a LLM-powered coach for frontline workers</h3>
+          <span class="btn btn-ghost btn-arrow">Read more</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Open-source AI chatbots for global health, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="#platform">The Platform</a></li>
+          <li><a href="#bots">Demo Bots</a></li>
+          <li><a href="#metrics">Metrics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/OCS/overview?src=sidebar" target="_blank" rel="noopener">Wiki</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Dimagi</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+})();
+</script>
+</body>
+</html>
