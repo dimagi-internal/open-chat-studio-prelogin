@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Applications | Open Chat Studio</title>
+<meta name="description" content="Open Chat Studio powers AI programs across every level: for individuals, frontline workers, and organizations working to improve global health.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/open-chat-studio/applications/">
+<meta property="og:title" content="Applications | Open Chat Studio">
+<meta property="og:description" content="Open Chat Studio powers a growing portfolio of AI applications: for individuals, frontline workers, and the organizations working to improve global health.">
+<meta property="og:image" content="../assets/images/uc-individuals.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+
+<style>
+  :root {
+    --indigo: #1B7FCC;
+    --indigo-soft: #EBF8FF;
+    --indigo-300: #7DD8FF;
+    --indigo-400: #1B7FCC;
+    --indigo-500: #1B7FCC;
+    --indigo-deep: #1570B8;
+    --grad-text: linear-gradient(90deg, #180F60 0%, #1B7FCC 100%);
+  }
+
+  .btn-indigo { background: #1B7FCC !important; color: #fff !important; }
+  .btn-indigo:hover { background: #1570B8 !important; color: #fff !important; }
+
+  /* ── Bright blue nav ── */
+  .nav-wrap { background:#1B7FCC !important; border-bottom:none !important; box-shadow:none; }
+  .nav-wrap .nav-links a { color:rgba(255,255,255,0.80) !important; }
+  .nav-wrap .nav-links a:hover { color:#fff !important; }
+  .nav-wrap .nav-links a.nav-active { color:#fff !important; font-weight:500; text-decoration:underline; text-decoration-color:rgba(255,255,255,0.5); text-underline-offset:5px; text-decoration-thickness:2px; }
+  .nav-wrap .nav-links a.nav-sep::before { background:rgba(255,255,255,0.25) !important; }
+  .nav-wrap .btn-ghost { color:#fff !important; border-color:rgba(255,255,255,0.35) !important; }
+  .nav-wrap .btn-ghost:hover { background:rgba(255,255,255,0.12) !important; border-color:rgba(255,255,255,0.6) !important; color:#fff !important; }
+  .nav-wrap .btn-primary { background:#180F60 !important; color:#fff !important; font-weight:600; }
+  .nav-wrap .btn-primary:hover { background:#0D0840 !important; color:#fff !important; }
+  .nav-wrap .nav-hamburger span { background:rgba(255,255,255,0.9) !important; }
+
+  /* ── White hero ── */
+  .hero-ocs { background:#fff; padding:96px 0 80px; position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero-ocs::before {
+    content:""; position:absolute; top:-300px; right:-200px; width:700px; height:700px;
+    background:radial-gradient(circle,rgba(27,127,204,0.06) 0%,transparent 60%); pointer-events:none;
+  }
+  .hero-ocs::after {
+    content:""; position:absolute; bottom:-200px; left:-100px; width:500px; height:500px;
+    background:radial-gradient(circle,rgba(13,168,157,0.05) 0%,transparent 60%); pointer-events:none;
+  }
+  .hero-ocs .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
+  .hero-photo-wrap { position:relative; }
+  .hero-photo-wrap img { width:100%; height:340px; object-fit:cover; object-position:center; border-radius:16px; display:block; }
+  .hero-photo-credit { font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.06em; color:var(--muted-soft); margin-top:8px; text-align:right; }
+  @media (max-width:860px) { .hero-ocs .hero-grid { grid-template-columns:1fr; } .hero-photo-wrap { display:none; } }
+  .hero-ocs h1.hero-title { font-size:clamp(38px,4.6vw,60px); line-height:1.06; letter-spacing:-0.03em; font-weight:200; margin:0 0 24px; color:#180F60; }
+  .hero-ocs h1.hero-title em { font-style:normal; background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:600; }
+  .hero-ocs .eyebrow { color:rgba(27,127,204,0.85); }
+  .hero-ocs .eyebrow::before { background:rgba(27,127,204,0.65); }
+  .hero-ocs .hero-sub { font-size:19px; color:var(--muted); margin:0; max-width:600px; font-weight:400; line-height:1.65; }
+
+  /* ── Use Case Sections ── */
+
+  /* ── Panel dividers ── */
+  .uc-panel + .uc-panel,
+  .uc-panel + .uc-panel.active {
+    border-top: 2px solid var(--line);
+  }
+  /* Stronger visual break between the story section of one panel
+     and the intro section of the next */
+  .uc-panel-story + .uc-panel-intro,
+  .uc-panel + .uc-panel .uc-panel-intro:first-child {
+    border-top: 3px solid var(--line);
+    padding-top: 80px;
+  }
+
+  /* ── In-panel Bot Demo ── */
+  .uc-panel-demo { background:#fff; padding:56px 0; border-top:1px solid rgba(80,196,255,0.12); }
+  .uc-panel-demo-grid { display:grid; grid-template-columns:1fr 300px; gap:56px; align-items:center; }
+  .uc-panel-demo-eyebrow {
+    font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase; color:#1B7FCC; margin-bottom:16px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .uc-panel-demo-eyebrow::before { content:""; display:block; width:14px; height:1px; background:#50C4FF; }
+  .uc-panel-demo-heading { font-size:1.3rem; font-weight:300; letter-spacing:-0.02em; color:var(--ink); margin:0 0 12px; line-height:1.3; }
+  .uc-panel-demo-desc { font-size:0.95rem; color:var(--muted); line-height:1.75; margin:0; }
+  .bot-card {
+    background:#F0FAFF; border:1px solid rgba(80,196,255,0.16); border-radius:var(--radius-lg);
+    display:flex; flex-direction:column; text-decoration:none; color:inherit;
+    overflow:hidden; transition:box-shadow 200ms,transform 200ms;
+  }
+  .bot-card:hover { box-shadow:0 8px 32px -8px rgba(80,196,255,0.24); transform:translateY(-3px); color:inherit; }
+  .bot-card-head { padding:18px 22px; display:flex; align-items:center; gap:12px; }
+  .bot-card-head svg { width:22px; height:22px; flex-shrink:0; }
+  .bot-card-head-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.8); }
+  .bot-card-inner { padding:18px 22px 20px; flex:1; display:flex; flex-direction:column; gap:10px; }
+  .bot-card h3 { font-size:1.05rem; font-weight:500; margin:0; color:var(--ink); }
+  .bot-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; flex:1; margin:0; }
+  .bot-card-footer { padding-top:14px; border-top:1px solid rgba(80,196,255,0.14); }
+  .bot-card-link { font-size:0.78rem; font-weight:700; color:#1B7FCC; display:flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; transition:gap 150ms; }
+  .bot-card:hover .bot-card-link { gap:10px; }
+  .bot-disclaimer-sm { font-size:0.75rem; color:var(--muted); opacity:0.6; line-height:1.5; margin-top:10px; }
+  .uc-bot-label {
+    font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase; color:#1B7FCC; margin-bottom:12px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .uc-bot-label::before { content:"//"; color:rgba(80,196,255,0.55); }
+  /* Horizontal bot card variant */
+  .bot-card-h { flex-direction:row; }
+  .bot-card-h .bot-card-head {
+    flex-direction:column; justify-content:center; align-items:center;
+    width:88px; flex-shrink:0; padding:20px 12px; gap:10px;
+  }
+  .bot-card-h .bot-card-head svg { width:26px; height:26px; }
+  .bot-card-h .bot-card-head-label { text-align:center; font-size:8.5px; line-height:1.4; }
+  .uc-panel-intro { background:#ffffff; padding:72px 0 72px; border-top:1px solid var(--line); }
+  .uc-panel-intro-grid { display:grid; grid-template-columns:340px 1fr; gap:72px; align-items:center; }
+  .uc-panel-graphic-col { display:flex; justify-content:center; align-items:flex-end; }
+  .uc-panel-graphic { max-height:380px; width:auto; max-width:100%; }
+  .uc-panel-title { font-size:clamp(2rem,3.2vw,3rem); font-weight:200; letter-spacing:-0.035em; color:var(--ink); margin:0 0 20px; line-height:1.05; }
+  .uc-panel-title em { font-style:normal; color:#1B7FCC; font-weight:600; }
+  .uc-panel-question { font-size:1.1rem; color:#1B7FCC; font-style:italic; font-weight:400; margin:0 0 16px; line-height:1.55; padding-left:18px; border-left:3px solid rgba(80,196,255,0.45); }
+  .uc-panel-desc { font-size:1.05rem; color:var(--muted); line-height:1.75; margin:0; }
+  .uc-panel-story { background:#fff; padding:64px 0 72px; }
+  .ds-card { border-radius:20px; padding:56px 64px; overflow:hidden; }
+
+  /* ── Dark Featured Story Block ── */
+  .uc-dark-story { background:#180F60; padding:72px 0; }
+  .ds-eyebrow {
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.12em;
+    text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:36px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .ds-eyebrow::before { content:""; display:block; width:28px; height:1px; background:rgba(255,255,255,0.3); }
+  .ds-grid { display:grid; grid-template-columns:1fr 360px; gap:72px; align-items:center; }
+  .ds-meta {
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600;
+    letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:12px;
+  }
+  .ds-title { font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:300; letter-spacing:-0.025em; color:#fff; margin:0 0 18px; line-height:1.2; }
+  .ds-title em { font-style:normal; font-weight:500; background:linear-gradient(90deg,#fff 0%,#7DD8FF 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .ds-body { font-size:1rem; color:rgba(255,255,255,0.72); line-height:1.8; margin:0 0 28px; }
+  .ds-section-label {
+    font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.38); margin-bottom:12px;
+  }
+  .ds-bullets { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; }
+  .ds-bullets li { display:flex; align-items:flex-start; gap:12px; font-size:0.95rem; color:rgba(255,255,255,0.78); line-height:1.55; }
+  .ds-bullets li::before { content:""; display:block; width:6px; height:6px; border-radius:50%; background:#50C4FF; flex-shrink:0; margin-top:7px; }
+  .ds-funding { display:flex; flex-wrap:wrap; gap:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); }
+  .ds-funding-item { display:flex; flex-direction:column; gap:4px; }
+  .ds-funding-label { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); }
+  .ds-funding-value { font-size:0.88rem; color:rgba(255,255,255,0.65); }
+  .ds-img { width:100%; border-radius:var(--radius-lg); display:block; box-shadow:0 24px 64px -16px rgba(0,0,0,0.45); }
+  .ds-img-wrap { position:relative; display:block; }
+  .ds-img-wrap .ds-img { width:100%; }
+  .ds-photo-credit { position:absolute; bottom:10px; right:12px; font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.75); background:rgba(0,0,0,0.35); padding:3px 8px; border-radius:4px; pointer-events:none; }
+  .ds-espen-logo { height:22px; width:auto; display:block; margin-top:20px; opacity:0.6; filter:brightness(0) invert(1); }
+
+  /* ── Partner Logos Panel ── */
+  .partner-logos-panel {
+    display:flex; flex-direction:column; justify-content:center; gap:44px;
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+    border-radius:var(--radius-lg); padding:40px 36px; align-self:stretch;
+  }
+  .plp-item { display:flex; flex-direction:column; gap:10px; }
+  .plp-item-label {
+    font-family:'JetBrains Mono',monospace; font-size:8.5px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3);
+  }
+  .plp-nih-logo { height:28px; width:auto; filter:brightness(0) invert(1); opacity:0.7; display:block; }
+  .plp-ariadne-wordmark { display:flex; flex-direction:column; gap:5px; }
+  .plp-ariadne-name { font-size:1.25rem; font-weight:600; color:rgba(255,255,255,0.82); letter-spacing:-0.015em; line-height:1.1; }
+  .plp-ariadne-sub {
+    font-family:'JetBrains Mono',monospace; font-size:8px; font-weight:500;
+    letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.38); line-height:1.6;
+  }
+
+  /* ── Light card variant (Individuals) ── */
+  .ds-card-light .ds-eyebrow { color:rgba(24,15,96,0.45); }
+  .ds-card-light .ds-eyebrow::before { background:rgba(24,15,96,0.18); }
+  .ds-card-light .ds-title { color:#180F60; }
+  .ds-card-light .ds-title em { background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .ds-card-light .ds-body { color:var(--muted); }
+  .ds-card-light .ds-section-label { color:rgba(24,15,96,0.45); }
+  .ds-card-light .ds-bullets li { color:var(--ink); }
+  .ds-card-light .ds-bullets li::before { background:#1B7FCC; }
+  .ds-card-light .ds-funding { border-top-color:rgba(24,15,96,0.10); }
+  .ds-card-light .ds-funding-label { color:rgba(24,15,96,0.45); }
+  .ds-card-light .ds-funding-value { color:var(--muted); }
+  .ds-card-light .ds-img { box-shadow:0 16px 48px -12px rgba(24,15,96,0.16); }
+
+  /* ── Funding panel above image ── */
+  .ds-funding-above { border-top:none; padding-top:0; margin-bottom:20px; }
+
+  @media (max-width:960px) {
+    .uc-intro-grid { grid-template-columns:1fr; gap:20px; }
+    .uc-panel-intro-grid { grid-template-columns:1fr; gap:36px; }
+    .uc-panel-graphic { max-height:240px; }
+    .ds-grid { grid-template-columns:1fr; gap:40px; }
+    .ds-card { padding:36px 28px; border-radius:14px; }
+  }
+
+  /* ── Hero section CTAs ── */
+  .uc-hero-btn { background:#1B7FCC !important; color:#fff !important; border-color:#1B7FCC !important; }
+  .uc-hero-btn:hover { background:#180F60 !important; color:#fff !important; border-color:#180F60 !important; }
+
+  /* ── Footer ── */
+  footer { background:#1B7FCC !important; }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <a href="../platform/index.html">Platform</a>
+        <a href="index.html" class="nav-active">Applications</a>
+        <a href="../about/index.html">About</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="mailto:ocs-info@dimagi.com">Get in touch</a>
+        <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero-ocs">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">// APPLICATIONS</span>
+        <h1 class="hero-title">AI programs built for <em>every context</em></h1>
+        <p class="hero-sub">From the people receiving care, to the workers delivering it, to the organizations coordinating it. AI built for every level.</p>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a class="btn btn-arrow uc-hero-btn" href="#panel-individuals">Individuals</a>
+          <a class="btn btn-arrow uc-hero-btn" href="#panel-flw">Frontline Workers</a>
+          <a class="btn btn-arrow uc-hero-btn" href="#panel-ecosystem">The Ecosystem</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="../assets/images/uc-personas.png" alt="Real chatbot personas from Open Chat Studio deployments" style="object-fit:contain;">
+        <p class="hero-photo-credit">Real personas from Open Chat Studio deployments</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── USE CASE SECTIONS ───── -->
+<section class="uc-tabs-section">
+
+  <!-- ── Panel: For Individuals ── -->
+  <div class="uc-panel" id="panel-individuals">
+
+    <div class="uc-panel-intro">
+      <div class="container">
+        <div class="uc-panel-intro-grid">
+          <div class="uc-panel-graphic-col">
+            <img src="../assets/images/uc-individuals-graphic.png" alt="" class="uc-panel-graphic">
+          </div>
+          <div>
+            <h2 class="uc-panel-title">For <em>Individuals</em></h2>
+            <p class="uc-panel-question">How might AI work for anyone, anywhere?</p>
+            <p class="uc-panel-desc">Chatbots for behavior change communication, health coaching, and personal wellbeing, reaching people in their own language on the platforms they already use.</p>
+            <div style="margin-top:32px;">
+              <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
+              <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/6d5abc50-167d-4e78-a2a1-6ff6d3cb229c/start/" target="_blank" rel="noopener">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                  <span class="bot-card-head-label">Maternal Health</span>
+                </div>
+                <div class="bot-card-inner">
+                  <h3>NaniBot</h3>
+                  <p>Counselling expectant mothers to prepare for birth</p>
+                  <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uc-panel-story">
+      <div class="container">
+        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-eyebrow">// FEATURED STORY / FOR INDIVIDUALS</div>
+        <div class="ds-grid">
+          <div>
+            <h3 class="ds-title">Family Planning <em>Behavior Change</em> Assistants</h3>
+            <p class="ds-body">A 4-year study using AI-powered conversational agents to improve voluntary use of modern contraception among young people in Kenya and Senegal. Multiple chatbot personas deliver evidence-based behavior change communication, meeting users on the messaging platforms they already use, in their own language.</p>
+            <div class="ds-section-label">Research Aims</div>
+            <ul class="ds-bullets">
+              <li>Improve knowledge of modern contraceptive methods among young people</li>
+              <li>Improve attitudes toward voluntary family planning</li>
+              <li>Increase voluntary use of modern contraception</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ds-funding ds-funding-above">
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Funder</span>
+                <span class="ds-funding-value">Gates Foundation</span>
+              </div>
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Partner</span>
+                <span class="ds-funding-value">Shujaaz</span>
+              </div>
+            </div>
+            <div class="ds-img-wrap">
+              <img src="../assets/images/uc-shujaaz-photo.png" alt="Young people reached by the Shujaaz family planning program" class="ds-img">
+              <span class="ds-photo-credit">Shujaaz</span>
+            </div>
+          </div>
+        </div>
+        </div><!-- /.ds-card -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Panel: For Frontline Workers ── -->
+  <div class="uc-panel" id="panel-flw">
+
+    <div class="uc-panel-intro">
+      <div class="container">
+        <div class="uc-panel-intro-grid">
+          <div class="uc-panel-graphic-col">
+            <img src="../assets/images/uc-flw-sari.png" alt="" class="uc-panel-graphic">
+          </div>
+          <div>
+            <h2 class="uc-panel-title">For <em>Frontline Workers</em></h2>
+            <p class="uc-panel-question">How might AI support better jobs and better outcomes?</p>
+            <p class="uc-panel-desc">Personal coaches that help community health workers build capability through role-play, case-based learning, and structured feedback, deployed on the messaging apps they already use.</p>
+            <div style="margin-top:32px;">
+              <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
+              <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/d61f49c1-ebea-4d1e-98ec-d0b5cb111c10/start/" target="_blank" rel="noopener">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  <span class="bot-card-head-label">Worker Coaching</span>
+                </div>
+                <div class="bot-card-inner">
+                  <h3>Family Planning Coach</h3>
+                  <p>Coaching for community health workers on holistic growth (available in French)</p>
+                  <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uc-panel-story">
+      <div class="container">
+        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-eyebrow">// FEATURED STORY / FOR FRONTLINE WORKERS</div>
+        <div class="ds-grid">
+          <div>
+            <h3 class="ds-title"><em>SICGbot</em>: Serious Illness Conversation Training</h3>
+            <p class="ds-body">Developed with Ariadne Labs at Harvard, SICGbot helps clinicians practice end-of-life conversations using the Serious Illness Conversation Guide (SICG).</p>
+            <div class="ds-section-label">How it works</div>
+            <ul class="ds-bullets">
+              <li>Full role-play with a simulated patient</li>
+              <li>Responds naturally to different conversational approaches</li>
+              <li>Structured feedback aligned to the SICG framework after each session</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ds-funding ds-funding-above">
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Funder</span>
+                <span class="ds-funding-value">National Institutes of Health (NIH)</span>
+              </div>
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Partner</span>
+                <span class="ds-funding-value">Ariadne Labs, Harvard</span>
+              </div>
+            </div>
+            <div class="ds-img-wrap">
+              <img src="../assets/images/uc-ariadne-photo.avif" alt="Ariadne Labs, Harvard" class="ds-img">
+              <span class="ds-photo-credit">Ariadne Labs</span>
+            </div>
+          </div>
+        </div>
+        </div><!-- /.ds-card -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Panel: For the Ecosystem ── -->
+  <div class="uc-panel" id="panel-ecosystem">
+
+    <div class="uc-panel-intro">
+      <div class="container">
+        <div class="uc-panel-intro-grid">
+          <div class="uc-panel-graphic-col">
+            <img src="../assets/images/uc-ecosystem-graphic.png" alt="" class="uc-panel-graphic">
+          </div>
+          <div>
+            <h2 class="uc-panel-title">For the <em>Ecosystem</em></h2>
+            <p class="uc-panel-question">How might AI strengthen the global health ecosystem?</p>
+            <p class="uc-panel-desc">Tools for multilateral agencies, funders, and implementing partners to improve knowledge navigation, data access, and program management at the systems level.</p>
+            <div style="margin-top:32px;">
+              <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
+              <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/f4219b24-3f35-45c3-91e8-60949439ce3a/start/" target="_blank" rel="noopener">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="1"/>
+                    <path d="M9 12h6M9 15h4"/>
+                  </svg>
+                  <span class="bot-card-head-label">Program Data</span>
+                </div>
+                <div class="bot-card-inner">
+                  <h3>Program Dashboard Assistant</h3>
+                  <p>AI for navigating multilateral program data and reports</p>
+                  <div class="bot-card-footer"><span class="bot-card-link">Try this bot →</span></div>
+
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uc-panel-story">
+      <div class="container">
+        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-eyebrow">// FEATURED STORY / FOR THE ECOSYSTEM</div>
+        <div class="ds-grid">
+          <div>
+            <h3 class="ds-title">WHO / ESPEN <em>Neglected Tropical Disease Programme</em> Management Assistant</h3>
+            <p class="ds-body">A multi-agent AI assistant for WHO NTD program managers in the African region, enabling natural language search across programme documents and structured data from the ESPEN portal.</p>
+            <div class="ds-section-label">Technical scope</div>
+            <ul class="ds-bullets">
+              <li>~800 programme documents, 1 GB of data</li>
+              <li>Natural language to SQL for structured data retrieval</li>
+              <li>Multi-agent routing to the right data source</li>
+            </ul>
+          </div>
+          <div>
+            <div class="ds-funding ds-funding-above">
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Funder</span>
+                <span class="ds-funding-value">Gates Foundation</span>
+              </div>
+              <div class="ds-funding-item">
+                <span class="ds-funding-label">Partner</span>
+                <span class="ds-funding-value">WHO / ESPEN</span>
+              </div>
+            </div>
+            <div class="ds-img-wrap">
+              <img src="../assets/images/uc-espen-photo.png" alt="NTD programme beneficiary" class="ds-img" style="object-fit:cover;object-position:center 30%;">
+              <span class="ds-photo-credit">ESPEN</span>
+            </div>
+          </div>
+        </div>
+        </div><!-- /.ds-card -->
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ───── FINAL CTA ───── -->
+<section class="section" style="background:#EBF8FF;text-align:center;">
+  <div class="container" style="max-width:680px;">
+    <span class="eyebrow" style="justify-content:center;">// GET IN TOUCH</span>
+    <h2 class="section-title" style="color:#180F60;margin-bottom:24px;">See something that <em style="background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">fits your context</em>?</h2>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
+      Every program is different. Tell us what you're trying to build and we'll help scope what's possible.
+    </p>
+    <a class="btn btn-indigo btn-arrow" href="mailto:ocs-info@dimagi.com">Tell us about your program</a>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Open-source AI chatbots for global health, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../platform/index.html">Platform</a></li>
+          <li><a href="index.html">Applications</a></li>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../open-opportunities/index.html">Open Opportunities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
+          <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
+        </ul>
+        <h5 style="margin-top:20px;">Contact</h5>
+        <ul>
+          <li><a href="mailto:ocs-info@dimagi.com">ocs-info@dimagi.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Dimagi</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+
+})();
+
+</script>
+</body>
+</html>

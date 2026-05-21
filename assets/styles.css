@@ -19,7 +19,7 @@
   --sky: #50C4FF;
   --sky-tint: #EBF5FF;
 
-  /* Indigo scale (CommCare HQ B5) — for per-page header gradients */
+  /* Indigo scale (CommCare HQ B5): for per-page header gradients */
   --indigo-300: #4DBBBA;
   --indigo-400: #009090;
   --indigo-500: #009090;
@@ -117,7 +117,7 @@ h1 em, h2 em, h3 em {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--indigo);
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 .eyebrow::before {
   content: '';
@@ -325,7 +325,7 @@ h1.hero-title {
 }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* Dark hero variant — homepage indigo-saturated header */
+/* Dark hero variant: homepage indigo-saturated header */
 .hero.hero-dark {
   background: #009090;
   color: var(--paper);
@@ -459,7 +459,7 @@ h1.hero-title {
   letter-spacing: 0;
 }
 
-/* On-dark variant — embedded in purple hero */
+/* On-dark variant: embedded in purple hero */
 .hero-stats--on-dark {
   padding: 0;
   margin-top: 72px;
@@ -727,7 +727,7 @@ h1.hero-title {
 h2.section-title {
   font-size: clamp(36px, 4.4vw, 56px);
   line-height: 1.06; letter-spacing: -0.03em;
-  font-weight: 300; margin: 0 0 24px;
+  font-weight: 300; margin: 0 0 32px;
 }
 .section.dark h2.section-title { color: var(--paper); }
 .section-lede, .section-sub {
@@ -782,7 +782,7 @@ h2.section-title {
   .cap-tab { justify-content: flex-start; border-radius: 8px; padding: 14px 16px; font-size: 0.95rem; }
 }
 
-/* ---- 3-PILLAR FLOW (homepage — open horizontal walkthrough, no card chrome) ---- */
+/* ---- 3-PILLAR FLOW (homepage: open horizontal walkthrough, no card chrome) ---- */
 .pillar-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -858,7 +858,7 @@ h2.section-title {
   letter-spacing: 0.18em;
 }
 
-/* Open visual canvas — no surrounding card */
+/* Open visual canvas: no surrounding card */
 .pillar-visual {
   width: 100%;
   height: 220px;
@@ -936,7 +936,7 @@ h2.section-title {
   overflow: hidden;
 }
 .path-card > *:not(.path-visual):not(.path-badge) { padding-left: 36px; padding-right: 36px; }
-/* Illustrated header — full-bleed colored strip with SVG icon */
+/* Illustrated header: full-bleed colored strip with SVG icon */
 .path-visual {
   height: 132px;
   display: flex; align-items: center; justify-content: center;
@@ -2303,7 +2303,7 @@ h3.feature-title {
 }
 .cta-band .btn-ghost:hover { border-color: var(--ink); }
 
-/* ---- LIGHT LAVENDER HERO — top-nav inner pages ---- */
+/* ---- LIGHT LAVENDER HERO: top-nav inner pages ---- */
 .page--platform-os .hero.hero-dark,
 .page--solutions .hero.hero-dark,
 .page--enterprise .hero.hero-dark,
@@ -3258,7 +3258,7 @@ footer {
   margin: 0;
 }
 
-/* Pilot stats — 3-up colored strip */
+/* Pilot stats: 3-up colored strip */
 .pilot-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3339,7 +3339,7 @@ footer {
   margin: 0;
 }
 
-/* Callout quote — highlighted italic block */
+/* Callout quote: highlighted italic block */
 .callout-quote {
   margin: 48px auto;
   max-width: 840px;
@@ -3489,7 +3489,7 @@ footer {
 
 /* ===== COMMCARE PROVIDERS PAGE ===== */
 
-/* Premier providers — feature row of 3 deep cards */
+/* Premier providers: feature row of 3 deep cards */
 .prem-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3902,7 +3902,7 @@ footer {
   .dir-filter-label { padding-top: 0; }
 }
 
-/* CS Packages — unified pricing+comparison table */
+/* CS Packages: unified pricing+comparison table */
 .cs-table {
   margin-top: 16px;
   border: 1px solid var(--line);
@@ -3937,7 +3937,7 @@ footer {
 }
 .cs-table-value { font-weight: 500; }
 
-/* Header row — colored tier columns */
+/* Header row: colored tier columns */
 .cs-table-row.cs-table-head {
   border-bottom: 1px solid var(--line);
 }
@@ -3994,7 +3994,7 @@ footer {
   .cs-table-label { background: var(--paper-warm); }
 }
 
-/* ===== PRICING — WAYFINDER + OVERAGE + DARK BULK BAND ===== */
+/* ===== PRICING: WAYFINDER + OVERAGE + DARK BULK BAND ===== */
 
 /* Two-step wayfinder under hero */
 .wayfinder {
@@ -4113,7 +4113,7 @@ footer {
 }
 .wayfinder-step:hover .wayfinder-arrow { transform: translateX(4px); }
 
-/* Overage note — small honest copy under plans grid */
+/* Overage note: small honest copy under plans grid */
 .overage-note {
   text-align: center;
   font-size: 14px;
@@ -4191,7 +4191,7 @@ footer {
   .bulk-band-dark-row { flex-direction: column; align-items: flex-start; }
 }
 
-/* ===== HOMEPAGE SOLUTIONS — DROPDOWN PICKER + DYNAMIC PANEL ===== */
+/* ===== HOMEPAGE SOLUTIONS: DROPDOWN PICKER + DYNAMIC PANEL ===== */
 
 /* Widen the headline + tighten the H2 so both pickers fit on one line */
 .sectors-section .section-head { max-width: none; }
@@ -4205,7 +4205,7 @@ footer {
   max-width: 760px;
 }
 
-/* Trigger word inside the headline — styled like an obvious dropdown select */
+/* Trigger word inside the headline: styled like an obvious dropdown select */
 .picker-trigger {
   position: relative;
   display: inline-flex;
@@ -4420,7 +4420,7 @@ footer {
   margin-top: 10px;
 }
 
-/* Right-column use-case panel — dark gradient, mirrors the "tuned for" idea */
+/* Right-column use-case panel: dark gradient, mirrors the "tuned for" idea */
 .sol-stage-usecase {
   background: var(--ink);
   background-image: var(--grad-deep);
@@ -4648,10 +4648,10 @@ footer {
 
 
 /* ===================================================================
-   ENTERPRISE PAGE — V2 layout
+   ENTERPRISE PAGE: V2 layout
    =================================================================== */
 
-/* Hero — split with feature cards */
+/* Hero: split with feature cards */
 .enterprise-hero {
   padding: 96px 0 88px;
   background:
@@ -4791,7 +4791,7 @@ footer {
   }
 }
 
-/* "Why Enterprise" — light band with featured before/after table */
+/* "Why Enterprise": light band with featured before/after table */
 .enterprise-blocker-band {
   padding: 92px 0 104px;
   background: var(--paper-2);
@@ -4829,7 +4829,7 @@ footer {
   color: var(--paper);
 }
 
-/* IRC video band — dark thin section */
+/* IRC video band: dark thin section */
 .irc-video-band {
   padding: 56px 0;
   background: var(--ink);
@@ -4860,7 +4860,7 @@ footer {
   aspect-ratio: auto;
 }
 
-/* "What's included" — compact 2x2 pillar grid (expandable) */
+/* "What's included": compact 2x2 pillar grid (expandable) */
 .ent-pillar-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5189,10 +5189,10 @@ footer {
 
 
 /* ===================================================================
-   CUSTOMER SUCCESS PAGE — V2 layout
+   CUSTOMER SUCCESS PAGE: V2 layout
    =================================================================== */
 
-/* Methodology — compact split header + 3-up cards */
+/* Methodology: compact split header + 3-up cards */
 .method-hero {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -5254,7 +5254,7 @@ footer {
   color: var(--indigo);
 }
 
-/* Package tables — onboardings + specialized */
+/* Package tables: onboardings + specialized */
 .package-table-wrap {
   margin-top: 56px;
   scroll-margin-top: 96px;
@@ -5410,7 +5410,7 @@ footer {
   .package-head { display: none; }
 }
 
-/* ===== PRICING — TIER PILLS ===== */
+/* ===== PRICING: TIER PILLS ===== */
 .tier-pill {
   display: inline-block;
   padding: 4px 12px;
@@ -5438,7 +5438,7 @@ footer {
   margin-top: 4px;
 }
 
-/* ===== PRICING — PLAN PICKER (tabs) ===== */
+/* ===== PRICING: PLAN PICKER (tabs) ===== */
 .picker-tabs {
   display: flex;
   gap: 8px;
@@ -5538,7 +5538,7 @@ footer {
 }
 .picker-helper a { color: var(--ink); font-weight: 600; }
 
-/* ===== PRICING — COMPARISON TABLE (collapsible) ===== */
+/* ===== PRICING: COMPARISON TABLE (collapsible) ===== */
 .compare-wrap {
   margin-top: 32px;
   border: 1px solid var(--line);
@@ -5593,7 +5593,7 @@ footer {
   margin-top: 2px;
 }
 
-/* Group header row — clickable */
+/* Group header row: clickable */
 .cmp-group .cmp-group-head td {
   background: #f0f2f5;
   padding: 0;
@@ -5657,7 +5657,7 @@ footer {
 }
 .compare-footnote a { color: var(--ink); font-weight: 600; }
 
-/* ===== PRICING — STANDARD PLAN VIDEO CALLOUT (below comparison table) ===== */
+/* ===== PRICING: STANDARD PLAN VIDEO CALLOUT (below comparison table) ===== */
 .video-callout {
   margin-top: 40px;
   padding: 24px;
@@ -5744,7 +5744,7 @@ footer {
   .video-callout { grid-template-columns: 1fr; }
 }
 
-/* ===== PRICING — SUPPORT (two-up grid) ===== */
+/* ===== PRICING: SUPPORT (two-up grid) ===== */
 .pricing-support-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -5813,7 +5813,7 @@ footer {
   .pricing-support-grid { grid-template-columns: 1fr; }
 }
 
-/* ===== PRICING — ADD-ON 4-UP TILES (subtle, embedded) ===== */
+/* ===== PRICING: ADD-ON 4-UP TILES (subtle, embedded) ===== */
 .section--tight { padding: 56px 0; }
 .section-head--narrow { max-width: 640px; margin-left: auto; margin-right: auto; text-align: center; }
 .section-head--narrow .eyebrow { display: inline-block; }
@@ -5935,7 +5935,7 @@ footer {
 .addon-tile-body a { color: var(--ink); font-weight: 600; }
 .addon-tile-body a:hover { color: var(--accent, #00bdc5); }
 
-/* Support callout — variant of cta-band */
+/* Support callout: variant of cta-band */
 .cta-band--support { padding: 64px 0; }
 
 @media (max-width: 980px) {
@@ -5955,7 +5955,7 @@ footer {
 
 
 /* ===================================================================
-   CUSTOMER SUCCESS PAGE — V3 additions
+   CUSTOMER SUCCESS PAGE: V3 additions
    (dark methodology band, package info disclosure, custom outreach)
    =================================================================== */
 
@@ -6123,7 +6123,7 @@ footer {
 
 
 /* ===================================================================
-   PACKAGE TABLE — TRANSPOSED LAYOUT
+   PACKAGE TABLE: TRANSPOSED LAYOUT
    Offerings run horizontally as column headers; attribute labels
    stack vertically in the first column.
    =================================================================== */
@@ -6217,7 +6217,7 @@ footer {
 
 
 /* ═══════════════════════════════════════════
-   SOLUTIONS PAGE — card grid redesign
+   SOLUTIONS PAGE: card grid redesign
    ═══════════════════════════════════════════ */
 
 /* ── Hero ── */
@@ -6383,7 +6383,7 @@ footer {
   color: var(--sky);
 }
 
-/* Use case hover — indigo instead of ink */
+/* Use case hover: indigo instead of ink */
 .sol-group--uc .sol-browse-item:hover {
   background: var(--indigo);
   border-color: var(--indigo);
