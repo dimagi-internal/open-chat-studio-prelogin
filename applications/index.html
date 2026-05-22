@@ -21,50 +21,24 @@
 
 <style>
   :root {
-    --indigo: #1B7FCC;
-    --indigo-soft: #EBF8FF;
-    --indigo-300: #7DD8FF;
-    --indigo-400: #1B7FCC;
-    --indigo-500: #1B7FCC;
-    --indigo-deep: #1570B8;
-    --grad-text: linear-gradient(90deg, #180F60 0%, #1B7FCC 100%);
+    --indigo: #16006D;
+    --indigo-soft: #F1ECFF;
+    --indigo-300: #B8A4FF;
+    --indigo-400: #16006D;
+    --indigo-500: #16006D;
+    --indigo-deep: #2A1090;
+    --grad-text: linear-gradient(90deg, #16006D 0%, #16006D 100%);
   }
 
-  .btn-indigo { background: #1B7FCC !important; color: #fff !important; }
-  .btn-indigo:hover { background: #1570B8 !important; color: #fff !important; }
-
-  /* ── Bright blue nav ── */
-  .nav-wrap { background:#1B7FCC !important; border-bottom:none !important; box-shadow:none; }
-  .nav-wrap .nav-links a { color:rgba(255,255,255,0.80) !important; }
-  .nav-wrap .nav-links a:hover { color:#fff !important; }
-  .nav-wrap .nav-links a.nav-active { color:#fff !important; font-weight:500; text-decoration:underline; text-decoration-color:rgba(255,255,255,0.5); text-underline-offset:5px; text-decoration-thickness:2px; }
-  .nav-wrap .nav-links a.nav-sep::before { background:rgba(255,255,255,0.25) !important; }
-  .nav-wrap .btn-ghost { color:#fff !important; border-color:rgba(255,255,255,0.35) !important; }
-  .nav-wrap .btn-ghost:hover { background:rgba(255,255,255,0.12) !important; border-color:rgba(255,255,255,0.6) !important; color:#fff !important; }
-  .nav-wrap .btn-primary { background:#180F60 !important; color:#fff !important; font-weight:600; }
-  .nav-wrap .btn-primary:hover { background:#0D0840 !important; color:#fff !important; }
-  .nav-wrap .nav-hamburger span { background:rgba(255,255,255,0.9) !important; }
-
-  /* ── White hero ── */
-  .hero-ocs { background:#fff; padding:96px 0 80px; position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
-  .hero-ocs::before {
-    content:""; position:absolute; top:-300px; right:-200px; width:700px; height:700px;
-    background:radial-gradient(circle,rgba(27,127,204,0.06) 0%,transparent 60%); pointer-events:none;
-  }
-  .hero-ocs::after {
-    content:""; position:absolute; bottom:-200px; left:-100px; width:500px; height:500px;
-    background:radial-gradient(circle,rgba(13,168,157,0.05) 0%,transparent 60%); pointer-events:none;
-  }
+  /* ── Hero layout — colors come from ocs-theme.css ── */
+  .hero-ocs { padding: 96px 0 80px; position: relative; overflow: hidden; }
   .hero-ocs .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
   .hero-photo-wrap { position:relative; }
   .hero-photo-wrap img { width:100%; height:340px; object-fit:cover; object-position:center; border-radius:16px; display:block; }
   .hero-photo-credit { font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.06em; color:var(--muted-soft); margin-top:8px; text-align:right; }
-  @media (max-width:860px) { .nav-links { background: #1B7FCC !important; border-top-color: rgba(255,255,255,0.20) !important; } .hero-ocs .hero-grid { grid-template-columns:1fr; } .hero-photo-wrap { display:none; } }
-  .hero-ocs h1.hero-title { font-size:clamp(38px,4.6vw,60px); line-height:1.06; letter-spacing:-0.03em; font-weight:200; margin:0 0 24px; color:#180F60; }
-  .hero-ocs h1.hero-title em { font-style:normal; background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:600; }
-  .hero-ocs .eyebrow { color:rgba(27,127,204,0.85); }
-  .hero-ocs .eyebrow::before { background:rgba(27,127,204,0.65); }
-  .hero-ocs .hero-sub { font-size:19px; color:var(--muted); margin:0; max-width:600px; font-weight:400; line-height:1.65; }
+  @media (max-width:860px) { .hero-ocs .hero-grid { grid-template-columns:1fr; } .hero-photo-wrap { display:none; } }
+  .hero-ocs h1.hero-title { font-size:clamp(38px,4.6vw,60px); line-height:1.06; letter-spacing:-0.03em; font-weight:200; margin:0 0 24px; }
+  .hero-ocs .hero-sub { font-size:19px; margin:0; max-width:600px; font-weight:400; line-height:1.65; }
 
   /* ── Use Case Sections ── */
 
@@ -82,38 +56,38 @@
   }
 
   /* ── In-panel Bot Demo ── */
-  .uc-panel-demo { background:#fff; padding:56px 0; border-top:1px solid rgba(80,196,255,0.12); }
+  .uc-panel-demo { background:#fff; padding:56px 0; border-top:1px solid rgba(184,164,255,0.12); }
   .uc-panel-demo-grid { display:grid; grid-template-columns:1fr 300px; gap:56px; align-items:center; }
   .uc-panel-demo-eyebrow {
     font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
-    letter-spacing:0.12em; text-transform:uppercase; color:#1B7FCC; margin-bottom:16px;
+    letter-spacing:0.12em; text-transform:uppercase; color:#16006D; margin-bottom:16px;
     display:flex; align-items:center; gap:8px;
   }
-  .uc-panel-demo-eyebrow::before { content:""; display:block; width:14px; height:1px; background:#50C4FF; }
+  .uc-panel-demo-eyebrow::before { content:""; display:block; width:14px; height:1px; background:#16006D; }
   .uc-panel-demo-heading { font-size:1.3rem; font-weight:300; letter-spacing:-0.02em; color:var(--ink); margin:0 0 12px; line-height:1.3; }
   .uc-panel-demo-desc { font-size:0.95rem; color:var(--muted); line-height:1.75; margin:0; }
   .bot-card {
-    background:#F0FAFF; border:1px solid rgba(80,196,255,0.16); border-radius:var(--radius-lg);
+    background:#F5F1FF; border:1px solid rgba(184,164,255,0.16); border-radius:var(--radius-lg);
     display:flex; flex-direction:column; text-decoration:none; color:inherit;
     overflow:hidden; transition:box-shadow 200ms,transform 200ms;
   }
-  .bot-card:hover { box-shadow:0 8px 32px -8px rgba(80,196,255,0.24); transform:translateY(-3px); color:inherit; }
+  .bot-card:hover { box-shadow:0 8px 32px -8px rgba(184,164,255,0.24); transform:translateY(-3px); color:inherit; }
   .bot-card-head { padding:18px 22px; display:flex; align-items:center; gap:12px; }
   .bot-card-head svg { width:22px; height:22px; flex-shrink:0; }
   .bot-card-head-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.8); }
   .bot-card-inner { padding:18px 22px 20px; flex:1; display:flex; flex-direction:column; gap:10px; }
   .bot-card h3 { font-size:1.05rem; font-weight:500; margin:0; color:var(--ink); }
   .bot-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; flex:1; margin:0; }
-  .bot-card-footer { padding-top:14px; border-top:1px solid rgba(80,196,255,0.14); }
-  .bot-card-link { font-size:0.78rem; font-weight:700; color:#1B7FCC; display:flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; transition:gap 150ms; }
+  .bot-card-footer { padding-top:14px; border-top:1px solid rgba(184,164,255,0.14); }
+  .bot-card-link { font-size:0.78rem; font-weight:700; color:#16006D; display:flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; transition:gap 150ms; }
   .bot-card:hover .bot-card-link { gap:10px; }
   .bot-disclaimer-sm { font-size:0.75rem; color:var(--muted); opacity:0.6; line-height:1.5; margin-top:10px; }
   .uc-bot-label {
     font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
-    letter-spacing:0.12em; text-transform:uppercase; color:#1B7FCC; margin-bottom:12px;
+    letter-spacing:0.12em; text-transform:uppercase; color:#16006D; margin-bottom:12px;
     display:flex; align-items:center; gap:8px;
   }
-  .uc-bot-label::before { content:"//"; color:rgba(80,196,255,0.55); }
+  .uc-bot-label::before { content:"//"; color:rgba(184,164,255,0.55); }
   /* Horizontal bot card variant */
   .bot-card-h { flex-direction:row; }
   .bot-card-h .bot-card-head {
@@ -127,14 +101,14 @@
   .uc-panel-graphic-col { display:flex; justify-content:center; align-items:flex-end; }
   .uc-panel-graphic { max-height:380px; width:auto; max-width:100%; }
   .uc-panel-title { font-size:clamp(2rem,3.2vw,3rem); font-weight:200; letter-spacing:-0.035em; color:var(--ink); margin:0 0 20px; line-height:1.05; }
-  .uc-panel-title em { font-style:normal; color:#1B7FCC; font-weight:600; }
-  .uc-panel-question { font-size:1.1rem; color:#1B7FCC; font-style:italic; font-weight:400; margin:0 0 16px; line-height:1.55; padding-left:18px; border-left:3px solid rgba(80,196,255,0.45); }
+  .uc-panel-title em { font-style:normal; color:#16006D; font-weight:600; }
+  .uc-panel-question { font-size:1.1rem; color:#16006D; font-style:italic; font-weight:400; margin:0 0 16px; line-height:1.55; padding-left:18px; border-left:3px solid rgba(184,164,255,0.45); }
   .uc-panel-desc { font-size:1.05rem; color:var(--muted); line-height:1.75; margin:0; }
   .uc-panel-story { background:#fff; padding:64px 0 72px; }
   .ds-card { border-radius:20px; padding:56px 64px; overflow:hidden; }
 
   /* ── Dark Featured Story Block ── */
-  .uc-dark-story { background:#180F60; padding:72px 0; }
+  .uc-dark-story { background:#16006D; padding:72px 0; }
   .ds-eyebrow {
     font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.12em;
     text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:36px;
@@ -147,7 +121,7 @@
     letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:12px;
   }
   .ds-title { font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:300; letter-spacing:-0.025em; color:#fff; margin:0 0 18px; line-height:1.2; }
-  .ds-title em { font-style:normal; font-weight:500; background:linear-gradient(90deg,#fff 0%,#7DD8FF 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .ds-title em { font-style:normal; font-weight:500; background:linear-gradient(90deg,#fff 0%,#B8A4FF 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .ds-body { font-size:1rem; color:rgba(255,255,255,0.72); line-height:1.8; margin:0 0 28px; }
   .ds-section-label {
     font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
@@ -155,7 +129,7 @@
   }
   .ds-bullets { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; }
   .ds-bullets li { display:flex; align-items:flex-start; gap:12px; font-size:0.95rem; color:rgba(255,255,255,0.78); line-height:1.55; }
-  .ds-bullets li::before { content:""; display:block; width:6px; height:6px; border-radius:50%; background:#50C4FF; flex-shrink:0; margin-top:7px; }
+  .ds-bullets li::before { content:""; display:block; width:6px; height:6px; border-radius:50%; background:#FEAF31; flex-shrink:0; margin-top:7px; }
   .ds-funding { display:flex; flex-wrap:wrap; gap:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); }
   .ds-funding-item { display:flex; flex-direction:column; gap:4px; }
   .ds-funding-label { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); }
@@ -186,18 +160,18 @@
   }
 
   /* ── Light card variant (Individuals) ── */
-  .ds-card-light .ds-eyebrow { color:rgba(24,15,96,0.45); }
-  .ds-card-light .ds-eyebrow::before { background:rgba(24,15,96,0.18); }
-  .ds-card-light .ds-title { color:#180F60; }
-  .ds-card-light .ds-title em { background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .ds-card-light .ds-eyebrow { color:rgba(22,0,109,0.45); }
+  .ds-card-light .ds-eyebrow::before { background:rgba(22,0,109,0.18); }
+  .ds-card-light .ds-title { color:#16006D; }
+  .ds-card-light .ds-title em { background:linear-gradient(90deg,#16006D 0%,#16006D 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .ds-card-light .ds-body { color:var(--muted); }
-  .ds-card-light .ds-section-label { color:rgba(24,15,96,0.45); }
+  .ds-card-light .ds-section-label { color:rgba(22,0,109,0.45); }
   .ds-card-light .ds-bullets li { color:var(--ink); }
-  .ds-card-light .ds-bullets li::before { background:#1B7FCC; }
-  .ds-card-light .ds-funding { border-top-color:rgba(24,15,96,0.10); }
-  .ds-card-light .ds-funding-label { color:rgba(24,15,96,0.45); }
+  .ds-card-light .ds-bullets li::before { background:#16006D; }
+  .ds-card-light .ds-funding { border-top-color:rgba(22,0,109,0.10); }
+  .ds-card-light .ds-funding-label { color:rgba(22,0,109,0.45); }
   .ds-card-light .ds-funding-value { color:var(--muted); }
-  .ds-card-light .ds-img { box-shadow:0 16px 48px -12px rgba(24,15,96,0.16); }
+  .ds-card-light .ds-img { box-shadow:0 16px 48px -12px rgba(22,0,109,0.16); }
 
   /* ── Funding panel above image ── */
   .ds-funding-above { border-top:none; padding-top:0; margin-bottom:20px; }
@@ -210,13 +184,9 @@
     .ds-card { padding:36px 28px; border-radius:14px; }
   }
 
-  /* ── Hero section CTAs ── */
-  .uc-hero-btn { background:#1B7FCC !important; color:#fff !important; border-color:#1B7FCC !important; }
-  .uc-hero-btn:hover { background:#180F60 !important; color:#fff !important; border-color:#180F60 !important; }
-
-  /* ── Footer ── */
-  footer { background:#1B7FCC !important; }
+  /* Button + nav + footer colors come from ocs-theme.css */
 </style>
+<link rel="stylesheet" href="../assets/ocs-theme.css">
 </head>
 <body>
 
@@ -285,7 +255,7 @@
             <div style="margin-top:32px;">
               <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
               <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/6d5abc50-167d-4e78-a2a1-6ff6d3cb229c/start/" target="_blank" rel="noopener">
-                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#16006D 0%,#16006D 100%);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                   </svg>
@@ -307,7 +277,7 @@
 
     <div class="uc-panel-story">
       <div class="container">
-        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-card" style="background:#16006D;">
         <div class="ds-eyebrow">// FEATURED STORY / FOR INDIVIDUALS</div>
         <div class="ds-grid">
           <div>
@@ -359,7 +329,7 @@
             <div style="margin-top:32px;">
               <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
               <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/d61f49c1-ebea-4d1e-98ec-d0b5cb111c10/start/" target="_blank" rel="noopener">
-                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#16006D 0%,#16006D 100%);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                     <circle cx="9" cy="7" r="4"/>
@@ -382,7 +352,7 @@
 
     <div class="uc-panel-story">
       <div class="container">
-        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-card" style="background:#16006D;">
         <div class="ds-eyebrow">// FEATURED STORY / FOR FRONTLINE WORKERS</div>
         <div class="ds-grid">
           <div>
@@ -434,7 +404,7 @@
             <div style="margin-top:32px;">
               <div class="uc-bot-label">Example Bot: For Demonstration &amp; Research Purposes Only</div>
               <a class="bot-card bot-card-h" href="https://chatbots.dimagi.com/a/dimagi/experiments/e/f4219b24-3f35-45c3-91e8-60949439ce3a/start/" target="_blank" rel="noopener">
-                <div class="bot-card-head" style="background:linear-gradient(135deg,#180F60 0%,#1B7FCC 100%);">
+                <div class="bot-card-head" style="background:linear-gradient(135deg,#16006D 0%,#16006D 100%);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
                     <rect x="9" y="3" width="6" height="4" rx="1"/>
@@ -457,7 +427,7 @@
 
     <div class="uc-panel-story">
       <div class="container">
-        <div class="ds-card" style="background:#180F60;">
+        <div class="ds-card" style="background:#16006D;">
         <div class="ds-eyebrow">// FEATURED STORY / FOR THE ECOSYSTEM</div>
         <div class="ds-grid">
           <div>
@@ -496,10 +466,10 @@
 </section>
 
 <!-- ───── FINAL CTA ───── -->
-<section class="section" style="background:#EBF8FF;text-align:center;">
+<section class="section" style="background:#FBF9F4;text-align:center;">
   <div class="container" style="max-width:680px;">
     <span class="eyebrow" style="justify-content:center;">// GET IN TOUCH</span>
-    <h2 class="section-title" style="color:#180F60;margin-bottom:24px;">See something that <em style="background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">fits your context</em>?</h2>
+    <h2 class="section-title" style="color:#16006D;margin-bottom:24px;">See something that <em style="background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">fits your context</em>?</h2>
     <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
       Every program is different. Tell us what you're trying to build and we'll help scope what's possible.
     </p>

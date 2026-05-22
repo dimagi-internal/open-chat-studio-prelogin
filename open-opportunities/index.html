@@ -21,32 +21,16 @@
 
 <style>
   :root {
-    --indigo: #1B7FCC;
-    --indigo-soft: #EBF8FF;
-    --indigo-300: #7DD8FF;
-    --indigo-400: #1B7FCC;
-    --indigo-500: #1B7FCC;
-    --indigo-deep: #1570B8;
-    --grad-text: linear-gradient(90deg, #180F60 0%, #1B7FCC 100%);
+    --indigo: #16006D;
+    --indigo-soft: #F1ECFF;
+    --indigo-300: #B8A4FF;
+    --indigo-400: #16006D;
+    --indigo-500: #16006D;
+    --indigo-deep: #2A1090;
+    --grad-text: linear-gradient(90deg, #16006D 0%, #16006D 100%);
   }
 
-  .btn-indigo { background: #1B7FCC !important; color: #fff !important; }
-  .btn-indigo:hover { background: #1570B8 !important; color: #fff !important; }
-
-  /* ── Nav ── */
-  .nav-wrap { background: #1B7FCC !important; border-bottom: none !important; box-shadow: none; }
-  .nav-wrap .nav-links a { color: rgba(255,255,255,0.80) !important; }
-  .nav-wrap .nav-links a:hover { color: #fff !important; }
-  .nav-wrap .nav-links a.nav-active { color: #fff !important; font-weight: 500; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5); text-underline-offset: 5px; text-decoration-thickness: 2px; }
-  .nav-wrap .nav-links a.nav-sep::before { background: rgba(255,255,255,0.25) !important; }
-  .nav-wrap .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.35) !important; }
-  .nav-wrap .btn-ghost:hover { background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.6) !important; color: #fff !important; }
-  .nav-wrap .btn-primary { background: #180F60 !important; color: #fff !important; font-weight: 600; }
-  .nav-wrap .btn-primary:hover { background: #0D0840 !important; color: #fff !important; }
-  .nav-wrap .nav-hamburger span { background: rgba(255,255,255,0.9) !important; }
-
-  /* ── Footer ── */
-  footer { background: #1B7FCC !important; }
+  /* Nav + footer + button colors come from ocs-theme.css */
 
   /* ══════════════════════════════════════
      PAGE SHELL
@@ -127,22 +111,22 @@
   }
 
   .doc-toc-list li a:hover {
-    color: #1B7FCC;
+    color: #16006D;
   }
 
   .doc-toc-list li a:hover::before {
-    color: #1B7FCC;
+    color: #16006D;
   }
 
   /* Active state, set by JS scroll spy */
   .doc-toc-list li a.toc-active {
-    color: #180F60;
+    color: #16006D;
     font-weight: 600;
-    border-left-color: #1B7FCC;
+    border-left-color: #16006D;
   }
 
   .doc-toc-list li a.toc-active::before {
-    color: #1B7FCC;
+    color: #16006D;
   }
 
   /* ══════════════════════════════════════
@@ -176,7 +160,7 @@
   .doc-title {
     font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 600;
-    color: #180F60;
+    color: #16006D;
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin: 0 0 8px;
@@ -192,8 +176,8 @@
   .doc-funder-tag {
     display: inline-flex;
     align-items: center;
-    background: #EBF8FF;
-    border: 1px solid rgba(27,127,204,0.25);
+    background: #F1ECFF;
+    border: 1px solid rgba(22,0,109,0.25);
     border-radius: 4px;
     padding: 5px 12px;
     font-family: 'JetBrains Mono', monospace;
@@ -201,7 +185,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #1B7FCC;
+    color: #16006D;
   }
 
   /* ── Dividers ── */
@@ -226,13 +210,13 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #1B7FCC;
+    color: #16006D;
     flex-shrink: 0;
   }
   .doc-h2 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #180F60;
+    color: #16006D;
     letter-spacing: -0.025em;
     margin: 0;
     line-height: 1.2;
@@ -240,7 +224,7 @@
   .doc-h3 {
     font-size: 0.97rem;
     font-weight: 600;
-    color: #180F60;
+    color: #16006D;
     letter-spacing: -0.01em;
     margin: 30px 0 10px;
     border-bottom: 1px solid #EEE;
@@ -281,12 +265,12 @@
     content: "→";
     position: absolute;
     left: 0;
-    color: #1B7FCC;
+    color: #16006D;
     font-weight: 600;
     font-size: 0.78rem;
     top: 4px;
   }
-  .doc-list li a { color: #1B7FCC; text-decoration: none; }
+  .doc-list li a { color: #16006D; text-decoration: none; }
   .doc-list li a:hover { text-decoration: underline; }
 
   /* ── Track block ── */
@@ -329,8 +313,8 @@
     color: #444;
     line-height: 1.6;
   }
-  .doc-table td:first-child { font-weight: 600; color: #180F60; white-space: nowrap; width: 20%; }
-  .doc-table td:last-child { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; color: #1B7FCC; white-space: nowrap; width: 20%; }
+  .doc-table td:first-child { font-weight: 600; color: #16006D; white-space: nowrap; width: 20%; }
+  .doc-table td:last-child { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; color: #16006D; white-space: nowrap; width: 20%; }
 
   /* ── Callouts ── */
   .doc-footnote { font-size: 0.79rem; color: #999; font-style: italic; margin: 5px 0 0; }
@@ -347,7 +331,7 @@
 
   /* ── Resource links ── */
   .doc-resource-links { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
-  .doc-link { font-size: 0.87rem; font-weight: 500; color: #1B7FCC; text-decoration: none; }
+  .doc-link { font-size: 0.87rem; font-weight: 500; color: #16006D; text-decoration: none; }
   .doc-link:hover { text-decoration: underline; }
 
   /* ── Apply CTA ── */
@@ -362,7 +346,7 @@
   ══════════════════════════════════════ */
 
   @media (max-width: 860px) {
-    .nav-links { background: #1B7FCC !important; border-top-color: rgba(255,255,255,0.20) !important; }
+    .nav-links { background: #16006D !important; border-top-color: rgba(255,255,255,0.20) !important; }
     .doc-layout {
       grid-template-columns: 1fr;
       gap: 0;
@@ -383,6 +367,7 @@
     .doc-cover-meta { flex-direction: column; gap: 6px; }
   }
 </style>
+<link rel="stylesheet" href="../assets/ocs-theme.css">
 </head>
 <body>
 
@@ -598,7 +583,7 @@
           <h2 class="doc-h2">Expression of Interest (EOI) Application and Timelines</h2>
         </div>
         <p class="doc-body">Applications are reviewed on a rolling basis. Submit your EOI at any time.</p>
-        <p class="doc-body">To apply, please complete the EOI application form. If you have any questions, please reach out to <a href="mailto:ocs-info@dimagi.com" style="color:#1B7FCC;">ocs-info@dimagi.com</a>.</p>
+        <p class="doc-body">To apply, please complete the EOI application form. If you have any questions, please reach out to <a href="mailto:ocs-info@dimagi.com" style="color:#16006D;">ocs-info@dimagi.com</a>.</p>
         <div class="doc-apply-cta">
           <a class="btn btn-indigo btn-arrow" href="mailto:ocs-info@dimagi.com">Submit Expression of Interest</a>
         </div>

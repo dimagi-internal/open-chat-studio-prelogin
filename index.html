@@ -19,84 +19,38 @@
 <link rel="stylesheet" href="assets/styles.css">
 <style>
   :root {
-    --indigo: #1B7FCC;
-    --indigo-soft: #EBF8FF;
-    --indigo-300: #7DD8FF;
-    --grad-text: linear-gradient(90deg, #180F60 0%, #1B7FCC 100%);
+    --indigo: #16006D;
+    --indigo-soft: #FBF9F4;
+    --indigo-300: #B8A4FF;
+    --grad-text: linear-gradient(90deg, #16006D 0%, #16006D 100%);
   }
 
-  .btn-indigo { color: #fff !important; }
-  .btn-indigo:hover { color: #fff !important; }
-
-  /* ── Bright blue nav ── */
-  .nav-wrap {
-    background: #1B7FCC !important;
-    border-bottom: none !important;
-    box-shadow: none;
-  }
-  .nav-wrap .nav-links a { color: rgba(255,255,255,0.80) !important; }
-  .nav-wrap .nav-links a:hover { color: #fff !important; }
-  .nav-wrap .nav-links a.nav-active { color: #fff !important; font-weight: 500; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.45); text-underline-offset: 5px; text-decoration-thickness: 2px; }
-  .nav-wrap .nav-links a.nav-sep::before { background: rgba(255,255,255,0.25) !important; }
-  .nav-wrap .btn-ghost { color: rgba(255,255,255,0.90) !important; border-color: rgba(255,255,255,0.40) !important; }
-  .nav-wrap .btn-ghost:hover { background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.70) !important; color: #fff !important; }
-  .nav-wrap .btn-primary { background: #180F60 !important; color: #fff !important; font-weight: 600; }
-  .nav-wrap .btn-primary:hover { background: #0D0840 !important; color: #fff !important; }
-  .nav-wrap .nav-hamburger span { background: rgba(255,255,255,0.85) !important; }
-
-  /* ── Hero, centered ── */
-  .hero-ocs {
-    background: #1B7FCC;
-    padding: 96px 0 88px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-ocs::before {
-    content: ""; position: absolute; top: -200px; right: -150px;
-    width: 640px; height: 640px;
-    background: radial-gradient(circle, rgba(255,255,255,0.30) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-ocs::after {
-    content: ""; position: absolute; bottom: -150px; left: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(24,15,96,0.10) 0%, transparent 60%);
-    pointer-events: none;
-  }
+  /* ── Hero layout (centered) — colors come from ocs-theme.css ── */
+  .hero-ocs { padding: 96px 0 88px; text-align: center; position: relative; overflow: hidden; }
   .hero-inner { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
-  .hero-ocs h1.hero-title {
-    font-size: clamp(38px, 4.6vw, 62px);
-    line-height: 1.03;
-    letter-spacing: -0.035em;
-    font-weight: 200;
-    margin: 0 0 22px;
-    color: #fff;
-  }
-  .hero-ocs h1.hero-title em {
-    font-style: normal;
-    color: #fff;
-    -webkit-text-fill-color: #fff;
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
+  .hero-ocs h1.hero-title { font-size: clamp(38px, 4.6vw, 62px); line-height: 1.03; letter-spacing: -0.035em; font-weight: 200; margin: 0 0 22px; }
+  .hero-ocs .eyebrow { justify-content: center; }
+  .hero-ocs .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; }
+  .hero-ocs .hero-sub { font-size: 1.15rem; margin: 0 auto 40px; max-width: 520px; font-weight: 400; line-height: 1.7; }
+  /* Trust signal under CTAs */
+  .hero-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
     font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(22,0,109,0.55);
   }
-  .hero-ocs .eyebrow { color: rgba(255,255,255,0.70); justify-content: center; }
-  .hero-ocs .eyebrow::before { background: rgba(255,255,255,0.45); }
-  .hero-ocs .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-  .hero-ocs .hero-sub {
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.85);
-    margin: 0 auto 40px;
-    max-width: 520px;
-    font-weight: 400;
-    line-height: 1.7;
+  .hero-trust-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--ocs-green, #8DE969);
+    box-shadow: 0 0 0 3px rgba(141,233,105,0.22);
+    flex-shrink: 0;
   }
-  .hero-ocs .btn-indigo { background: #180F60 !important; color: #fff !important; border-color: #180F60 !important; }
-  .hero-ocs .btn-indigo:hover { background: #0D0840 !important; color: #fff !important; border-color: #0D0840 !important; }
-  .hero-ocs .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.45) !important; }
-  .hero-ocs .btn-ghost:hover { background: rgba(255,255,255,0.12) !important; border-color: rgba(255,255,255,0.75) !important; color: #fff !important; }
 
   /* ── Partner strip ── */
   .partner-strip {
@@ -110,8 +64,8 @@
   .partner-strip-track { display: flex; width: max-content; animation: strip-scroll 90s linear infinite; }
   .partner-strip-track:hover { animation-play-state: paused; }
   @keyframes strip-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .partner-strip-name { padding: 0 28px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(24,15,96,0.55); white-space: nowrap; }
-  .partner-strip-dot { color: rgba(24,15,96,0.20); padding: 0 4px; user-select: none; }
+  .partner-strip-name { padding: 0 28px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(22,0,109,0.55); white-space: nowrap; }
+  .partner-strip-dot { color: rgba(22,0,109,0.20); padding: 0 4px; user-select: none; }
 
   /* ── How It Works diagram ── */
   .hiw-diagram { display:grid; grid-template-columns:1fr auto 1.6fr auto 1fr; gap:0; align-items:center; }
@@ -121,13 +75,13 @@
   .hiw-provider-pill { background:#fff; border:1px solid var(--line); border-radius:100px; padding:7px 16px; font-size:0.82rem; font-weight:500; color:var(--ink); text-align:center; white-space:nowrap; }
   .hiw-provider-muted { opacity:0.55; }
   .hiw-connector { display:flex; align-items:center; padding:0 16px; }
-  .hiw-connector-line { flex:1; height:1px; background:linear-gradient(90deg,#E6E7F0 0%,#180F60 100%); min-width:32px; }
-  .hiw-platform { background:#180F60; border-radius:var(--radius-lg); padding:32px 28px; box-shadow:0 12px 48px -12px rgba(24,15,96,0.35); }
+  .hiw-connector-line { flex:1; height:1px; background:linear-gradient(90deg,#E6E7F0 0%,#16006D 100%); min-width:32px; }
+  .hiw-platform { background:#16006D; border-radius:var(--radius-lg); padding:32px 28px; box-shadow:0 12px 48px -12px rgba(22,0,109,0.35); }
   .hiw-platform-inner { display:flex; flex-direction:column; align-items:center; text-align:center; }
   .hiw-platform-features { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-top:4px; }
   .hiw-pfeat { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:100px; padding:4px 10px; font-family:var(--mono); font-size:9px; font-weight:600; letter-spacing:0.06em; color:rgba(255,255,255,0.75); text-transform:uppercase; }
   @media (max-width:860px) {
-    .nav-links { background: #1B7FCC !important; border-top-color: rgba(255,255,255,0.20) !important; }
+    .nav-links { background: #16006D !important; border-top-color: rgba(255,255,255,0.20) !important; }
     .hiw-diagram { grid-template-columns:1fr; gap:20px; }
     .hiw-connector { padding:0; justify-content:center; transform:rotate(90deg); width:40px; margin:0 auto; }
     .hiw-connector-line { min-width:40px; }
@@ -139,48 +93,42 @@
   .apps-card { display: flex; flex-direction: column; }
   .apps-card-img { width: 100%; height: 200px; object-fit: cover; object-position: right top; border-radius: 16px; display: block; }
   .apps-card-body { padding: 24px 0 0; text-align: center; }
-  .apps-panel-title { font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 200; letter-spacing: -0.03em; color: #180F60; margin: 0 0 12px; line-height: 1.15; }
-  .apps-panel-title em { font-style: normal; font-weight: 600; background: linear-gradient(90deg, #180F60 0%, #1B7FCC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .apps-panel-title { font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 200; letter-spacing: -0.03em; color: #16006D; margin: 0 0 12px; line-height: 1.15; }
+  .apps-panel-title em { font-style: normal; font-weight: 600; background: linear-gradient(90deg, #16006D 0%, #16006D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .apps-panel-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin: 0 0 20px; }
-  .apps-panel-cta { font-size: 0.78rem; font-weight: 700; color: #1B7FCC; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
-  .apps-panel-cta:hover { color: #180F60; }
+  .apps-panel-cta { font-size: 0.78rem; font-weight: 700; color: #16006D; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+  .apps-panel-cta:hover { color: #16006D; }
   @media (max-width: 860px) { .apps-grid { grid-template-columns: 1fr; } }
   @media (max-width: 560px) { .apps-card-img { height: 200px; } }
 
   /* ── Podcast CTA card ── */
   .podcast-cta-card {
-    background: #fff; border: 1px solid rgba(24,15,96,0.08); border-radius: 14px; overflow: hidden;
+    background: #fff; border: 1px solid rgba(22,0,109,0.08); border-radius: 14px; overflow: hidden;
     text-decoration: none; display: block; color: inherit;
-    box-shadow: 0 4px 24px -6px rgba(24,15,96,0.10);
+    box-shadow: 0 4px 24px -6px rgba(22,0,109,0.10);
     transition: box-shadow 200ms, transform 200ms;
   }
-  .podcast-cta-card:hover { box-shadow: 0 12px 40px -8px rgba(24,15,96,0.18); transform: translateY(-3px); color: inherit; }
+  .podcast-cta-card:hover { box-shadow: 0 12px 40px -8px rgba(22,0,109,0.18); transform: translateY(-3px); color: inherit; }
   .podcast-cta-card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
   .podcast-cta-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
-  .podcast-cta-label { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(24,15,96,0.40); }
-  .podcast-cta-title { font-size: 0.95rem; font-weight: 600; color: #180F60; line-height: 1.4; margin: 0; }
+  .podcast-cta-label { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(22,0,109,0.40); }
+  .podcast-cta-title { font-size: 0.95rem; font-weight: 600; color: #16006D; line-height: 1.4; margin: 0; }
   .podcast-cta-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin: 0; }
-  .podcast-cta-link { font-size: 0.78rem; font-weight: 700; color: #180F60; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
-
-  /* ── Light blue CTA section buttons ── */
-  .ocs-cta-blue .btn-indigo { background: #1B7FCC !important; color: #fff !important; border-color: #1B7FCC !important; }
-  .ocs-cta-blue .btn-indigo:hover { background: #1570B8 !important; border-color: #1570B8 !important; }
-  .ocs-cta-blue .btn-ghost { color: rgba(24,15,96,0.75) !important; border-color: rgba(24,15,96,0.25) !important; }
-  .ocs-cta-blue .btn-ghost:hover { background: rgba(24,15,96,0.06) !important; border-color: rgba(24,15,96,0.45) !important; color: #180F60 !important; }
+  .podcast-cta-link { font-size: 0.78rem; font-weight: 700; color: #16006D; font-family: var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
   /* ── Open source home 2-col ── */
   .os-home-grid { display: grid; grid-template-columns: 1fr 320px; gap: 72px; align-items: center; }
   .gh-repo-card {
-    background: #F0FAFF; border: 1px solid rgba(80,196,255,0.22); border-radius: 14px;
-    padding: 28px 32px; box-shadow: 0 4px 24px -6px rgba(24,15,96,0.10);
+    background: #FBF9F4; border: 1px solid rgba(184,164,255,0.22); border-radius: 14px;
+    padding: 28px 32px; box-shadow: 0 4px 24px -6px rgba(22,0,109,0.10);
   }
   .gh-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-  .gh-icon { width: 18px; height: 18px; fill: #180F60; opacity: 0.7; flex-shrink: 0; }
-  .gh-repo-name { font-size: 0.88rem; color: rgba(24,15,96,0.65); }
-  .gh-repo-name strong { font-weight: 600; color: #180F60; }
+  .gh-icon { width: 18px; height: 18px; fill: #16006D; opacity: 0.7; flex-shrink: 0; }
+  .gh-repo-name { font-size: 0.88rem; color: rgba(22,0,109,0.65); }
+  .gh-repo-name strong { font-weight: 600; color: #16006D; }
   .gh-card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin: 0 0 20px; }
-  .gh-card-stats { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(80,196,255,0.16); }
-  .gh-stat { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: rgba(24,15,96,0.55); font-family: var(--mono); }
+  .gh-card-stats { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(184,164,255,0.16); }
+  .gh-stat { display: flex; align-items: center; gap: 5px; font-size: 0.78rem; color: rgba(22,0,109,0.55); font-family: var(--mono); }
   .gh-stat svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; }
   .gh-lang-dot { width: 10px; height: 10px; border-radius: 50%; background: #3572A5; display: inline-block; }
   @media (max-width: 860px) { .os-home-grid { grid-template-columns: 1fr; gap: 40px; } }
@@ -188,9 +136,9 @@
   @media (max-width:860px) { .community-home-grid { grid-template-columns:1fr; gap:40px; } }
   @media (max-width:860px) { .community-home-grid img { max-width:100% !important; height:240px !important; } }
 
-  /* ── Bright blue footer ── */
-  footer { background: #1B7FCC !important; }
+  /* Footer + nav colors come from ocs-theme.css */
 </style>
+<link rel="stylesheet" href="assets/ocs-theme.css">
 </head>
 <body>
 
@@ -219,7 +167,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero-ocs">
+<section class="hero-ocs hero-home">
   <div class="container">
     <div class="hero-inner">
       <span class="eyebrow">// OPEN CHAT STUDIO</span>
@@ -227,14 +175,22 @@
       <p class="hero-sub">Open-source, equitable by design, and built for the communities where AI's impact is needed most.</p>
       <div class="hero-ctas">
         <a class="btn btn-indigo btn-arrow" href="#platform-overview">Explore Open Chat Studio</a>
+        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:-3px;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-dot"></span>
+        <span>Open source · Backed by Gates Foundation · Built with global health partners</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ───── COMMUNITY PARTNERS STRIP ───── -->
-<div style="background:#F3F4F6;padding:32px 0;">
-  <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(24,15,96,0.40);margin:0 0 18px;">Open Chat Studio Community Partners</p>
+<div style="background:#fff;padding:32px 0;">
+  <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(22,0,109,0.40);margin:0 0 18px;">Open Chat Studio Community Partners</p>
   <div class="partner-strip" style="border-bottom:none;">
     <div class="partner-strip-track">
       <span class="partner-strip-name">Shujaaz</span><span class="partner-strip-dot">·</span>
@@ -274,7 +230,7 @@
 </div>
 
 <!-- ───── THE CHALLENGE ───── -->
-<section style="background:#fff;padding:88px 0;border-bottom:1px solid var(--line);">
+<section style="background:#FBF9F4;padding:96px 0;">
   <div class="container" style="max-width:720px;text-align:center;">
     <span class="eyebrow" style="justify-content:center;">// THE CHALLENGE</span>
     <h2 class="section-title">AI is advancing faster than <em>the systems built to share its benefits</em></h2>
@@ -285,7 +241,7 @@
 </section>
 
 <!-- ───── PLATFORM OVERVIEW ───── -->
-<section class="section" style="background:#EBF8FF;" id="platform-overview">
+<section class="section" style="background:#fff;" id="platform-overview">
   <div class="container">
     <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
       <span class="eyebrow" style="justify-content:center;">// THE PLATFORM</span>
@@ -305,7 +261,7 @@
       </div>
       <div class="hiw-connector">
         <div class="hiw-connector-line"></div>
-        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(24,15,96,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(22,0,109,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
         <div class="hiw-platform">
@@ -326,7 +282,7 @@
       </div>
       <div class="hiw-connector">
         <div class="hiw-connector-line"></div>
-        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(24,15,96,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(22,0,109,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="hiw-col">
         <div class="hiw-col-label">Deployment Channels</div>
@@ -346,7 +302,7 @@
 </section>
 
 <!-- ───── USE CASES TEASER ───── -->
-<section class="section" style="background:#fff;" id="applications-home">
+<section class="section" style="background:#FBF9F4;" id="applications-home">
   <div class="container">
     <div style="text-align:center;max-width:580px;margin:0 auto;">
       <span class="eyebrow" style="justify-content:center;">// APPLICATIONS</span>
@@ -385,7 +341,7 @@
 </section>
 
 <!-- ───── THE COMMUNITY ───── -->
-<section class="section" style="background:#F3F4F6;" id="community-home">
+<section class="section" style="background:#fff;" id="community-home">
   <div class="container">
     <div class="community-home-grid">
       <div>
@@ -408,10 +364,10 @@
 </section>
 
 <!-- ───── FINAL CTA ───── -->
-<section class="section ocs-cta-blue" style="background:#EBF8FF;text-align:center;">
+<section class="section ocs-cta-blue" style="background:#FBF9F4;text-align:center;">
   <div class="container" style="max-width:640px;">
-    <span class="eyebrow" style="justify-content:center;color:rgba(24,15,96,0.50);">// GET IN TOUCH</span>
-    <h2 class="section-title" style="color:#180F60;margin-bottom:20px;">Want to see <em style="font-weight:600;background:linear-gradient(90deg,#180F60 0%,#1B7FCC 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Open Chat Studio in action</em>?</h2>
+    <span class="eyebrow" style="justify-content:center;color:rgba(22,0,109,0.50);">// GET IN TOUCH</span>
+    <h2 class="section-title" style="color:#16006D;margin-bottom:20px;">Want to see <em style="font-weight:600;background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Open Chat Studio in action</em>?</h2>
     <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
       See how Open Chat Studio can support your work.
     </p>

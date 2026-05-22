@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Open Chat Studio: AI Chatbots for Global Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  :root {
+    --turquoise: #89D2DC;
+    --turquoise-deep: #6BBCD0;
+    --turquoise-soft: #E8F5F8;
+    --purple: #16006D;
+    --purple-hover: #2A1090;
+    --purple-soft: rgba(22,0,109,0.06);
+    --green: #8DE969;
+    --green-bright: #A6F082;
+    --green-soft: rgba(141,233,105,0.12);
+    --green-text: #5A8E37;
+    --cream: #FBF9F4;
+    /* Mostly-blue gradient with a hint of green — used to bookend the page */
+    --bar-gradient: linear-gradient(90deg, #89D2DC 0%, #92D5D6 50%, #9CD8CE 100%);
+  }
+
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: rgba(26,26,26,0.65);
+    --ink-line: rgba(26,26,26,0.08);
+  }
+  body { background: #fff; color: var(--ink); }
+  h1, h2, h3, h4 { color: var(--ink); }
+  h1 em, h2 em, h3 em {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: var(--purple);
+    color: var(--purple);
+    font-weight: 600;
+    font-style: normal;
+  }
+  /* All eyebrows (//-style labels) are green */
+  .eyebrow { color: var(--green-text); }
+  .eyebrow::before { background: var(--green); }
+
+  /* ── Default primary CTA: deep purple, hover → green with purple text ── */
+  .btn-indigo {
+    background: var(--purple) !important;
+    color: #fff !important;
+    border-color: var(--purple) !important;
+    font-weight: 600;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+  .btn-indigo:hover {
+    background: var(--green) !important;
+    border-color: var(--green) !important;
+    color: var(--purple) !important;
+  }
+  .btn-indigo:hover svg path { stroke: var(--purple) !important; }
+  .btn-ghost { color: var(--purple) !important; border-color: rgba(22,0,109,0.25) !important; }
+  .btn-ghost:hover { background: rgba(22,0,109,0.05) !important; border-color: var(--purple) !important; color: var(--purple) !important; }
+
+  /* ── Nav: static light turquoise band ── */
+  .nav-wrap {
+    background: var(--turquoise) !important;
+    border-bottom: none !important;
+    box-shadow: none;
+  }
+  .nav-wrap .nav-links a {
+    color: rgba(22,0,109,0.78) !important;
+    font-weight: 500;
+    text-decoration: none !important;
+    transition: font-weight 120ms ease, color 120ms ease;
+  }
+  .nav-wrap .nav-links a:hover {
+    color: var(--purple) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+  }
+  .nav-wrap .nav-links a.nav-active {
+    color: var(--purple) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+  }
+  .nav-wrap .nav-links a.nav-sep::before { background: rgba(22,0,109,0.18) !important; }
+  .nav-wrap .btn-ghost { color: var(--purple) !important; border-color: rgba(22,0,109,0.35) !important; }
+  .nav-wrap .btn-ghost:hover { background: rgba(22,0,109,0.08) !important; border-color: var(--purple) !important; color: var(--purple) !important; }
+  .nav-wrap .btn-primary { background: var(--purple) !important; color: #fff !important; font-weight: 600; border: none; }
+  .nav-wrap .btn-primary:hover { background: var(--purple-hover) !important; color: #fff !important; }
+  .nav-wrap .nav-hamburger span { background: var(--purple) !important; }
+  .nav-wrap .logo img { filter: none !important; opacity: 1 !important; }
+
+  /* ── Hero: TURQUOISE with rich gradient, merges with nav ── */
+  .hero-ocs {
+    padding: 120px 0 110px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 75% 60%, rgba(255,255,255,0.45) 0%, transparent 60%),
+      radial-gradient(ellipse at 15% 95%, rgba(141,233,105,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(22,0,109,0.12) 0%, transparent 50%),
+      linear-gradient(180deg, #89D2DC 0%, #9CDADC 40%, #74C8D2 100%);
+  }
+  /* Subtle bloom layers on top of the gradient */
+  .hero-ocs::before {
+    content: ""; position: absolute; top: -200px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.30) 0%, transparent 60%);
+    pointer-events: none;
+    filter: blur(20px);
+  }
+  .hero-ocs::after {
+    content: ""; position: absolute; bottom: -180px; left: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(141,233,105,0.18) 0%, transparent 60%);
+    pointer-events: none;
+    filter: blur(24px);
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-ocs h1.hero-title {
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 200;
+    margin: 0 0 24px;
+    color: var(--ink);
+  }
+  .hero-ocs h1.hero-title em {
+    -webkit-text-fill-color: var(--purple) !important;
+    color: var(--purple) !important;
+    font-weight: 600;
+  }
+  .hero-ocs .eyebrow { justify-content: center; }
+  .hero-ocs .hero-sub {
+    font-size: 1.2rem;
+    color: rgba(22,0,109,0.75);
+    margin: 0 auto 44px;
+    max-width: 560px;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+  .hero-ocs .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero-ocs .btn-ghost { color: var(--purple) !important; border-color: rgba(22,0,109,0.35) !important; }
+  .hero-ocs .btn-ghost:hover { background: rgba(22,0,109,0.06) !important; border-color: var(--purple) !important; }
+
+  /* Remove nav bottom shadow so it blends with hero */
+  .nav-wrap { box-shadow: none !important; }
+
+  /* ── Partner strip (cream) ── */
+  .partner-strip-wrap { background: var(--cream); border-top: 1px solid rgba(22,0,109,0.05); border-bottom: 1px solid rgba(22,0,109,0.05); }
+  .partner-strip {
+    background: transparent;
+    border-bottom: none;
+    padding: 14px 0;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+  .partner-strip-track { display: flex; width: max-content; animation: strip-scroll 90s linear infinite; }
+  .partner-strip-track:hover { animation-play-state: paused; }
+  @keyframes strip-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .partner-strip-name { padding: 0 28px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(22,0,109,0.55); white-space: nowrap; }
+  .partner-strip-dot { color: rgba(22,0,109,0.20); padding: 0 4px; user-select: none; }
+
+  /* ── Platform diagram (white bg, dark purple CARD is the "moment") ── */
+  .hiw-diagram { display:grid; grid-template-columns:1fr auto 1.6fr auto 1fr; gap:0; align-items:center; }
+  .hiw-col { display:flex; flex-direction:column; gap:12px; align-items:center; }
+  .hiw-col-label { font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(22,0,109,0.50); margin-bottom:4px; text-align:center; }
+  .hiw-providers { display:flex; flex-direction:column; gap:7px; align-items:center; }
+  .hiw-provider-pill { background:#fff; border:1px solid rgba(22,0,109,0.12); border-radius:100px; padding:7px 16px; font-size:0.82rem; font-weight:500; color:var(--purple); text-align:center; white-space:nowrap; box-shadow: 0 1px 2px rgba(22,0,109,0.04); }
+  .hiw-provider-muted { opacity:0.55; }
+  .hiw-connector { display:flex; align-items:center; padding:0 16px; }
+  .hiw-connector-line { flex:1; height:1px; background:linear-gradient(90deg,rgba(22,0,109,0.10) 0%,var(--purple) 100%); min-width:32px; }
+  .hiw-platform {
+    background: var(--purple);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: 0 20px 60px -16px rgba(22,0,109,0.45);
+    position: relative;
+    overflow: hidden;
+  }
+  .hiw-platform::before {
+    content:""; position:absolute; top:-60px; right:-60px;
+    width:240px; height:240px;
+    background:radial-gradient(circle,rgba(141,233,105,0.22) 0%,transparent 60%);
+    pointer-events:none;
+  }
+  .hiw-platform-inner { display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1; }
+  .hiw-platform-features { display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin-top:6px; }
+  .hiw-pfeat {
+    background: var(--green-soft);
+    border: 1px solid rgba(141,233,105,0.45);
+    border-radius: 100px;
+    padding: 5px 11px;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--green);
+    text-transform: uppercase;
+  }
+  @media (max-width:860px) {
+    .nav-links { background: var(--turquoise) !important; border-top-color: rgba(22,0,109,0.20) !important; }
+    .hiw-diagram { grid-template-columns:1fr; gap:20px; }
+    .hiw-connector { padding:0; justify-content:center; transform:rotate(90deg); width:40px; margin:0 auto; }
+    .hiw-connector-line { min-width:40px; }
+    .hiw-providers { flex-direction:row; flex-wrap:wrap; justify-content:center; }
+  }
+
+  /* ── Applications cards ── */
+  .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; margin-top: 48px; }
+  .apps-card { display: flex; flex-direction: column; }
+  .apps-card-img { width: 100%; height: 200px; object-fit: cover; object-position: right top; border-radius: 16px; display: block; }
+  .apps-card-body { padding: 24px 0 0; text-align: center; }
+  .apps-panel-title { font-size: clamp(1.3rem, 2vw, 1.6rem); font-weight: 200; letter-spacing: -0.03em; color: var(--ink); margin: 0 0 12px; line-height: 1.15; }
+  .apps-panel-title em { -webkit-text-fill-color: var(--purple); color: var(--purple); }
+  @media (max-width: 860px) { .apps-grid { grid-template-columns: 1fr; } }
+
+  /* ── Community section ── */
+  .community-home-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+  @media (max-width:860px) { .community-home-grid { grid-template-columns:1fr; gap:40px; } }
+
+  /* ── Footer: static turquoise (matches the nav) ── */
+  footer {
+    background: var(--turquoise) !important;
+    border-top: none !important;
+  }
+  footer h5 { color: var(--purple) !important; }
+  footer a { color: rgba(22,0,109,0.75) !important; }
+  footer a:hover { color: var(--purple) !important; }
+  footer p { color: rgba(22,0,109,0.70) !important; }
+  footer .footer-bottom { border-top-color: rgba(22,0,109,0.15) !important; }
+  footer .footer-bottom span,
+  footer .footer-bottom a { color: rgba(22,0,109,0.55) !important; }
+  footer .footer-brand .logo img { filter: none !important; opacity: 1 !important; }
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="#">
+        <img src="../assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;">
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-active">Overview</a>
+        <a href="#">Platform</a>
+        <a href="#">Applications</a>
+        <a href="#">About</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#">Get in touch</a>
+        <a class="btn btn-primary" href="#">Sign In</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero-ocs">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow">// OPEN CHAT STUDIO</span>
+      <h1 class="hero-title">The responsible layer between AI and <em>the people it serves</em></h1>
+      <p class="hero-sub">Open-source, equitable by design, and built for the communities where AI's impact is needed most.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-indigo btn-arrow" href="#platform-overview">Explore Open Chat Studio</a>
+        <a class="btn btn-ghost btn-arrow" href="#">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── COMMUNITY PARTNERS STRIP ───── -->
+<div class="partner-strip-wrap" style="padding:32px 0;">
+  <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(22,0,109,0.40);margin:0 0 18px;">Open Chat Studio Community Partners</p>
+  <div class="partner-strip" style="border-bottom:none;">
+    <div class="partner-strip-track">
+      <span class="partner-strip-name">Shujaaz</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">RAES</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">KNCV Tuberculosis Foundation</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Sanofi</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Zvandiri</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Walimu</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">United Nations Children's Fund</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Massachusetts General Hospital</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Univ. of California, Los Angeles</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Columbia University</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Ariadne Labs</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">PACHI</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Save the Children</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">World Health Organization / ESPEN</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Clear Global</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Gates Foundation</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Shujaaz</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">RAES</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">KNCV Tuberculosis Foundation</span><span class="partner-strip-dot">·</span>
+      <span class="partner-strip-name">Sanofi</span><span class="partner-strip-dot">·</span>
+    </div>
+  </div>
+</div>
+
+<!-- ───── THE CHALLENGE ───── -->
+<section style="background:#fff;padding:96px 0;">
+  <div class="container" style="max-width:720px;text-align:center;">
+    <span class="eyebrow" style="justify-content:center;">// THE CHALLENGE</span>
+    <h2 class="section-title">AI is advancing faster than <em>the systems built to share its benefits</em></h2>
+    <p style="color:rgba(22,0,109,0.65);font-size:1.1rem;line-height:1.85;margin:24px auto 0;">
+      Most AI tools aren't built for the contexts that need them most: low-resource settings, low-literacy users, multilingual communities, constrained infrastructure. Open Chat Studio is working to close the gap.
+    </p>
+  </div>
+</section>
+
+<!-- ───── PLATFORM OVERVIEW ───── -->
+<section class="section" style="background:#FBF9F4;padding:96px 0;" id="platform-overview">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
+      <span class="eyebrow" style="justify-content:center;">// THE PLATFORM</span>
+      <h2 class="section-title">Responsible AI platform for <em>social impact</em></h2>
+      <p style="color:rgba(22,0,109,0.65);font-size:1.05rem;line-height:1.8;margin:20px 0 0;">Open Chat Studio gives your team full control to build, evaluate, and deploy AI chatbots responsibly. <strong style="color:var(--purple);">Any LLM. Any channel.</strong></p>
+    </div>
+    <div class="hiw-diagram" style="max-width:880px;margin:0 auto;">
+      <div class="hiw-col">
+        <div class="hiw-col-label">LLM Providers</div>
+        <div class="hiw-providers">
+          <div class="hiw-provider-pill">OpenAI</div>
+          <div class="hiw-provider-pill">Anthropic</div>
+          <div class="hiw-provider-pill">Gemini</div>
+          <div class="hiw-provider-pill">Azure</div>
+          <div class="hiw-provider-pill hiw-provider-muted">+ more</div>
+        </div>
+      </div>
+      <div class="hiw-connector">
+        <div class="hiw-connector-line"></div>
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(22,0,109,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+        <div class="hiw-platform">
+          <div class="hiw-platform-inner">
+            <img src="../assets/images/ocs-logo.png" alt="Open Chat Studio" style="height:64px;width:auto;margin-bottom:16px;display:block;filter:brightness(0) invert(1);opacity:0.95;">
+            <div class="hiw-platform-features">
+              <span class="hiw-pfeat">LLM &amp; Channels</span>
+              <span class="hiw-pfeat">Prompt &amp; Logic</span>
+              <span class="hiw-pfeat">Interaction &amp; Data</span>
+              <span class="hiw-pfeat">Evaluation</span>
+              <span class="hiw-pfeat">RAG &amp; Knowledge</span>
+              <span class="hiw-pfeat">Extensible</span>
+              <span class="hiw-pfeat">Configurable Set-up</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:rgba(22,0,109,0.55);text-align:center;white-space:nowrap;line-height:1.55;margin:0;">From any LLM to any channel, in one platform</p>
+      </div>
+      <div class="hiw-connector">
+        <div class="hiw-connector-line"></div>
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M1 1l10 9-10 9" stroke="rgba(22,0,109,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="hiw-col">
+        <div class="hiw-col-label">Deployment Channels</div>
+        <div class="hiw-providers">
+          <div class="hiw-provider-pill">WhatsApp</div>
+          <div class="hiw-provider-pill">Web</div>
+          <div class="hiw-provider-pill">SMS</div>
+          <div class="hiw-provider-pill">Voice</div>
+          <div class="hiw-provider-pill hiw-provider-muted">+ more</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a class="btn btn-indigo btn-arrow" href="#">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── USE CASES TEASER ───── -->
+<section class="section" style="background:#fff;padding:96px 0;" id="applications-home">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto;">
+      <span class="eyebrow" style="justify-content:center;">// APPLICATIONS</span>
+      <h2 class="section-title">AI for every <em>layer of impact</em></h2>
+      <p style="color:rgba(22,0,109,0.65);font-size:1.05rem;line-height:1.8;margin:20px 0 0;">
+        Three layers of AI impact: for individuals, frontline workers, and the broader ecosystem.
+      </p>
+    </div>
+    <div class="apps-grid">
+      <div class="apps-card">
+        <img src="../assets/images/uc-individuals-client-texting.png" alt="Person using a health chatbot on their phone" class="apps-card-img">
+        <div class="apps-card-body"><h3 class="apps-panel-title">For <em>Individuals</em></h3></div>
+      </div>
+      <div class="apps-card">
+        <img src="../assets/images/uc-flw-sari-tablet.png" alt="Frontline health worker with tablet" class="apps-card-img">
+        <div class="apps-card-body"><h3 class="apps-panel-title">For <em>Frontline Workers</em></h3></div>
+      </div>
+      <div class="apps-card">
+        <img src="../assets/images/uc-ecosystem-57people.png" alt="Global health program staff" class="apps-card-img">
+        <div class="apps-card-body"><h3 class="apps-panel-title">For the <em>Ecosystem</em></h3></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a class="btn btn-indigo btn-arrow" href="#">Explore Applications</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── THE COMMUNITY ───── -->
+<section class="section" style="background:#FBF9F4;padding:96px 0;" id="community-home">
+  <div class="container">
+    <div class="community-home-grid">
+      <div>
+        <span class="eyebrow">// THE COMMUNITY</span>
+        <h2 class="section-title">Open, and<br><em>built with the community</em></h2>
+        <p style="color:rgba(22,0,109,0.65);font-size:1.05rem;line-height:1.8;margin:20px 0 28px;">
+          Fully open source and shaped by the people using it: researchers, developers, and global health organizations building with it today.
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a class="btn btn-indigo btn-arrow" href="#">Join the Community</a>
+          <a class="btn btn-ghost btn-arrow" href="#">View on GitHub</a>
+        </div>
+      </div>
+      <div>
+        <img src="../assets/images/pachi-malawi.png" alt="PACHI Malawi community health workers" style="width:100%;max-width:420px;height:300px;border-radius:16px;display:block;object-fit:cover;object-position:center;">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.06em;color:rgba(22,0,109,0.45);margin:8px 0 0;text-align:right;max-width:420px;">Photo: PACHI Malawi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FINAL CTA ───── -->
+<section class="section" style="background:#fff;text-align:center;padding:96px 0;">
+  <div class="container" style="max-width:640px;">
+    <span class="eyebrow" style="justify-content:center;">// GET IN TOUCH</span>
+    <h2 class="section-title" style="margin:20px 0 20px;">Want to see <em>Open Chat Studio in action</em>?</h2>
+    <p style="color:rgba(22,0,109,0.65);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
+      See how Open Chat Studio can support your work.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-indigo btn-arrow" href="#">Get in touch</a>
+      <a class="btn btn-ghost btn-arrow" href="#">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Open-source AI chatbots for global development, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#">Overview</a></li>
+          <li><a href="#">Platform</a></li>
+          <li><a href="#">Applications</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Dimagi</h5>
+        <ul>
+          <li><a href="#">About Dimagi</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="#">PRIVACY</a>
+        <a href="#">TERMS</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
