@@ -286,65 +286,123 @@
     .form-card { padding: 32px 24px; }
   }
 
-  .ocs-form { display: flex; flex-direction: column; gap: 16px; }
-  .ocs-field { display: flex; flex-direction: column; gap: 6px; }
-  .ocs-field label {
+  /* ── HubSpot form (OCS-themed) ── */
+  #hubspot-form .hs-form-field { margin-bottom: 16px; }
+  #hubspot-form label {
+    display: block;
     font-size: 0.82rem;
     font-weight: 600;
     color: #1A1A1A;
     letter-spacing: -0.005em;
+    margin-bottom: 6px;
   }
-  .ocs-field .req { color: #5A8E37; margin-left: 2px; }
-  .ocs-field input,
-  .ocs-field textarea,
-  .ocs-field select {
-    width: 100%;
-    font-family: 'Work Sans', system-ui, sans-serif;
-    font-size: 0.95rem;
-    color: #1A1A1A;
-    background: #ffffff;
-    border: 1px solid rgba(22,0,109,0.18);
-    border-radius: 8px;
-    padding: 12px 14px;
-    line-height: 1.4;
-    transition: border-color 150ms ease, box-shadow 150ms ease;
-    box-sizing: border-box;
+  #hubspot-form .hs-form-required {
+    color: #5A8E37;
+    margin-left: 2px;
   }
-  .ocs-field input:focus,
-  .ocs-field textarea:focus,
-  .ocs-field select:focus {
-    outline: none;
-    border-color: var(--indigo);
-    box-shadow: 0 0 0 3px rgba(141,233,105,0.30);
+  #hubspot-form input[type=text],
+  #hubspot-form input[type=email],
+  #hubspot-form input[type=tel],
+  #hubspot-form input[type=number],
+  #hubspot-form select,
+  #hubspot-form textarea {
+    width: 100% !important;
+    font-family: 'Work Sans', system-ui, sans-serif !important;
+    font-size: 0.95rem !important;
+    color: #1A1A1A !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(22,0,109,0.18) !important;
+    border-radius: 8px !important;
+    padding: 12px 14px !important;
+    line-height: 1.4 !important;
+    transition: border-color 150ms ease, box-shadow 150ms ease !important;
+    box-sizing: border-box !important;
   }
-  .ocs-field textarea { min-height: 120px; resize: vertical; font-family: inherit; }
-  .ocs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 520px) { .ocs-row { grid-template-columns: 1fr; } }
-  .ocs-submit { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-  .ocs-submit button {
-    background: var(--indigo);
-    color: #ffffff;
-    border: 1px solid var(--indigo);
-    border-radius: 8px;
-    padding: 14px 28px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    font-weight: 600;
+  #hubspot-form input:focus,
+  #hubspot-form select:focus,
+  #hubspot-form textarea:focus {
+    outline: none !important;
+    border-color: var(--indigo) !important;
+    box-shadow: 0 0 0 3px rgba(141,233,105,0.30) !important;
+  }
+  #hubspot-form textarea { min-height: 120px; resize: vertical; }
+  #hubspot-form .hs-fieldtype-checkbox ul,
+  #hubspot-form .hs-fieldtype-radio ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  #hubspot-form .hs-fieldtype-checkbox label,
+  #hubspot-form .hs-fieldtype-radio label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(26,26,26,0.78);
     cursor: pointer;
-    transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 150ms ease;
   }
-  .ocs-submit button:hover {
-    background: #8DE969;
-    color: var(--indigo);
-    border-color: #8DE969;
+  #hubspot-form .hs-error-msgs {
+    list-style: none;
+    padding: 6px 0 0;
+    margin: 0;
+    color: #B23A3A;
+    font-size: 0.82rem;
+  }
+  #hubspot-form .hs-submit { margin-top: 10px; }
+  #hubspot-form input[type=submit],
+  #hubspot-form .hs-button {
+    background: var(--indigo) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--indigo) !important;
+    border-radius: 8px !important;
+    padding: 14px 28px !important;
+    font-family: 'Work Sans', system-ui, sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 150ms ease !important;
+    width: auto !important;
+  }
+  #hubspot-form input[type=submit]:hover,
+  #hubspot-form .hs-button:hover {
+    background: #8DE969 !important;
+    color: var(--indigo) !important;
+    border-color: #8DE969 !important;
     transform: translateY(-1px);
   }
-  .ocs-submit-note {
-    font-size: 0.82rem;
-    color: rgba(26,26,26,0.55);
-    line-height: 1.5;
+  #hubspot-form .submitted-message {
+    padding: 24px;
+    background: rgba(141,233,105,0.14);
+    border: 1px solid rgba(141,233,105,0.55);
+    border-radius: 8px;
+    color: var(--indigo);
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
-  .ocs-submit-note a { color: var(--indigo); text-decoration: underline; }
+  #hubspot-form .legal-consent-container {
+    font-size: 0.82rem;
+    color: rgba(26,26,26,0.65);
+    line-height: 1.6;
+  }
+  #hubspot-form .legal-consent-container a { color: var(--indigo); text-decoration: underline; }
+  #hubspot-form fieldset { max-width: 100% !important; }
+  #hubspot-form fieldset.form-columns-2 .hs-form-field { width: 100%; }
+  #hubspot-form fieldset.form-columns-2 .input { margin-right: 0 !important; }
+
+  /* Loading fallback */
+  .form-fallback {
+    padding: 24px;
+    background: rgba(137,210,220,0.18);
+    border: 1px dashed rgba(22,0,109,0.18);
+    border-radius: 8px;
+    text-align: center;
+    color: rgba(22,0,109,0.72);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .form-fallback strong { color: var(--indigo); font-weight: 600; }
+  .form-fallback a { color: var(--indigo); text-decoration: underline; }
 
   /* ── Partner strip (reused from home) ── */
   .trust-strip {
@@ -523,44 +581,12 @@
           <h2>Tell us about your program</h2>
           <p>Share a few details and a member of our team will reach out.</p>
         </div>
-        <form class="ocs-form" id="ocs-contact-form" action="mailto:ocs-info@dimagi.com" method="post" enctype="text/plain">
-          <div class="ocs-row">
-            <div class="ocs-field">
-              <label for="first-name">First name <span class="req">*</span></label>
-              <input id="first-name" name="First name" type="text" required autocomplete="given-name">
-            </div>
-            <div class="ocs-field">
-              <label for="last-name">Last name <span class="req">*</span></label>
-              <input id="last-name" name="Last name" type="text" required autocomplete="family-name">
-            </div>
+        <div id="hubspot-form">
+          <div class="form-fallback" id="hubspot-form-fallback">
+            <strong>Loading form&hellip;</strong><br>
+            Having trouble? Email <a href="mailto:ocs-info@dimagi.com">ocs-info@dimagi.com</a>.
           </div>
-          <div class="ocs-field">
-            <label for="email">Work email <span class="req">*</span></label>
-            <input id="email" name="Email" type="email" required autocomplete="email">
-          </div>
-          <div class="ocs-field">
-            <label for="organization">Organization</label>
-            <input id="organization" name="Organization" type="text" autocomplete="organization">
-          </div>
-          <div class="ocs-field">
-            <label for="role">I'm reaching out about</label>
-            <select id="role" name="Topic">
-              <option value="Schedule a walkthrough">Scheduling a walkthrough</option>
-              <option value="Deployment / partnership">A potential deployment or partnership</option>
-              <option value="Research collaboration">A research collaboration</option>
-              <option value="Open Opportunities / EOI">An Open Opportunities expression of interest</option>
-              <option value="General question">A general question</option>
-            </select>
-          </div>
-          <div class="ocs-field">
-            <label for="message">Message <span class="req">*</span></label>
-            <textarea id="message" name="Message" required placeholder="Tell us a bit about your program, your goals, and how we can help."></textarea>
-          </div>
-          <div class="ocs-submit">
-            <button type="submit">Send message</button>
-            <span class="ocs-submit-note">Opens your email app. Prefer to write directly? <a href="mailto:ocs-info@dimagi.com">ocs-info@dimagi.com</a></span>
-          </div>
-        </form>
+        </div>
       </div>
 
     </div>
@@ -673,6 +699,31 @@
     </div>
   </div>
 </footer>
+
+<!-- ───── HUBSPOT FORM ───── -->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  (function () {
+    function mountForm() {
+      if (typeof hbspt === 'undefined' || !hbspt.forms) return false;
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "503070",
+        formId: "ab84dc67-539d-40d3-b9ac-466d8b8348bf",
+        target: "#hubspot-form",
+        onFormReady: function () {
+          var fb = document.getElementById('hubspot-form-fallback');
+          if (fb && fb.parentNode) fb.parentNode.removeChild(fb);
+        }
+      });
+      return true;
+    }
+    if (!mountForm()) {
+      var s = document.querySelector('script[src*="js.hsforms.net"]');
+      if (s) s.addEventListener('load', mountForm);
+    }
+  })();
+</script>
 
 <!-- Mobile nav toggle -->
 <script>
