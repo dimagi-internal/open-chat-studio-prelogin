@@ -37,14 +37,23 @@ h1 em, h2 em, h3 em {
   font-style: normal !important;
 }
 
-/* All eyebrow labels (// SECTION NAME) — solid purple text + muted purple tick */
+/* Eyebrow labels: deep purple body text with a green "//" marker (rendered
+   by ::before so the // is not part of the page text content) */
 .eyebrow,
 .ds-eyebrow {
   color: var(--ocs-purple) !important;
 }
 .eyebrow::before,
 .ds-eyebrow::before {
-  background: rgba(22,0,109,0.40) !important;
+  content: "//" !important;
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  color: var(--ocs-green) !important;
+  font-family: var(--mono) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: 1 !important;
 }
 
 /* ── Primary CTA: deep purple, hover flips to green w/ purple text ── */
@@ -118,16 +127,16 @@ h1 em, h2 em, h3 em {
   border-color: var(--ocs-purple) !important;
   color: var(--ocs-purple) !important;
 }
-/* Sign-in matches other purple CTAs: purple bg, green-on-hover */
+/* Sign-in is the lone green button in the nav */
 .nav-wrap .btn-primary {
-  background: var(--ocs-purple) !important;
-  color: #fff !important;
-  font-weight: 600 !important;
+  background: var(--ocs-green) !important;
+  color: var(--ocs-purple) !important;
+  font-weight: 700 !important;
   border: none !important;
   transition: background 180ms ease, color 180ms ease;
 }
 .nav-wrap .btn-primary:hover {
-  background: var(--ocs-green) !important;
+  background: var(--ocs-green-bright) !important;
   color: var(--ocs-purple) !important;
 }
 .nav-wrap .nav-hamburger span { background: var(--ocs-purple) !important; }
@@ -282,12 +291,36 @@ section[style*="background: #16006D"],
   box-shadow: none !important;
 }
 
-/* Cream emphasis sections: comparison + open-opportunities */
-section#comparison[style*="background:#16006D"],
-section#comparison[style*="background: #16006D"],
+/* Cream emphasis section: open-opportunities */
 section#open-opportunities[style*="background:#16006D"],
 section#open-opportunities[style*="background: #16006D"] {
   background: var(--ocs-cream) !important;
+}
+
+/* "How It Compares" section: deep purple bg with green-bold accents */
+section#comparison[style*="background:#16006D"],
+section#comparison[style*="background: #16006D"] {
+  background: var(--ocs-purple) !important;
+}
+section#comparison .eyebrow {
+  color: var(--ocs-green) !important;
+  font-weight: 700 !important;
+}
+section#comparison .eyebrow::before {
+  color: var(--ocs-green) !important;
+}
+section#comparison h2,
+section#comparison h2.section-title {
+  color: #fff !important;
+}
+section#comparison h2 em {
+  -webkit-text-fill-color: var(--ocs-green) !important;
+  color: var(--ocs-green) !important;
+  font-weight: 700 !important;
+  background: none !important;
+}
+section#comparison p {
+  color: rgba(255,255,255,0.78) !important;
 }
 section[style*="background:#16006D"] h2,
 section[style*="background: #16006D"] h2,
