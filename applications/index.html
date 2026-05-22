@@ -39,6 +39,37 @@
   .hero-ocs h1.hero-title { font-size:clamp(38px,4.6vw,60px); line-height:1.06; letter-spacing:-0.03em; font-weight:200; margin:0 0 24px; }
   .hero-ocs .hero-sub { font-size:19px; margin:0; max-width:600px; font-weight:400; line-height:1.65; }
 
+  /* ── Jump nav (secondary section navigation) ── */
+  nav.jump-nav {
+    position: sticky;
+    top: 76px;
+    z-index: 40;
+    background: #A8DEE5 !important;
+    border-bottom: 1px solid rgba(22,0,109,0.10);
+  }
+  .jump-nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: flex-start;
+  }
+  .jump-nav-inner::-webkit-scrollbar { display: none; }
+  .jump-link {
+    padding: 18px 28px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(22,0,109,0.78);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 150ms, border-color 150ms, font-weight 120ms;
+    flex-shrink: 0;
+  }
+  .jump-link:hover { color: #16006D; font-weight: 700; }
+  .jump-link.active { color: #16006D; border-bottom-color: #16006D; font-weight: 700; }
+
   /* ── Use Case Sections ── */
 
   /* ── Panel dividers ── */
@@ -95,7 +126,7 @@
   }
   .bot-card-h .bot-card-head svg { width:26px; height:26px; }
   .bot-card-h .bot-card-head-label { text-align:center; font-size:8.5px; line-height:1.4; }
-  .uc-panel-intro { background:#ffffff; padding:72px 0 72px; border-top:1px solid var(--line); }
+  .uc-panel-intro { background:#E8F4F7; padding:72px 0 72px; border-top:1px solid var(--line); }
   .uc-panel-intro-grid { display:grid; grid-template-columns:340px 1fr; gap:72px; align-items:center; }
   .uc-panel-graphic-col { display:flex; justify-content:center; align-items:flex-end; }
   .uc-panel-graphic { max-height:380px; width:auto; max-width:100%; }
@@ -103,7 +134,7 @@
   .uc-panel-title em { font-style:normal; color:#16006D; font-weight:600; }
   .uc-panel-question { font-size:1.1rem; color:#16006D; font-style:italic; font-weight:400; margin:0 0 16px; line-height:1.55; padding-left:18px; border-left:3px solid rgba(184,164,255,0.45); }
   .uc-panel-desc { font-size:1.05rem; color:var(--muted); line-height:1.75; margin:0; }
-  .uc-panel-story { background:#fff; padding:64px 0 72px; }
+  .uc-panel-story { background:#ffffff; padding:64px 0 72px; }
   .ds-card { border-radius:20px; padding:56px 64px; overflow:hidden; }
 
   /* ── Dark Featured Story Block ── */
@@ -221,11 +252,6 @@
         <span class="eyebrow">APPLICATIONS</span>
         <h1 class="hero-title">AI programs built for <em>every context</em></h1>
         <p class="hero-sub">From the people receiving care, to the workers delivering it, to the organizations coordinating it. AI built for every level.</p>
-        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
-          <a class="btn btn-arrow uc-hero-btn" href="#panel-individuals">Individuals</a>
-          <a class="btn btn-arrow uc-hero-btn" href="#panel-flw">Frontline Workers</a>
-          <a class="btn btn-arrow uc-hero-btn" href="#panel-ecosystem">The Ecosystem</a>
-        </div>
       </div>
       <div class="hero-photo-wrap">
         <img src="../assets/images/uc-personas.jpg" width="1014" height="842" alt="Real chatbot personas from Open Chat Studio deployments" style="object-fit:contain;">
@@ -234,6 +260,17 @@
     </div>
   </div>
 </section>
+
+<!-- ───── JUMP NAV ───── -->
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="container">
+    <div class="jump-nav-inner">
+      <a class="jump-link" href="#panel-individuals">For Individuals</a>
+      <a class="jump-link" href="#panel-flw">For Frontline Workers</a>
+      <a class="jump-link" href="#panel-ecosystem">For the Ecosystem</a>
+    </div>
+  </div>
+</nav>
 
 <!-- ───── USE CASE SECTIONS ───── -->
 <section class="uc-tabs-section">

@@ -19,7 +19,7 @@
   --ocs-green-bright: #A6F082;
   --ocs-green-text: #5A8E37;
   --ocs-ink: #1A1A1A;
-  --ocs-cream: #FBF9F4;
+  --ocs-cream: #ffffff;
   /* Mostly-blue gradient with a hint of green at the end — used to bookend the page */
   --ocs-bar-gradient: linear-gradient(90deg, #89D2DC 0%, #92D5D6 50%, #9CD8CE 100%);
 }
@@ -37,11 +37,12 @@ h1 em, h2 em, h3 em {
   font-style: normal !important;
 }
 
-/* Eyebrow labels: deep purple body text with a green "//" marker (rendered
-   by ::before so the // is not part of the page text content) */
+/* Eyebrow labels: light grey body text with a green "//" marker (rendered
+   by ::before so the // is not part of the page text content).
+   On purple backgrounds the whole eyebrow flips to green via overrides below. */
 .eyebrow,
 .ds-eyebrow {
-  color: var(--ocs-purple) !important;
+  color: #9DA3B5 !important;
 }
 .eyebrow::before,
 .ds-eyebrow::before {
@@ -86,10 +87,10 @@ h1 em, h2 em, h3 em {
 }
 .uc-hero-btn:hover svg path { stroke: var(--ocs-purple) !important; }
 
-/* Ghost button defaults (purple outline on light bg → purple fill on hover) */
-.btn-ghost { color: var(--ocs-purple) !important; border-color: rgba(22,0,109,0.25) !important; background: transparent !important; }
-.btn-ghost:hover { background: var(--ocs-purple) !important; border-color: var(--ocs-purple) !important; color: #fff !important; }
-.btn-ghost:hover svg path { stroke: #fff !important; }
+/* Ghost button defaults (purple outline on light bg → green fill, purple text on hover) */
+.btn-ghost { color: var(--ocs-purple) !important; border-color: rgba(22,0,109,0.25) !important; background: transparent !important; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
+.btn-ghost:hover { background: var(--ocs-green) !important; border-color: var(--ocs-green) !important; color: var(--ocs-purple) !important; }
+.btn-ghost:hover svg path { stroke: var(--ocs-purple) !important; }
 
 /* ── Nav: static light turquoise band ───────────────────────── */
 .nav-wrap {
@@ -101,17 +102,23 @@ h1 em, h2 em, h3 em {
   filter: none !important;
   opacity: 1 !important;
 }
+.nav-wrap .nav-links {
+  font-family: 'Work Sans', sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: -0.005em !important;
+}
 .nav-wrap .nav-links a {
   color: rgba(22,0,109,0.78) !important;
-  font-weight: 500 !important;
+  font-weight: 300 !important;
   text-decoration: none !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
-  transition: background 140ms ease, color 140ms ease, font-weight 120ms ease;
+  padding: 6px 4px !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  transition: font-weight 120ms ease, color 120ms ease;
 }
 .nav-wrap .nav-links a:hover {
-  background: var(--ocs-purple) !important;
-  color: var(--ocs-green) !important;
+  background: transparent !important;
+  color: var(--ocs-purple) !important;
   font-weight: 700 !important;
   text-decoration: none !important;
 }
@@ -119,10 +126,12 @@ h1 em, h2 em, h3 em {
   color: var(--ocs-purple) !important;
   font-weight: 700 !important;
   text-decoration: none !important;
+  background: transparent !important;
 }
 .nav-wrap .nav-links a.nav-active:hover {
-  background: var(--ocs-purple) !important;
-  color: var(--ocs-green) !important;
+  background: transparent !important;
+  color: var(--ocs-purple) !important;
+  font-weight: 700 !important;
 }
 .nav-wrap .nav-links a.nav-sep::before { background: rgba(22,0,109,0.18) !important; }
 .nav-wrap .btn-ghost {
@@ -133,9 +142,9 @@ h1 em, h2 em, h3 em {
 .nav-wrap .btn-ghost:hover {
   background: var(--ocs-purple) !important;
   border-color: var(--ocs-purple) !important;
-  color: #fff !important;
+  color: #ffffff !important;
 }
-.nav-wrap .btn-ghost:hover svg path { stroke: #fff !important; }
+.nav-wrap .btn-ghost:hover svg path { stroke: #ffffff !important; }
 /* Sign-in is the lone green button in the nav */
 .nav-wrap .btn-primary {
   background: var(--ocs-green) !important;
@@ -180,7 +189,7 @@ h1 em, h2 em, h3 em {
   font-weight: 600 !important;
 }
 .hero-ocs .hero-sub { color: rgba(22,0,109,0.75) !important; }
-.hero-ocs .eyebrow { color: var(--ocs-purple) !important; }
+.hero-ocs .eyebrow { color: #9DA3B5 !important; }
 .hero-ocs .eyebrow::before { background: transparent !important; }
 .hero-ocs .btn-indigo {
   background: var(--ocs-purple) !important;
@@ -199,11 +208,11 @@ h1 em, h2 em, h3 em {
   border-color: rgba(22,0,109,0.35) !important;
 }
 .hero-ocs .btn-ghost:hover {
-  background: var(--ocs-purple) !important;
-  border-color: var(--ocs-purple) !important;
-  color: #fff !important;
+  background: var(--ocs-green) !important;
+  border-color: var(--ocs-green) !important;
+  color: var(--ocs-purple) !important;
 }
-.hero-ocs .btn-ghost:hover svg path { stroke: #fff !important; }
+.hero-ocs .btn-ghost:hover svg path { stroke: var(--ocs-purple) !important; }
 
 /* Applications card em (For Individuals / Frontline Workers / Ecosystem) → purple */
 .apps-panel-title em,
@@ -281,11 +290,11 @@ section[style*="background: #16006D"],
   background: #fff !important;
 }
 
-/* Applications "Featured Story" panels — full-width parallax, cream bg
-   (creates "story moment" rhythm between the white intro panels).
+/* Applications "Featured Story" panels — full-width, white bg
+   (cream lives on the .uc-panel-intro overview blocks for rhythm contrast).
    The .ds-card loses its box appearance so content sits flat. */
 .uc-panel-story {
-  background: var(--ocs-cream) !important;
+  background: #ffffff !important;
   padding: 96px 0 !important;
 }
 .uc-panel-story .ds-card,
@@ -320,11 +329,11 @@ section[style*="background: #16006D"],
 .ocs-feature-dark .btn-indigo:hover svg path { stroke: var(--ocs-purple) !important; }
 .ocs-feature-dark .btn-indigo svg path { stroke: var(--ocs-purple) !important; }
 .ocs-feature-dark .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.45) !important; background: transparent !important; }
-.ocs-feature-dark .btn-ghost:hover { background: #fff !important; border-color: #fff !important; color: var(--ocs-purple) !important; }
+.ocs-feature-dark .btn-ghost:hover { background: var(--ocs-green) !important; border-color: var(--ocs-green) !important; color: var(--ocs-purple) !important; }
 .ocs-feature-dark .btn-ghost:hover svg path { stroke: var(--ocs-purple) !important; }
 .ocs-feature-dark .btn-ghost svg path { stroke: #fff !important; }
-.ocs-feature-dark .feature-dark-photo { width: 100%; max-width: 480px; height: 340px; border-radius: 16px; display: block; object-fit: cover; object-position: center; box-shadow: 0 24px 64px -16px rgba(0,0,0,0.45); }
-.ocs-feature-dark .feature-dark-credit { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin: 10px 0 0; text-align: right; max-width: 480px; }
+.ocs-feature-dark .feature-dark-photo { width: 100%; max-width: 100%; height: 380px; border-radius: 16px; display: block; object-fit: cover; object-position: center; box-shadow: 0 24px 64px -16px rgba(0,0,0,0.45); }
+.ocs-feature-dark .feature-dark-credit { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin: 10px 0 0; text-align: right; }
 /* "All green" variant: makes the entire .section-title green (head + em) */
 .ocs-feature-dark.ocs-feature-dark--all-green .section-title { color: var(--ocs-green) !important; }
 
@@ -406,12 +415,12 @@ section[style*="background:#16006D"] .btn-indigo:hover svg path,
 section[style*="background: #16006D"] .btn-indigo:hover svg path {
   stroke: var(--ocs-purple) !important;
 }
-/* Eyebrows on these sections — solid purple (matches every other eyebrow) */
+/* Eyebrows on these legacy "dark" sections (now flipped to white bg) — match the new light-grey rule */
 .uc-dark-story .eyebrow,
 .ds-card[style*="background:#16006D"] .eyebrow,
 section[style*="background:#16006D"] .eyebrow,
 section[style*="background: #16006D"] .eyebrow {
-  color: var(--ocs-purple) !important;
+  color: #9DA3B5 !important;
 }
 .uc-dark-story .eyebrow::before,
 .ds-card[style*="background:#16006D"] .eyebrow::before,
