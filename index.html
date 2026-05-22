@@ -21,7 +21,6 @@
   :root {
     --indigo: #16006D;
     --indigo-soft: #FBF9F4;
-    --indigo-300: #B8A4FF;
     --grad-text: linear-gradient(90deg, #16006D 0%, #16006D 100%);
   }
 
@@ -120,34 +119,7 @@
   @media (max-width:860px) { .community-home-grid { grid-template-columns:1fr; gap:40px; } }
   @media (max-width:860px) { .community-home-grid img { max-width:100% !important; height:240px !important; } }
 
-  /* ── Dark feature break (community section) ── */
-  .ocs-feature-dark { background: #16006D; padding: 112px 0; position: relative; overflow: hidden; }
-  .ocs-feature-dark::before {
-    content: ""; position: absolute; top: -120px; right: -120px; width: 380px; height: 380px;
-    background: radial-gradient(circle, rgba(141,233,105,0.18) 0%, transparent 65%); pointer-events: none;
-  }
-  .ocs-feature-dark::after {
-    content: ""; position: absolute; bottom: -100px; left: -100px; width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(137,210,220,0.16) 0%, transparent 65%); pointer-events: none;
-  }
-  .ocs-feature-dark .container { position: relative; z-index: 1; }
-  .ocs-feature-dark .eyebrow { color: #8DE969 !important; }
-  .ocs-feature-dark .eyebrow::before { color: #8DE969 !important; background: transparent !important; }
-  .ocs-feature-dark .section-title { color: #fff !important; }
-  .ocs-feature-dark .section-title em { color: #8DE969 !important; -webkit-text-fill-color: #8DE969 !important; background: none !important; font-weight: 600 !important; font-style: normal !important; }
-  .ocs-feature-dark .feature-dark-lead { color: rgba(255,255,255,0.80); font-size: 1.05rem; line-height: 1.8; margin: 0 0 28px; }
-  .ocs-feature-dark .btn-indigo { background: #fff !important; color: #16006D !important; border-color: #fff !important; font-weight: 600 !important; }
-  .ocs-feature-dark .btn-indigo:hover { background: #8DE969 !important; color: #16006D !important; border-color: #8DE969 !important; }
-  .ocs-feature-dark .btn-indigo:hover svg path { stroke: #16006D !important; }
-  .ocs-feature-dark .btn-indigo svg path { stroke: #16006D !important; }
-  .ocs-feature-dark .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.45) !important; }
-  .ocs-feature-dark .btn-ghost:hover { background: rgba(255,255,255,0.08) !important; border-color: #fff !important; color: #fff !important; }
-  .ocs-feature-dark .btn-ghost:hover svg path { stroke: #fff !important; }
-  .ocs-feature-dark .btn-ghost svg path { stroke: #fff !important; }
-  .ocs-feature-dark .feature-dark-photo { width: 100%; max-width: 480px; height: 340px; border-radius: 16px; display: block; object-fit: cover; object-position: center; box-shadow: 0 24px 64px -16px rgba(0,0,0,0.45); }
-  .ocs-feature-dark .feature-dark-credit { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin: 10px 0 0; text-align: right; max-width: 480px; }
-
-  /* Footer + nav colors come from ocs-theme.css */
+  /* .ocs-feature-dark + footer/nav colors come from ocs-theme.css */
 </style>
 <link rel="stylesheet" href="assets/ocs-theme.css">
 </head>
@@ -158,7 +130,7 @@
   <div class="container">
     <nav class="primary">
       <a class="logo" href="index.html">
-        <img src="assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+        <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
         <a href="index.html" class="nav-active">Overview</a>
@@ -186,14 +158,10 @@
       <p class="hero-sub">Open-source, equitable by design, and built for the communities where AI's impact is needed most.</p>
       <div class="hero-ctas">
         <a class="btn btn-indigo btn-arrow" href="#platform-overview">Explore Open Chat Studio</a>
-        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:-3px;"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
       </div>
     </div>
     <div class="hero-product">
-      <img src="assets/images/platform-dashboard.png" alt="Open Chat Studio dashboard with team analytics, bot management, and a live chat conversation on mobile" />
+      <img src="assets/images/platform-dashboard.webp" width="709" height="478" alt="Open Chat Studio dashboard with team analytics, bot management, and a live chat conversation on mobile" />
     </div>
   </div>
 </section>
@@ -276,7 +244,7 @@
       <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
         <div class="hiw-platform">
           <div class="hiw-platform-inner">
-            <img src="assets/images/ocs-logo.png" alt="Open Chat Studio" style="height:64px;width:auto;margin-bottom:16px;display:block;filter:brightness(0) invert(1);opacity:0.9;">
+            <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio" style="height:64px;width:auto;margin-bottom:16px;display:block;filter:brightness(0) invert(1);opacity:0.9;">
             <div class="hiw-platform-features">
               <span class="hiw-pfeat">LLM &amp; Channels</span>
               <span class="hiw-pfeat">Prompt &amp; Logic</span>
@@ -324,21 +292,21 @@
     <div class="apps-grid">
       <!-- For Individuals -->
       <div class="apps-card">
-        <img src="assets/images/uc-individuals-client-texting.png" alt="Person using a health chatbot on their phone" class="apps-card-img">
+        <img src="assets/images/uc-individuals-client-texting.webp" width="1200" height="1200" alt="Person using a health chatbot on their phone" class="apps-card-img">
         <div class="apps-card-body">
           <h3 class="apps-panel-title">For <em>Individuals</em></h3>
         </div>
       </div>
       <!-- For Frontline Workers -->
       <div class="apps-card">
-        <img src="assets/images/uc-flw-sari-tablet.png" alt="Frontline health worker with tablet" class="apps-card-img">
+        <img src="assets/images/uc-flw-sari-tablet.webp" width="792" height="1186" alt="Frontline health worker with tablet" class="apps-card-img">
         <div class="apps-card-body">
           <h3 class="apps-panel-title">For <em>Frontline Workers</em></h3>
         </div>
       </div>
       <!-- For Ecosystems -->
       <div class="apps-card">
-        <img src="assets/images/uc-ecosystem-57people.png" alt="Global health program staff" class="apps-card-img">
+        <img src="assets/images/uc-ecosystem-57people.webp" width="711" height="933" alt="Global health program staff" class="apps-card-img">
         <div class="apps-card-body">
           <h3 class="apps-panel-title">For the <em>Ecosystem</em></h3>
         </div>
@@ -366,7 +334,7 @@
         </div>
       </div>
       <div>
-        <img src="assets/images/pachi-malawi.jpg" alt="PACHI Malawi community health workers" class="feature-dark-photo">
+        <img src="assets/images/pachi-malawi.jpg" width="616" height="626" alt="PACHI Malawi community health workers" class="feature-dark-photo">
         <p class="feature-dark-credit">Photo: PACHI Malawi</p>
       </div>
     </div>
@@ -377,7 +345,7 @@
 <section class="section ocs-cta-blue" style="background:#D6EEF2;text-align:center;">
   <div class="container" style="max-width:640px;">
     <span class="eyebrow" style="justify-content:center;color:rgba(22,0,109,0.50);">GET IN TOUCH</span>
-    <h2 class="section-title" style="color:#16006D;margin-bottom:20px;">Want to see <em style="font-weight:600;background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Open Chat Studio in action</em>?</h2>
+    <h2 class="section-title" style="color:#16006D;margin-bottom:20px;">See something that <em style="font-weight:600;background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">fits your context</em>?</h2>
     <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
       See how Open Chat Studio can support your work.
     </p>
@@ -394,7 +362,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo" style="gap:10px;">
-          <img src="assets/images/ocs-logo.png" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+          <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
         </div>
         <p>Open-source AI chatbots for global development, powered by Dimagi.</p>
       </div>
