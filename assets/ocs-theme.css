@@ -141,14 +141,9 @@ h1 em, h2 em, h3 em {
 }
 .nav-wrap .nav-hamburger span { background: var(--ocs-purple) !important; }
 
-/* ── Hero (home only): turquoise gradient with depth ────────── */
+/* ── Hero (home only): subtle pale→turquoise vertical gradient ── */
 .hero-ocs.hero-home {
-  background:
-    radial-gradient(ellipse at 75% 60%, rgba(255,255,255,0.40) 0%, transparent 60%),
-    radial-gradient(ellipse at 15% 95%, rgba(141,233,105,0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 100% 100%, rgba(22,0,109,0.12) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(22,0,109,0.06) 100%),
-    var(--ocs-bar-gradient) !important;
+  background: linear-gradient(180deg, var(--ocs-turquoise-pale) 0%, var(--ocs-turquoise) 100%) !important;
   border-bottom: none !important;
   position: relative;
   overflow: hidden;
@@ -177,7 +172,7 @@ h1 em, h2 em, h3 em {
 }
 .hero-ocs .hero-sub { color: rgba(22,0,109,0.75) !important; }
 .hero-ocs .eyebrow { color: var(--ocs-purple) !important; }
-.hero-ocs .eyebrow::before { background: rgba(22,0,109,0.40) !important; }
+.hero-ocs .eyebrow::before { background: transparent !important; }
 .hero-ocs .btn-indigo {
   background: var(--ocs-purple) !important;
   color: #fff !important;
@@ -386,7 +381,7 @@ section[style*="background: #16006D"] .eyebrow {
 .ds-card[style*="background:#16006D"] .eyebrow::before,
 section[style*="background:#16006D"] .eyebrow::before,
 section[style*="background: #16006D"] .eyebrow::before {
-  background: rgba(22,0,109,0.40) !important;
+  background: transparent !important;
 }
 
 /* Feature-story bullet markers — purple instead of legacy amber */
@@ -468,23 +463,24 @@ section[style*="background: #16006D"] .eyebrow::before {
   box-shadow: 0 12px 36px -10px rgba(22,0,109,0.18) !important;
 }
 
-/* ── Footer: static turquoise (matches the nav) ─────────────── */
+/* ── Footer: dark purple (logo color), white text ───────────── */
 footer {
-  background: var(--ocs-turquoise) !important;
+  background: var(--ocs-purple) !important;
   border-top: none !important;
 }
-footer h5 { color: var(--ocs-purple) !important; }
-footer a { color: rgba(22,0,109,0.75) !important; }
-footer a:hover { color: var(--ocs-purple) !important; }
-footer p { color: rgba(22,0,109,0.70) !important; }
+footer h5 { color: #fff !important; }
+footer a { color: rgba(255,255,255,0.75) !important; }
+footer a:hover { color: var(--ocs-green) !important; }
+footer p { color: rgba(255,255,255,0.70) !important; }
 footer .footer-brand .logo img,
 footer .logo img {
-  filter: none !important;
-  opacity: 1 !important;
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.95 !important;
 }
-footer .footer-bottom { border-top-color: rgba(22,0,109,0.15) !important; }
+footer .footer-bottom { border-top-color: rgba(255,255,255,0.15) !important; }
 footer .footer-bottom span,
-footer .footer-bottom a { color: rgba(22,0,109,0.55) !important; }
+footer .footer-bottom a { color: rgba(255,255,255,0.55) !important; }
+footer .footer-bottom a:hover { color: var(--ocs-green) !important; }
 
 /* Mobile: nav-links background matches static nav */
 @media (max-width: 860px) {

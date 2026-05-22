@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://dimagi.com/open-chat-studio/">
 <meta property="og:title" content="Open Chat Studio: AI Chatbots for Global Health">
 <meta property="og:description" content="An open-source platform for building and deploying AI chatbots for global development and social impact.">
-<meta property="og:image" content="assets/images/platform-screenshot.png">
+<meta property="og:image" content="assets/images/uc-personas.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +26,15 @@
   }
 
   /* ── Hero layout (centered) — colors come from ocs-theme.css ── */
-  .hero-ocs { padding: 96px 0 88px; text-align: center; position: relative; overflow: hidden; }
+  .hero-ocs { padding: 96px 0 0; text-align: center; position: relative; overflow: hidden; }
   .hero-inner { max-width: 660px; margin: 0 auto; position: relative; z-index: 1; }
   .hero-ocs h1.hero-title { font-size: clamp(38px, 4.6vw, 62px); line-height: 1.03; letter-spacing: -0.035em; font-weight: 200; margin: 0 0 22px; }
   .hero-ocs .eyebrow { justify-content: center; }
   .hero-ocs .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; }
   .hero-ocs .hero-sub { font-size: 1.15rem; margin: 0 auto 40px; max-width: 520px; font-weight: 400; line-height: 1.7; }
+  .hero-product { max-width: 960px; margin: 64px auto -40px; padding: 0 16px; position: relative; z-index: 1; }
+  .hero-product img { width: 100%; height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(22,0,109,0.18)) drop-shadow(0 8px 16px rgba(22,0,109,0.10)); }
+  @media (max-width: 720px) { .hero-product { margin: 40px auto -24px; } }
 
   /* ── Partner strip ── */
   .partner-strip {
@@ -117,6 +120,33 @@
   @media (max-width:860px) { .community-home-grid { grid-template-columns:1fr; gap:40px; } }
   @media (max-width:860px) { .community-home-grid img { max-width:100% !important; height:240px !important; } }
 
+  /* ── Dark feature break (community section) ── */
+  .ocs-feature-dark { background: #16006D; padding: 112px 0; position: relative; overflow: hidden; }
+  .ocs-feature-dark::before {
+    content: ""; position: absolute; top: -120px; right: -120px; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(141,233,105,0.18) 0%, transparent 65%); pointer-events: none;
+  }
+  .ocs-feature-dark::after {
+    content: ""; position: absolute; bottom: -100px; left: -100px; width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(137,210,220,0.16) 0%, transparent 65%); pointer-events: none;
+  }
+  .ocs-feature-dark .container { position: relative; z-index: 1; }
+  .ocs-feature-dark .eyebrow { color: #8DE969 !important; }
+  .ocs-feature-dark .eyebrow::before { color: #8DE969 !important; background: transparent !important; }
+  .ocs-feature-dark .section-title { color: #fff !important; }
+  .ocs-feature-dark .section-title em { color: #8DE969 !important; -webkit-text-fill-color: #8DE969 !important; background: none !important; font-weight: 600 !important; font-style: normal !important; }
+  .ocs-feature-dark .feature-dark-lead { color: rgba(255,255,255,0.80); font-size: 1.05rem; line-height: 1.8; margin: 0 0 28px; }
+  .ocs-feature-dark .btn-indigo { background: #fff !important; color: #16006D !important; border-color: #fff !important; font-weight: 600 !important; }
+  .ocs-feature-dark .btn-indigo:hover { background: #8DE969 !important; color: #16006D !important; border-color: #8DE969 !important; }
+  .ocs-feature-dark .btn-indigo:hover svg path { stroke: #16006D !important; }
+  .ocs-feature-dark .btn-indigo svg path { stroke: #16006D !important; }
+  .ocs-feature-dark .btn-ghost { color: #fff !important; border-color: rgba(255,255,255,0.45) !important; }
+  .ocs-feature-dark .btn-ghost:hover { background: rgba(255,255,255,0.08) !important; border-color: #fff !important; color: #fff !important; }
+  .ocs-feature-dark .btn-ghost:hover svg path { stroke: #fff !important; }
+  .ocs-feature-dark .btn-ghost svg path { stroke: #fff !important; }
+  .ocs-feature-dark .feature-dark-photo { width: 100%; max-width: 480px; height: 340px; border-radius: 16px; display: block; object-fit: cover; object-position: center; box-shadow: 0 24px 64px -16px rgba(0,0,0,0.45); }
+  .ocs-feature-dark .feature-dark-credit { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin: 10px 0 0; text-align: right; max-width: 480px; }
+
   /* Footer + nav colors come from ocs-theme.css */
 </style>
 <link rel="stylesheet" href="assets/ocs-theme.css">
@@ -161,6 +191,9 @@
           View on GitHub
         </a>
       </div>
+    </div>
+    <div class="hero-product">
+      <img src="assets/images/platform-dashboard.png" alt="Open Chat Studio dashboard with team analytics, bot management, and a live chat conversation on mobile" />
     </div>
   </div>
 </section>
@@ -317,14 +350,14 @@
   </div>
 </section>
 
-<!-- ───── THE COMMUNITY ───── -->
-<section class="section" style="background:#fff;" id="community-home">
+<!-- ───── THE COMMUNITY (dark feature break) ───── -->
+<section class="section ocs-feature-dark" id="community-home">
   <div class="container">
     <div class="community-home-grid">
       <div>
         <span class="eyebrow">THE COMMUNITY</span>
         <h2 class="section-title">Open, and<br><em>built with the community</em></h2>
-        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;margin:0 0 28px;">
+        <p class="feature-dark-lead">
           Fully open source and shaped by the people using it: researchers, developers, and global health organizations building with it today.
         </p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
@@ -333,8 +366,8 @@
         </div>
       </div>
       <div>
-        <img src="assets/images/pachi-malawi.png" alt="PACHI Malawi community health workers" style="width:100%;max-width:420px;height:300px;border-radius:16px;display:block;object-fit:cover;object-position:center;">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.06em;color:var(--muted-soft);margin:8px 0 0;text-align:right;max-width:420px;">Photo: PACHI Malawi</p>
+        <img src="assets/images/pachi-malawi.jpg" alt="PACHI Malawi community health workers" class="feature-dark-photo">
+        <p class="feature-dark-credit">Photo: PACHI Malawi</p>
       </div>
     </div>
   </div>
