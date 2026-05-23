@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="assets/images/ocs-favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Open Chat Studio: AI Chatbots for Global Health</title>
+<title>Open Chat Studio by Dimagi</title>
 <meta name="description" content="An open-source platform for building and deploying AI chatbots, designed to bring the benefits of AI to global development.">
 
 <meta property="og:type" content="website">
@@ -12,7 +12,42 @@
 <meta property="og:title" content="Open Chat Studio: AI Chatbots for Global Health">
 <meta property="og:description" content="An open-source platform for building and deploying AI chatbots for global development and social impact.">
 <meta property="og:image" content="assets/images/uc-personas.jpg">
-<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dimagi.com/open-chat-studio/#organization",
+      "name": "Open Chat Studio",
+      "alternateName": "Open Chat Studio by Dimagi",
+      "url": "https://dimagi.com/open-chat-studio/",
+      "description": "An open-source platform for building and deploying AI chatbots, designed to bring the benefits of AI to global development.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Dimagi, Inc.",
+        "url": "https://dimagi.com/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dimagi.com/open-chat-studio/#website",
+      "url": "https://dimagi.com/open-chat-studio/",
+      "name": "Open Chat Studio",
+      "publisher": { "@id": "https://dimagi.com/open-chat-studio/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Open Chat Studio",
+      "operatingSystem": "Web",
+      "applicationCategory": "WebApplication",
+      "url": "https://dimagi.com/open-chat-studio/",
+      "publisher": { "@id": "https://dimagi.com/open-chat-studio/#organization" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -132,6 +167,7 @@
 <link rel="stylesheet" href="assets/ocs-theme.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
 <div class="nav-wrap">
@@ -141,7 +177,7 @@
         <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
-        <a href="index.html" class="nav-active">Overview</a>
+        <a href="index.html" class="nav-active" aria-current="page">Overview</a>
         <a href="platform/index.html">Platform</a>
         <a href="applications/index.html">Applications</a>
         <a href="about/index.html">About</a>
@@ -158,7 +194,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero-ocs hero-home">
+<section id="main" class="hero-ocs hero-home">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-inner">
@@ -373,7 +409,7 @@
         <div class="logo" style="gap:10px;">
           <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
         </div>
-        <p>Open-source AI chatbots for global development, powered by Dimagi.</p>
+        <p>Open-source AI chatbots for global development.</p>
       </div>
       <div class="footer-col">
         <h5>Explore</h5>
@@ -391,7 +427,7 @@
           <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
           <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-          <li><a href="contact/index.html">Contact Us</a></li>
+          <li><a href="contact/index.html">Contact us</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -399,14 +435,17 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span>&copy; 2026 DIMAGI, INC.</span>
       <span style="display:flex;gap:24px;flex-wrap:wrap;">
         <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
         <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.com/terms-aup/" target="_blank" rel="noopener">Acceptable Use Policy</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
       </span>
     </div>
   </div>

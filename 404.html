@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Not Found | Open Chat Studio</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/ocs-theme.css">
+<style>
+  .err-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .err-hero {
+    flex: 1;
+    background: #009090;
+    display: flex;
+    align-items: center;
+    padding: 80px 0 100px;
+  }
+  .err-inner {
+    max-width: 600px;
+  }
+  .err-code {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 24px;
+  }
+  .err-title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+  .err-title strong {
+    font-weight: 700;
+    color: #B2F0ED;
+  }
+  .err-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin: 0 0 40px;
+    max-width: 460px;
+  }
+  .err-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .err-links {
+    background: var(--paper);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+  .err-links-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+  .err-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .err-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--paper);
+    transition: border-color 150ms, background 150ms;
+  }
+  .err-nav a:hover {
+    border-color: #009090;
+    color: #009090;
+    background: var(--paper-2);
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="err-page">
+
+  <div class="nav-wrap">
+    <div class="container">
+      <nav class="primary">
+        <a class="logo" href="index.html">
+          <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Overview</a>
+          <a href="platform/index.html">Platform</a>
+          <a href="applications/index.html">Applications</a>
+          <a href="about/index.html">About</a>
+        </div>
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="contact/index.html">Contact</a>
+          <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
+        </div>
+        <button class="nav-hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <div id="main" class="err-hero on-dark">
+    <div class="container">
+      <div class="err-inner">
+        <p class="err-code">404 / Page not found</p>
+        <h1 class="err-title">This page <strong>doesn't exist.</strong></h1>
+        <p class="err-desc">The link may be outdated or mistyped. Try heading back to the homepage or one of the pages below.</p>
+        <div class="err-actions">
+          <a class="btn btn-white btn-arrow" href="index.html">Go to homepage</a>
+          <a class="btn btn-ghost" href="contact/index.html">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="err-links">
+    <div class="container">
+      <p class="err-links-label">Quick links</p>
+      <div class="err-nav">
+        <a href="platform/index.html">Platform</a>
+        <a href="applications/index.html">Applications</a>
+        <a href="about/index.html">About</a>
+        <a href="open-opportunities/index.html">Open Opportunities</a>
+        <a href="contact/index.html">Contact us</a>
+        <a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="gap:10px;">
+            <img src="assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+          </div>
+          <p>Open-source AI chatbots for global development.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="platform/index.html">Platform</a></li>
+            <li><a href="applications/index.html">Applications</a></li>
+            <li><a href="about/index.html">About</a></li>
+            <li><a href="open-opportunities/index.html">Open Opportunities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
+            <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
+            <li><a href="contact/index.html">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Dimagi</h5>
+          <ul>
+            <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+            <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+            <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 DIMAGI, INC.</span>
+        <span style="display:flex;gap:24px;flex-wrap:wrap;">
+          <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
+          <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+          <a href="https://dimagi.com/terms-aup/" target="_blank" rel="noopener">Acceptable Use Policy</a>
+          <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

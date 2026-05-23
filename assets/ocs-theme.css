@@ -37,8 +37,8 @@ h1 em, h2 em, h3 em {
   font-style: normal !important;
 }
 
-/* Eyebrow labels: light grey body text with a green "//" marker (rendered
-   by ::before so the // is not part of the page text content).
+/* Eyebrow labels: light grey body text with a green bar marker (rendered
+   by ::before so the line is not part of the page text content).
    On purple backgrounds the whole eyebrow flips to green via overrides below. */
 .eyebrow,
 .ds-eyebrow {
@@ -46,15 +46,10 @@ h1 em, h2 em, h3 em {
 }
 .eyebrow::before,
 .ds-eyebrow::before {
-  content: "//" !important;
-  background: transparent !important;
-  width: auto !important;
-  height: auto !important;
-  color: var(--ocs-green) !important;
-  font-family: var(--mono) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0 !important;
-  line-height: 1 !important;
+  content: '' !important;
+  background: var(--ocs-green) !important;
+  width: 26px !important;
+  height: 1px !important;
 }
 
 /* ── Primary CTA: deep purple, hover flips to green w/ purple text ── */
@@ -100,6 +95,12 @@ h1 em, h2 em, h3 em {
 }
 .nav-wrap .logo img {
   filter: none !important;
+  opacity: 1 !important;
+  transition: filter 220ms ease, opacity 220ms ease !important;
+}
+.nav-wrap .logo:hover img,
+.nav-wrap .logo:focus-visible img {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(45%) saturate(534%) hue-rotate(54deg) brightness(99%) contrast(89%) !important;
   opacity: 1 !important;
 }
 .nav-wrap .nav-links {
@@ -190,7 +191,7 @@ h1 em, h2 em, h3 em {
 }
 .hero-ocs .hero-sub { color: rgba(22,0,109,0.75) !important; }
 .hero-ocs .eyebrow { color: #9DA3B5 !important; }
-.hero-ocs .eyebrow::before { background: transparent !important; }
+.hero-ocs .eyebrow::before { background: #9DA3B5 !important; }
 .hero-ocs .btn-indigo {
   background: var(--ocs-purple) !important;
   color: #fff !important;
@@ -320,7 +321,7 @@ section[style*="background: #16006D"],
 }
 .ocs-feature-dark .container { position: relative; z-index: 1; }
 .ocs-feature-dark .eyebrow { color: var(--ocs-green) !important; }
-.ocs-feature-dark .eyebrow::before { color: var(--ocs-green) !important; background: transparent !important; }
+.ocs-feature-dark .eyebrow::before { background: var(--ocs-green) !important; }
 .ocs-feature-dark .section-title { color: #fff !important; }
 .ocs-feature-dark .section-title em { color: var(--ocs-green) !important; -webkit-text-fill-color: var(--ocs-green) !important; background: none !important; font-weight: 600 !important; font-style: normal !important; }
 .ocs-feature-dark .feature-dark-lead { color: rgba(255,255,255,0.80); font-size: 1.05rem; line-height: 1.8; margin: 0 0 28px; }
@@ -347,7 +348,7 @@ section#comparison .eyebrow {
   font-weight: 700 !important;
 }
 section#comparison .eyebrow::before {
-  color: var(--ocs-green) !important;
+  background: var(--ocs-green) !important;
 }
 section#comparison h2,
 section#comparison h2.section-title {
@@ -426,7 +427,7 @@ section[style*="background: #16006D"] .eyebrow {
 .ds-card[style*="background:#16006D"] .eyebrow::before,
 section[style*="background:#16006D"] .eyebrow::before,
 section[style*="background: #16006D"] .eyebrow::before {
-  background: transparent !important;
+  background: #9DA3B5 !important;
 }
 
 /* Feature-story bullet markers — purple instead of legacy amber */

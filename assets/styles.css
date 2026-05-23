@@ -45,6 +45,27 @@
   --radius-lg: 22px;
 }
 * { box-sizing: border-box; }
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 8px;
+  z-index: 100;
+  background: #fff;
+  color: var(--indigo);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  transition: top 150ms ease;
+}
+.skip-link:focus {
+  top: 8px;
+  outline: 2px solid var(--indigo);
+  outline-offset: 2px;
+}
 html, body { margin: 0; padding: 0; }
 body {
   font-family: var(--sans);
@@ -106,18 +127,17 @@ h1 em, h2 em, h3 em {
   background-clip: text;
 }
 
-/* ---- EYEBROW (mono, bar prefix) ---- */
+/* ---- EYEBROW (sans, bar prefix) ---- */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--indigo);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .eyebrow::before {
   content: '';
@@ -2390,7 +2410,7 @@ footer {
   margin: 0 0 22px;
 }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
-.footer-col li { margin-bottom: 12px; }
+.footer-col li { margin-bottom: 6px; }
 .footer-col a { color: rgba(255,255,255,0.65); transition: color 120ms; }
 .footer-col a:hover { color: var(--paper); }
 .footer-badges {
