@@ -5,13 +5,13 @@
 <link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact | Open Chat Studio</title>
-<meta name="description" content="Get in touch with the Open Chat Studio team to schedule a walkthrough, ask about deployments, or join the community.">
+<meta name="description" content="Reach out to the Open Chat Studio team to learn more, collaborate on a project, or join the open-source community.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/open-chat-studio/contact/">
 <link rel="canonical" href="https://dimagi.com/open-chat-studio/contact/">
 <meta property="og:title" content="Contact | Open Chat Studio">
-<meta property="og:description" content="Get in touch with the Open Chat Studio team to schedule a walkthrough, ask about deployments, or join the community.">
+<meta property="og:description" content="Reach out to the Open Chat Studio team to learn more, collaborate on a project, or join the open-source community.">
 <meta property="og:image" content="../assets/images/ocs-device-lineup.png">
 
 <script type="application/ld+json">
@@ -43,7 +43,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=1">
 
 <style>
   :root {
@@ -213,7 +213,7 @@
   .form-fallback strong { color: var(--ocs-indigo); font-weight: 600; }
   .form-fallback a { color: var(--ocs-indigo); text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="../assets/ocs-theme.css">
+<link rel="stylesheet" href="../assets/ocs-theme.css?v=1">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -226,16 +226,16 @@
         <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
-        <a href="../index.html">Overview</a>
-        <a href="../platform/index.html">Platform</a>
-        <a href="../applications/index.html">Applications</a>
-        <a href="../about/index.html">About</a>
+        <a href="../index.html">Open Chat Studio</a>
+        <a href="../applications/index.html">Use Cases</a>
+        <a href="../about/index.html">Community</a>
+        <a href="index.html" class="nav-active" aria-current="page">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost nav-active" href="index.html">Contact</a>
+        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -248,8 +248,8 @@
     <div class="contact-stack">
 
       <div class="contact-intro">
-        <h1>Get In <em>Touch</em></h1>
-        <p>Tell us what you're looking for and our team will be in touch.</p>
+        <h1>Let's <em>collaborate</em></h1>
+        <p>Tell us what you'd like to build, deploy, or research with Open Chat Studio, and we'll be in touch to explore how we can work together.</p>
         <p>Fill in the form below, or email us at <a href="mailto:ocs-info@dimagi.com">ocs-info@dimagi.com</a>.</p>
       </div>
 
@@ -285,26 +285,25 @@
         <p>Open-source AI chatbots for global development.</p>
       </div>
       <div class="footer-col">
-        <h5>Explore</h5>
+        <h2>About</h2>
         <ul>
-          <li><a href="../index.html">Overview</a></li>
-          <li><a href="../platform/index.html">Platform</a></li>
-          <li><a href="../applications/index.html">Applications</a></li>
-          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../index.html">Open Chat Studio</a></li>
+          <li><a href="../applications/index.html">Use Cases</a></li>
+          <li><a href="../about/index.html">Community</a></li>
           <li><a href="../open-opportunities/index.html">Open Opportunities</a></li>
+          <li><a href="index.html" aria-current="page">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <ul>
           <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
           <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-          <li><a href="index.html" aria-current="page">Contact us</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Dimagi</h5>
+        <h2>Dimagi</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
@@ -353,14 +352,19 @@
   var ham = document.querySelector('.nav-hamburger');
   if (ham) {
     ham.addEventListener('click', function () {
-      this.classList.toggle('is-open');
+      var open = this.classList.toggle('is-open');
       document.querySelector('.nav-links').classList.toggle('is-open');
       document.querySelector('.nav-cta').classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
   }
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     a.addEventListener('click', function () {
-      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      var h = document.querySelector('.nav-hamburger');
+      h.classList.remove('is-open');
+      h.setAttribute('aria-expanded', 'false');
+      h.setAttribute('aria-label', 'Open menu');
       document.querySelector('.nav-links').classList.remove('is-open');
       document.querySelector('.nav-cta').classList.remove('is-open');
     });

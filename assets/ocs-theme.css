@@ -162,7 +162,7 @@ h1 em, h2 em, h3 em {
 
 /* ── Hero (home only): subtle pale→turquoise vertical gradient ── */
 .hero-ocs.hero-home {
-  background: linear-gradient(180deg, var(--ocs-turquoise-pale) 0%, var(--ocs-turquoise) 100%) !important;
+  background: linear-gradient(180deg, var(--ocs-turquoise) 0%, var(--ocs-turquoise) 75%, var(--ocs-turquoise-pale) 100%) !important;
   border-bottom: none !important;
   position: relative;
   overflow: hidden;
@@ -514,7 +514,7 @@ footer {
   background: var(--ocs-purple) !important;
   border-top: none !important;
 }
-footer h5 { color: #fff !important; }
+footer h2 { color: #fff !important; }
 footer a { color: rgba(255,255,255,0.75) !important; }
 footer a:hover { color: var(--ocs-green) !important; }
 footer p { color: rgba(255,255,255,0.70) !important; }

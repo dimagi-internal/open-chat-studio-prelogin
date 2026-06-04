@@ -191,6 +191,7 @@ nav.primary {
   display: flex; gap: 28px; align-items: center;
   font-size: 14px; font-weight: 300;
   letter-spacing: -0.005em;
+  margin-left: auto; margin-right: 36px;
 }
 .nav-links a { color: rgba(255,255,255,0.75); transition: color 120ms; }
 .nav-links a:hover { color: #fff; }
@@ -2402,7 +2403,7 @@ footer {
 .footer-brand .logo { color: var(--paper); margin-bottom: 20px; }
 .footer-brand .logo-img { height: 44px; }
 .footer-brand p { color: rgba(255,255,255,0.52); }
-.footer-col h5 {
+.footer-col h2 {
   color: var(--paper);
   font-family: var(--mono);
   font-size: 11px; font-weight: 600;
@@ -2413,6 +2414,8 @@ footer {
 .footer-col li { margin-bottom: 6px; }
 .footer-col a { color: rgba(255,255,255,0.65); transition: color 120ms; }
 .footer-col a:hover { color: var(--paper); }
+/* External-link marker: any footer link that opens a new tab gets a ↗ */
+.footer-col a[target="_blank"]::after { content: " \2197"; font-size: 0.82em; opacity: 0.6; }
 .footer-badges {
   display: flex;
   flex-direction: row;
@@ -3433,6 +3436,7 @@ footer {
     z-index: 200;
     flex-direction: column;
     gap: 0;
+    margin: 0;
     background: #4d62c8;
     border-top: 1px solid rgba(255,255,255,0.14);
     box-shadow: 0 12px 32px -8px rgba(10,6,32,0.30);

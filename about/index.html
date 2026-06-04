@@ -4,19 +4,19 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About | Open Chat Studio</title>
-<meta name="description" content="Open Chat Studio is Dimagi's open-source platform for building and deploying AI chatbots, built to make AI work for everyone, everywhere.">
+<title>Community | Open Chat Studio</title>
+<meta name="description" content="Open Chat Studio is built in the open with a global community of developers, implementers, and researchers. Read the code, run your own instance, and contribute back.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/open-chat-studio/about/">
-<meta property="og:title" content="About | Open Chat Studio">
-<meta property="og:description" content="Open Chat Studio is Dimagi's open-source platform for building, evaluating, and deploying AI chatbots, built to make AI work for everyone, everywhere.">
+<meta property="og:title" content="Community | Open Chat Studio">
+<meta property="og:description" content="Open Chat Studio is built in the open with a global community of developers, implementers, and researchers. Read the code, run your own instance, and contribute back.">
 <meta property="og:image" content="../assets/images/zvandiri-catscoach.webp">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=1">
 
 <style>
   :root {
@@ -37,27 +37,17 @@
   .partner-scroll-vert-track { display:flex; flex-direction:column; animation:ocs-scroll-up 30s linear infinite; }
   .partner-scroll-vert-track:hover { animation-play-state:paused; }
   @keyframes ocs-scroll-up { from { transform:translateY(0); } to { transform:translateY(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .partner-scroll-vert-track { animation: none; } }
   .partner-scroll-vert-name { padding:14px 0; font-family:var(--mono); font-size:14px; font-weight:500; letter-spacing:0.04em; color:rgba(22,0,109,0.55); text-align:center; border-bottom:1px solid rgba(184,164,255,0.14); }
+  .partner-vert-card { background:#fff; border:1px solid rgba(22,0,109,0.08); border-radius:16px; box-shadow:0 8px 28px -12px rgba(22,0,109,0.14); height:380px; display:flex; flex-direction:column; padding:24px 22px; overflow:hidden; }
+  .partner-vert-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(22,0,109,0.45); margin:0 0 14px; text-align:center; }
 
   /* ── Podcast card (community section) ── */
   .podcast-comm-card { background:#fff; border-radius:14px; overflow:hidden; text-decoration:none; color:inherit; display:grid; grid-template-columns:160px 1fr; box-shadow:0 4px 24px -6px rgba(22,0,109,0.10); border:1px solid rgba(22,0,109,0.06); transition:box-shadow 200ms,transform 200ms; }
   .podcast-comm-card:hover { box-shadow:0 12px 40px -8px rgba(22,0,109,0.18); transform:translateY(-3px); color:inherit; }
-  .podcast-comm-card > img { width:100%; height:160px; object-fit:cover; object-position:20% top; display:block; }
+  .podcast-comm-card > img { width:100%; height:150px; object-fit:contain; object-position:center; display:block; background:#fff; padding:18px 20px; }
   .podcast-comm-body { padding:20px 28px; display:flex; flex-direction:column; gap:8px; justify-content:center; }
 
-  /* ── Open Opportunities Mockup ── */
-  .oo-mockup { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 28px 72px -16px rgba(0,0,0,0.55); }
-  .oo-mockup-hdr { background:#fff; border-bottom:3px solid #16006D; padding:26px 26px 20px; }
-  .oo-mockup-lbl { font-family:'JetBrains Mono',monospace; font-size:7.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#16006D; display:block; margin-bottom:10px; }
-  .oo-mockup-ttl { font-size:1rem; font-weight:700; color:#16006D; letter-spacing:-0.02em; line-height:1.25; margin:0 0 14px; }
-  .oo-mockup-meta { display:flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:7.5px; color:#999; letter-spacing:0.04em; padding-top:10px; border-top:1px solid #ebebeb; flex-wrap:wrap; }
-  .oo-mockup-sep { color:#ccc; }
-  .oo-mockup-body { padding:18px 26px 22px; background:#ffffff; }
-  .oo-mockup-track-lbl { font-family:'JetBrains Mono',monospace; font-size:7.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#aaa; margin-bottom:10px; }
-  .oo-mockup-tracks { display:flex; flex-direction:column; gap:8px; }
-  .oo-mockup-track { display:flex; align-items:center; gap:14px; background:#fff; border:1px solid rgba(184,164,255,0.16); border-radius:6px; padding:11px 14px; }
-  .oo-mockup-track-num { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; color:#16006D; opacity:0.65; flex-shrink:0; }
-  .oo-mockup-track-name { font-size:0.83rem; font-weight:500; color:#16006D; }
 
   /* Footer + nav colors come from ocs-theme.css */
 
@@ -106,6 +96,30 @@
   .gh-stat svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; flex-shrink: 0; }
   .gh-lang-dot { width: 10px; height: 10px; border-radius: 50%; background: #3572A5; display: inline-block; flex-shrink: 0; }
 
+  /* ── Combined open-source + community: intro + podcast ── */
+  .comm-combined-grid { display:grid; grid-template-columns:1fr 360px; gap:64px; align-items:center; margin-top:56px; }
+  @media (max-width:860px) { .comm-combined-grid { grid-template-columns:1fr; gap:40px; } }
+
+  /* ── "More than a tool": Digital Public Good buckets ── */
+
+  /* ── Get involved / Contribute grid ── */
+  .contribute-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+  .contribute-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:0; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 10px 30px -14px rgba(22,0,109,0.18); transition:transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; }
+  .contribute-card:hover { transform:translateY(-6px); box-shadow:0 26px 56px -18px rgba(22,0,109,0.32); border-color:rgba(22,0,109,0.18); }
+  /* Heavy eyebrow header band: icon + title share the top strip */
+  .contribute-card-head { display:flex; align-items:center; gap:15px; padding:22px 28px; background:linear-gradient(135deg,rgba(22,0,109,0.07) 0%,rgba(71,51,179,0.045) 100%); border-bottom:1px solid rgba(22,0,109,0.12); }
+  .contribute-card-icon { width:46px; height:46px; border-radius:13px; background:linear-gradient(135deg,#16006D 0%,#4733b3 100%); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 9px 20px -9px rgba(22,0,109,0.55); }
+  .contribute-card-icon svg { width:23px; height:23px; stroke:#fff; fill:none; stroke-width:1.8; }
+  .contribute-card-head h3 { font-size:0.82rem; font-weight:800; color:#16006D; margin:0; letter-spacing:0.07em; text-transform:uppercase; line-height:1.35; }
+  .contribute-card-body { display:flex; flex-direction:column; flex:1; padding:26px 28px 30px; }
+  .contribute-card p { font-size:0.92rem; color:var(--muted); line-height:1.7; margin:0 0 22px; flex:1; }
+  .contribute-card a { font-size:0.8rem; font-weight:700; color:#16006D; font-family:var(--mono); letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; margin-top:auto; }
+  .contribute-card a:hover { text-decoration:underline; }
+  .contribute-card-links { margin-top:auto; display:flex; flex-direction:column; gap:12px; align-items:flex-start; }
+  .contribute-card-links a { margin-top:0; }
+  @media (max-width:900px) { .contribute-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px) { .contribute-grid { grid-template-columns:1fr; } }
+
   /* ── Responsive ── */
   @media (max-width: 860px) {
     .hero-ocs .hero-grid { grid-template-columns: 1fr; }
@@ -117,7 +131,7 @@
     #open-opportunities .oo-mockup { display: none; }
   }
 </style>
-<link rel="stylesheet" href="../assets/ocs-theme.css">
+<link rel="stylesheet" href="../assets/ocs-theme.css?v=1">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -130,16 +144,16 @@
         <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
-        <a href="../index.html">Overview</a>
-        <a href="../platform/index.html">Platform</a>
-        <a href="../applications/index.html">Applications</a>
-        <a href="index.html" class="nav-active" aria-current="page">About</a>
+        <a href="../index.html">Open Chat Studio</a>
+        <a href="../applications/index.html">Use Cases</a>
+        <a href="index.html" class="nav-active" aria-current="page">Community</a>
+        <a href="../contact/index.html">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="../contact/index.html">Contact</a>
+        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -147,11 +161,11 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero-ocs">
+<section id="main" class="hero-ocs">
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">ABOUT</span>
+        <span class="eyebrow">COMMUNITY</span>
         <h1 class="hero-title">Built in the open. <em>Shaped by those it serves.</em></h1>
         <p class="hero-sub">Open source since day one, with developers, implementers, and researchers around the world building with it and contributing back.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
@@ -173,29 +187,21 @@
     <div class="os-section-grid">
       <div>
         <span class="eyebrow">OPEN SOURCE</span>
-        <h2 class="section-title">Built in the open, <em>since day one.</em></h2>
-        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;margin:24px 0 32px;">Read the code, run your own instance, submit a fix, or fork it for your context. No vendor lock-in, no black boxes. Built for the communities that need it most.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a class="btn btn-indigo btn-arrow" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">See on GitHub</a>
-        </div>
+        <h2 class="section-title">Open source, <em>end to end</em></h2>
+        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;margin:24px 0 32px;">Read the code, run your own instance, submit a fix, or fork it for your context. No vendor lock-in, no black boxes: Open Chat Studio is fully open source.</p>
+        <a class="btn btn-indigo btn-arrow" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">See on GitHub</a>
       </div>
       <div>
         <div class="gh-repo-card">
           <div class="gh-card-header">
-            <svg class="gh-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            <svg class="gh-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
             <span class="gh-repo-name">dimagi / <strong>open-chat-studio</strong></span>
           </div>
           <p class="gh-card-desc">An open-source platform for building, evaluating, and deploying AI chatbots in global health and development.</p>
           <div class="gh-card-stats">
-            <span class="gh-stat">
-              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span id="gh-stars-ocs">–</span>
-            </span>
-            <span class="gh-stat">
-              <svg viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="6" cy="3" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-              <span id="gh-forks-ocs">–</span>
-            </span>
             <span class="gh-stat"><span class="gh-lang-dot"></span> Python</span>
+            <span class="gh-stat">Django</span>
+            <span class="gh-stat">Self-hostable</span>
           </div>
         </div>
       </div>
@@ -203,112 +209,53 @@
   </div>
 </section>
 
-<!-- ───── THE COMMUNITY ───── -->
-<section class="section" style="background:#fff;padding-top:96px;padding-bottom:96px;" id="community">
+<!-- ───── COMMUNITY (Digital Public Good + ecosystem partners) ───── -->
+<section class="section" style="background:#ffffff;padding-top:96px;padding-bottom:96px;" id="community">
   <div class="container">
-    <div class="community-3col" style="display:grid;grid-template-columns:1fr 260px;gap:72px;align-items:stretch;">
-
-      <!-- Left: heading + intro + podcast card -->
+    <div class="comm-combined-grid">
       <div>
-        <span class="eyebrow">THE COMMUNITY</span>
-        <h2 class="section-title">Co-created <em>with the social impact community</em></h2>
-        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;margin:0 0 32px;max-width:680px;">A growing network of multilateral agencies, research universities, and frontline health programs are building with Open Chat Studio.</p>
-        <a class="podcast-comm-card" href="https://open.spotify.com/episode/7Bma40sS9YwkF7TF8KTVvc" target="_blank" rel="noopener">
-          <img src="../assets/images/high-impact-growth-podcast.jpeg" width="279" height="180" alt="Open Chat Studio on the High Impact Growth Podcast">
-          <div class="podcast-comm-body">
-            <span class="eyebrow" style="margin-bottom:0;">HOW IT STARTED</span>
-            <h3 style="font-size:1.05rem;font-weight:600;color:#16006D;margin:0;line-height:1.35;">Open Chat Studio on the High Impact Growth Podcast</h3>
-            <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;margin:0;">How Open Chat Studio emerged from 20 years of field experience, and why open-source infrastructure matters for AI in global health.</p>
-            <span style="font-size:0.78rem;font-weight:700;color:#16006D;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;">Listen now →</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Right: partner scroll spanning full section height -->
-      <div style="position:relative;">
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;background:#fff;padding:24px 20px;overflow:hidden;">
-        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(22,0,109,0.45);margin:0 0 12px;text-align:center;">Ecosystem Partners</p>
-        <div class="partner-scroll-vert-wrap">
-          <div class="partner-scroll-vert-track">
-            <div class="partner-scroll-vert-name">Shujaaz</div>
-            <div class="partner-scroll-vert-name">RAES</div>
-            <div class="partner-scroll-vert-name">KNCV Tuberculosis Foundation</div>
-            <div class="partner-scroll-vert-name">Sanofi</div>
-            <div class="partner-scroll-vert-name">Zvandiri</div>
-            <div class="partner-scroll-vert-name">Walimu</div>
-            <div class="partner-scroll-vert-name">United Nations Children's Fund</div>
-            <div class="partner-scroll-vert-name">Massachusetts General Hospital</div>
-            <div class="partner-scroll-vert-name">Univ. of California, Los Angeles</div>
-            <div class="partner-scroll-vert-name">Columbia University</div>
-            <div class="partner-scroll-vert-name">Ariadne Labs</div>
-            <div class="partner-scroll-vert-name">PACHI</div>
-            <div class="partner-scroll-vert-name">Save the Children</div>
-            <div class="partner-scroll-vert-name">World Health Organization / ESPEN</div>
-            <div class="partner-scroll-vert-name">Clear Global</div>
-            <div class="partner-scroll-vert-name">Gates Foundation</div>
-            <div class="partner-scroll-vert-name">Shujaaz</div>
-            <div class="partner-scroll-vert-name">RAES</div>
-            <div class="partner-scroll-vert-name">KNCV Tuberculosis Foundation</div>
-            <div class="partner-scroll-vert-name">Sanofi</div>
-            <div class="partner-scroll-vert-name">Zvandiri</div>
-            <div class="partner-scroll-vert-name">Walimu</div>
-            <div class="partner-scroll-vert-name">United Nations Children's Fund</div>
-            <div class="partner-scroll-vert-name">Massachusetts General Hospital</div>
-            <div class="partner-scroll-vert-name">Univ. of California, Los Angeles</div>
-            <div class="partner-scroll-vert-name">Columbia University</div>
-            <div class="partner-scroll-vert-name">Ariadne Labs</div>
-            <div class="partner-scroll-vert-name">PACHI</div>
-            <div class="partner-scroll-vert-name">Save the Children</div>
-            <div class="partner-scroll-vert-name">World Health Organization / ESPEN</div>
-            <div class="partner-scroll-vert-name">Clear Global</div>
-            <div class="partner-scroll-vert-name">Gates Foundation</div>
-          </div>
-        </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ───── OPEN OPPORTUNITIES ───── -->
-<section class="section ocs-feature-dark ocs-feature-dark--all-green" id="open-opportunities">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:center;">
-      <div>
-        <span class="eyebrow">OPEN OPPORTUNITIES</span>
-        <h2 class="section-title" style="margin-bottom:0;">Build with us. <em>Be part of what comes next.</em></h2>
-        <p class="feature-dark-lead">
-          Supported by the Gates Foundation, Dimagi is building a global ecosystem around Open Chat Studio, with paid deliverables available across three partner tracks.
-        </p>
-        <a class="btn btn-indigo btn-arrow" href="../open-opportunities/index.html">See open opportunities</a>
+        <span class="eyebrow">COMMUNITY</span>
+        <h2 class="section-title">Co-created with the <em>social impact community</em></h2>
+        <p style="color:var(--muted);font-size:1.05rem;line-height:1.8;margin:24px 0 32px;">A recognized Digital Public Good, sustained by a global community: a growing network of multilateral agencies, research universities, and frontline health programs is building with Open Chat Studio today, with a durable model built to reach the people who need it most.</p>
+        <a class="btn btn-indigo btn-arrow" href="https://open.spotify.com/episode/7Bma40sS9YwkF7TF8KTVvc" target="_blank" rel="noopener">Listen to the Origin Story</a>
       </div>
       <div>
-        <div class="oo-mockup">
-          <div class="oo-mockup-hdr">
-            <span class="oo-mockup-lbl">Request for Expression of Interest</span>
-            <h3 class="oo-mockup-ttl">Open Chat Studio Ecosystem Development Program</h3>
-            <div class="oo-mockup-meta">
-              <span>Dimagi</span><span class="oo-mockup-sep">·</span>
-              <span>Gates Foundation</span><span class="oo-mockup-sep">·</span>
-              <span>May 2026</span>
-            </div>
-          </div>
-          <div class="oo-mockup-body">
-            <div class="oo-mockup-track-lbl">Partner Tracks</div>
-            <div class="oo-mockup-tracks">
-              <div class="oo-mockup-track">
-                <span class="oo-mockup-track-num">01</span>
-                <span class="oo-mockup-track-name">Developer Partners</span>
-              </div>
-              <div class="oo-mockup-track">
-                <span class="oo-mockup-track-num">02</span>
-                <span class="oo-mockup-track-name">Implementation Partners</span>
-              </div>
-              <div class="oo-mockup-track">
-                <span class="oo-mockup-track-num">03</span>
-                <span class="oo-mockup-track-name">Research Partners</span>
-              </div>
+        <div class="partner-vert-card">
+          <p class="partner-vert-label">Ecosystem Partners</p>
+          <div class="partner-scroll-vert-wrap">
+            <div class="partner-scroll-vert-track">
+              <div class="partner-scroll-vert-name">Shujaaz</div>
+              <div class="partner-scroll-vert-name">RAES</div>
+              <div class="partner-scroll-vert-name">KNCV Tuberculosis Foundation</div>
+              <div class="partner-scroll-vert-name">Sanofi</div>
+              <div class="partner-scroll-vert-name">Zvandiri</div>
+              <div class="partner-scroll-vert-name">Walimu</div>
+              <div class="partner-scroll-vert-name">United Nations Children's Fund</div>
+              <div class="partner-scroll-vert-name">Massachusetts General Hospital</div>
+              <div class="partner-scroll-vert-name">Univ. of California, Los Angeles</div>
+              <div class="partner-scroll-vert-name">Columbia University</div>
+              <div class="partner-scroll-vert-name">Ariadne Labs</div>
+              <div class="partner-scroll-vert-name">PACHI</div>
+              <div class="partner-scroll-vert-name">Save the Children</div>
+              <div class="partner-scroll-vert-name">World Health Organization / ESPEN</div>
+              <div class="partner-scroll-vert-name">Clear Global</div>
+              <div class="partner-scroll-vert-name">Gates Foundation</div>
+              <div class="partner-scroll-vert-name">Shujaaz</div>
+              <div class="partner-scroll-vert-name">RAES</div>
+              <div class="partner-scroll-vert-name">KNCV Tuberculosis Foundation</div>
+              <div class="partner-scroll-vert-name">Sanofi</div>
+              <div class="partner-scroll-vert-name">Zvandiri</div>
+              <div class="partner-scroll-vert-name">Walimu</div>
+              <div class="partner-scroll-vert-name">United Nations Children's Fund</div>
+              <div class="partner-scroll-vert-name">Massachusetts General Hospital</div>
+              <div class="partner-scroll-vert-name">Univ. of California, Los Angeles</div>
+              <div class="partner-scroll-vert-name">Columbia University</div>
+              <div class="partner-scroll-vert-name">Ariadne Labs</div>
+              <div class="partner-scroll-vert-name">PACHI</div>
+              <div class="partner-scroll-vert-name">Save the Children</div>
+              <div class="partner-scroll-vert-name">World Health Organization / ESPEN</div>
+              <div class="partner-scroll-vert-name">Clear Global</div>
+              <div class="partner-scroll-vert-name">Gates Foundation</div>
             </div>
           </div>
         </div>
@@ -317,16 +264,58 @@
   </div>
 </section>
 
-<!-- ───── FINAL CTA ───── -->
-<section class="section" style="background:#D6EEF2;text-align:center;padding-top:96px;padding-bottom:96px;">
-  <div class="container" style="max-width:680px;">
-    <span class="eyebrow" style="justify-content:center;">GET IN TOUCH</span>
-    <h2 class="section-title" style="color:#16006D;margin-bottom:24px;">Join the teams building <em style="font-weight:600;background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI that works for everyone.</em></h2>
-    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
-      Contributing code, collaborating on research, or exploring a deployment, we'd love to hear from you.
-    </p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="../contact/index.html">Get in touch</a>
+<!-- ───── GET INVOLVED / COLLABORATE (consolidated) ───── -->
+<section class="section" style="background:#D6EEF2;padding-top:96px;padding-bottom:96px;" id="get-involved">
+  <div class="container">
+    <div style="max-width:680px;margin:0 auto;text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">COLLABORATE</span>
+      <h2 class="section-title" style="color:#16006D;margin-bottom:24px;">Join the teams building <em style="font-weight:600;background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI that works for everyone.</em></h2>
+      <p style="color:var(--muted);font-size:1.05rem;margin:0;line-height:1.8;">Contributing code, collaborating on research, or exploring a deployment, we'd love to hear from you.</p>
+    </div>
+    <div class="contribute-grid">
+      <div class="contribute-card">
+        <div class="contribute-card-head">
+          <span class="contribute-card-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </span>
+          <h3>Deploy &amp; contribute</h3>
+        </div>
+        <div class="contribute-card-body">
+          <p>Read the source, open an issue, or send a pull request, then self-host your own instance. Python, Django, a welcoming codebase, and no vendor lock-in.</p>
+          <div class="contribute-card-links">
+            <a href="https://docs.openchatstudio.com/tutorials/first_chatbot/" target="_blank" rel="noopener">Get Started Guide →</a>
+            <a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+      <div class="contribute-card">
+        <div class="contribute-card-head">
+          <span class="contribute-card-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3>Access open opportunities</h3>
+        </div>
+        <div class="contribute-card-body">
+          <p>Deploy with your community or partner on research. Paid opportunities are open now.</p>
+          <div class="contribute-card-links">
+            <a href="../open-opportunities/index.html">See open opportunities →</a>
+          </div>
+        </div>
+      </div>
+      <div class="contribute-card">
+        <div class="contribute-card-head">
+          <span class="contribute-card-icon">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <h3>Collaborate on a project</h3>
+        </div>
+        <div class="contribute-card-body">
+          <p>Have a deployment, a partnership, or an idea in mind? Reach out and let's explore building it together.</p>
+          <div class="contribute-card-links">
+            <a href="../contact/index.html">Contact us →</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -342,29 +331,29 @@
         <p>Open-source AI chatbots for global development.</p>
       </div>
       <div class="footer-col">
-        <h5>Explore</h5>
+        <h2>About</h2>
         <ul>
-          <li><a href="../index.html">Overview</a></li>
-          <li><a href="../platform/index.html">Platform</a></li>
-          <li><a href="../applications/index.html">Applications</a></li>
-          <li><a href="index.html">About</a></li>
+          <li><a href="../index.html">Open Chat Studio</a></li>
+          <li><a href="../applications/index.html">Use Cases</a></li>
+          <li><a href="index.html">Community</a></li>
           <li><a href="../open-opportunities/index.html">Open Opportunities</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <ul>
           <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
           <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-          <li><a href="../contact/index.html">Contact us</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Dimagi</h5>
+        <h2>Dimagi</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
         </ul>
       </div>
     </div>
@@ -383,9 +372,11 @@
   var ham = document.querySelector('.nav-hamburger');
   if (ham) {
     ham.addEventListener('click', function () {
-      this.classList.toggle('is-open');
+      var open = this.classList.toggle('is-open');
       document.querySelector('.nav-links').classList.toggle('is-open');
       document.querySelector('.nav-cta').classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
   }
 })();

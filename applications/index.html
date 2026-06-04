@@ -4,19 +4,19 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Applications | Open Chat Studio</title>
-<meta name="description" content="Open Chat Studio powers AI programs across every level: for individuals, frontline workers, and organizations working to improve global development.">
+<title>Use Cases | Open Chat Studio</title>
+<meta name="description" content="See Open Chat Studio in action: real work from the community and partners, across every level, for individuals, frontline workers, and organizations working to improve global development.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/open-chat-studio/applications/">
-<meta property="og:title" content="Applications | Open Chat Studio">
-<meta property="og:description" content="Open Chat Studio powers a growing portfolio of AI applications: for individuals, frontline workers, and the organizations working to improve global development.">
+<meta property="og:title" content="Use Cases | Open Chat Studio">
+<meta property="og:description" content="See Open Chat Studio in action: a growing showcase of work from the community and partners, for individuals, frontline workers, and the organizations working to improve global development.">
 <meta property="og:image" content="../assets/images/uc-personas.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=1">
 
 <style>
   :root {
@@ -43,8 +43,7 @@
     position: sticky;
     top: 76px;
     z-index: 40;
-    background: #A8DEE5 !important;
-    border-bottom: 1px solid rgba(22,0,109,0.10);
+    background: #16006D !important;
   }
   .jump-nav-inner {
     display: flex;
@@ -57,17 +56,18 @@
   .jump-link {
     padding: 18px 28px;
     font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    color: rgba(22,0,109,0.78);
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
     text-decoration: none;
-    border-bottom: 2px solid transparent;
     white-space: nowrap;
-    transition: color 150ms, border-color 150ms, font-weight 120ms;
+    transition: color 150ms;
     flex-shrink: 0;
   }
-  .jump-link:hover { color: #16006D; font-weight: 700; }
-  .jump-link.active { color: #16006D; border-bottom-color: #16006D; font-weight: 700; }
+  .jump-link:hover { color: #8DE969; }
+  .jump-link.active { color: #fff; font-weight: 700; }
 
   /* ── Use Case Sections ── */
 
@@ -96,11 +96,12 @@
   .uc-panel-demo-heading { font-size:1.3rem; font-weight:300; letter-spacing:-0.02em; color:var(--ink); margin:0 0 12px; line-height:1.3; }
   .uc-panel-demo-desc { font-size:0.95rem; color:var(--muted); line-height:1.75; margin:0; }
   .bot-card {
-    background:#F5F1FF; border:1px solid rgba(184,164,255,0.16); border-radius:var(--radius-lg);
+    background:#fff; border:1px solid rgba(22,0,109,0.12); border-radius:var(--radius-lg);
     display:flex; flex-direction:column; text-decoration:none; color:inherit;
-    overflow:hidden; transition:box-shadow 200ms,transform 200ms;
+    overflow:hidden; box-shadow:0 12px 32px -14px rgba(22,0,109,0.28);
+    transition:box-shadow 220ms ease,transform 220ms ease,border-color 220ms ease;
   }
-  .bot-card:hover { box-shadow:0 8px 32px -8px rgba(184,164,255,0.24); transform:translateY(-3px); color:inherit; }
+  .bot-card:hover { box-shadow:0 28px 60px -18px rgba(22,0,109,0.45); transform:translateY(-7px); border-color:rgba(22,0,109,0.3); color:inherit; }
   .bot-card-head { padding:18px 22px; display:flex; align-items:center; gap:12px; }
   .bot-card-head svg { width:22px; height:22px; flex-shrink:0; }
   .bot-card-head-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.8); }
@@ -108,8 +109,8 @@
   .bot-card h3 { font-size:1.05rem; font-weight:500; margin:0; color:var(--ink); }
   .bot-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; flex:1; margin:0; }
   .bot-card-footer { padding-top:14px; border-top:1px solid rgba(184,164,255,0.14); }
-  .bot-card-link { font-size:0.78rem; font-weight:700; color:#16006D; display:flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; transition:gap 150ms; }
-  .bot-card:hover .bot-card-link { gap:10px; }
+  .bot-card-link { font-size:0.74rem; font-weight:700; color:#fff; background:#16006D; display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; letter-spacing:0.08em; text-transform:uppercase; transition:gap 150ms, background 150ms; padding:9px 18px; border-radius:100px; }
+  .bot-card:hover .bot-card-link { gap:11px; background:#2a1488; }
   .bot-disclaimer-sm { font-size:0.75rem; color:var(--muted); opacity:0.6; line-height:1.5; margin-top:10px; }
   .uc-bot-label {
     font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
@@ -125,14 +126,13 @@
   }
   .bot-card-h .bot-card-head svg { width:26px; height:26px; }
   .bot-card-h .bot-card-head-label { text-align:center; font-size:8.5px; line-height:1.4; }
-  .uc-panel-intro { background:#E8F4F7; padding:72px 0 72px; border-top:1px solid var(--line); }
+  .uc-panel-intro { background:#D6EEF2; padding:72px 0 72px; border-top:1px solid rgba(22,0,109,0.10); }
   .uc-panel-intro-grid { display:grid; grid-template-columns:340px 1fr; gap:72px; align-items:center; }
   .uc-panel-graphic-col { display:flex; justify-content:center; align-items:flex-end; }
   .uc-panel-graphic { max-height:380px; width:auto; max-width:100%; }
-  .uc-panel-title { font-size:clamp(2rem,3.2vw,3rem); font-weight:200; letter-spacing:-0.035em; color:var(--ink); margin:0 0 20px; line-height:1.05; }
-  .uc-panel-title em { font-style:normal; color:#16006D; font-weight:600; }
+  .uc-panel-title { font-size:clamp(2.5rem,4.2vw,3.75rem); font-weight:200; letter-spacing:0.01em; text-transform:uppercase; color:#16006D; margin:0 0 20px; line-height:1.04; }
   .uc-panel-question { font-size:1.1rem; color:#16006D; font-style:italic; font-weight:400; margin:0 0 16px; line-height:1.55; padding-left:18px; border-left:3px solid rgba(184,164,255,0.45); }
-  .uc-panel-desc { font-size:1.05rem; color:var(--muted); line-height:1.75; margin:0; }
+  .uc-panel-desc { font-size:1.05rem; color:rgba(22,0,109,0.78); line-height:1.75; margin:0; }
   .uc-panel-story { background:#ffffff; padding:64px 0 72px; }
   .ds-card { border-radius:20px; padding:56px 64px; overflow:hidden; }
 
@@ -213,9 +213,14 @@
     .ds-card { padding:36px 28px; border-radius:14px; }
   }
 
+  /* Compact the scrollable jump-nav on small screens so more of it fits */
+  @media (max-width:560px) {
+    .jump-link { padding:15px 18px; font-size:13px; letter-spacing:0.06em; }
+  }
+
   /* Button + nav + footer colors come from ocs-theme.css */
 </style>
-<link rel="stylesheet" href="../assets/ocs-theme.css">
+<link rel="stylesheet" href="../assets/ocs-theme.css?v=1">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -228,16 +233,16 @@
         <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
-        <a href="../index.html">Overview</a>
-        <a href="../platform/index.html">Platform</a>
-        <a href="index.html" class="nav-active" aria-current="page">Applications</a>
-        <a href="../about/index.html">About</a>
+        <a href="../index.html">Open Chat Studio</a>
+        <a href="index.html" class="nav-active" aria-current="page">Use Cases</a>
+        <a href="../about/index.html">Community</a>
+        <a href="../contact/index.html">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="../contact/index.html">Contact</a>
+        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -245,13 +250,13 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero-ocs">
+<section id="main" class="hero-ocs">
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">APPLICATIONS</span>
-        <h1 class="hero-title">AI programs built for <em>every context</em></h1>
-        <p class="hero-sub">From the people receiving care, to the workers delivering it, to the organizations coordinating it. AI built for every level.</p>
+        <span class="eyebrow">WHO USES OCS?</span>
+        <h1 class="hero-title">Open Chat Studio, <em>in the real world</em></h1>
+        <p class="hero-sub">Real work from across the community and our partners. From the people receiving care, to the workers delivering it, to the organizations coordinating it. AI built for every level.</p>
       </div>
       <div class="hero-photo-wrap">
         <img src="../assets/images/uc-personas.jpg" width="1014" height="842" alt="Real chatbot personas from Open Chat Studio deployments" style="object-fit:contain;">
@@ -285,7 +290,7 @@
             <img src="../assets/images/uc-individuals-graphic.webp" width="1200" height="1200" alt="Illustration: woman texting on her phone" class="uc-panel-graphic">
           </div>
           <div>
-            <h2 class="uc-panel-title">For <em>Individuals</em></h2>
+            <h2 class="uc-panel-title">Individuals</h2>
             <p class="uc-panel-question">How might AI work for anyone, anywhere?</p>
             <p class="uc-panel-desc">Chatbots for behavior change communication, health coaching, and personal wellbeing, reaching people in their own language on the platforms they already use.</p>
             <div style="margin-top:32px;">
@@ -359,7 +364,7 @@
             <img src="../assets/images/uc-flw-sari.webp" width="792" height="1186" alt="Illustration: frontline health worker in a sari" class="uc-panel-graphic">
           </div>
           <div>
-            <h2 class="uc-panel-title">For <em>Frontline Workers</em></h2>
+            <h2 class="uc-panel-title">Frontline Workers</h2>
             <p class="uc-panel-question">How might AI support better jobs and better outcomes?</p>
             <p class="uc-panel-desc">Personal coaches that help community health workers build capability through role-play, case-based learning, and structured feedback, deployed on the messaging apps they already use.</p>
             <div style="margin-top:32px;">
@@ -434,7 +439,7 @@
             <img src="../assets/images/uc-ecosystem-graphic.webp" width="711" height="933" alt="Illustration: many people supporting a health programme" class="uc-panel-graphic">
           </div>
           <div>
-            <h2 class="uc-panel-title">For the <em>Ecosystem</em></h2>
+            <h2 class="uc-panel-title">Ecosystem</h2>
             <p class="uc-panel-question">How might AI strengthen the global development ecosystem?</p>
             <p class="uc-panel-desc">Tools for multilateral agencies, funders, and implementing partners to improve knowledge navigation, data access, and program management at the systems level.</p>
             <div style="margin-top:32px;">
@@ -501,15 +506,17 @@
 
 </section>
 
-<!-- ───── FINAL CTA ───── -->
+<!-- ───── FINAL CTA: COLLABORATE ───── -->
 <section class="section" style="background:#D6EEF2;text-align:center;">
   <div class="container" style="max-width:680px;">
     <span class="eyebrow" style="justify-content:center;">GET IN TOUCH</span>
-    <h2 class="section-title" style="color:#16006D;margin-bottom:24px;">See something that <em style="background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">fits your context</em>?</h2>
+    <h2 class="section-title" style="color:#16006D;margin-bottom:24px;">Have a question <em style="background:linear-gradient(90deg,#16006D 0%,#16006D 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">about a use case?</em></h2>
     <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.8;">
-      Every program is different. Tell us what you're trying to build and we'll help scope what's possible.
+      Tell us what you're working on and we'll help you figure out whether Open Chat Studio is a fit.
     </p>
-    <a class="btn btn-indigo btn-arrow" href="../contact/index.html">Tell us about your program</a>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-indigo btn-arrow" href="../contact/index.html">Contact us</a>
+    </div>
   </div>
 </section>
 
@@ -524,26 +531,25 @@
         <p>Open-source AI chatbots for global development.</p>
       </div>
       <div class="footer-col">
-        <h5>Explore</h5>
+        <h2>About</h2>
         <ul>
-          <li><a href="../index.html">Overview</a></li>
-          <li><a href="../platform/index.html">Platform</a></li>
-          <li><a href="index.html">Applications</a></li>
-          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../index.html">Open Chat Studio</a></li>
+          <li><a href="index.html">Use Cases</a></li>
+          <li><a href="../about/index.html">Community</a></li>
           <li><a href="../open-opportunities/index.html">Open Opportunities</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Resources</h5>
+        <h2>Resources</h2>
         <ul>
           <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
           <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-          <li><a href="../contact/index.html">Contact us</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Dimagi</h5>
+        <h2>Dimagi</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
@@ -566,12 +572,13 @@
   var ham = document.querySelector('.nav-hamburger');
   if (ham) {
     ham.addEventListener('click', function () {
-      this.classList.toggle('is-open');
+      var open = this.classList.toggle('is-open');
       document.querySelector('.nav-links').classList.toggle('is-open');
       document.querySelector('.nav-cta').classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
   }
-
 })();
 
 </script>
