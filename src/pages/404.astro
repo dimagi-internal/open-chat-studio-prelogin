@@ -1,0 +1,133 @@
+---
+// Ported from this repo's own 404.html — the Django app has no equivalent, it
+// serves the project-wide error template. Cloudflare serves this via
+// `not_found_handling: "404-page"` in wrangler.jsonc.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { DOCS_URL } from '../consts';
+---
+
+<BaseLayout
+  title="Page Not Found | Open Chat Studio"
+  description="The page you were looking for doesn't exist. Head back to the homepage or browse the links below."
+  robots="noindex"
+>
+
+  <style is:inline slot="head">
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .err-hero {
+    flex: 1;
+    background: #009090;
+    display: flex;
+    align-items: center;
+    padding: 80px 0 100px;
+  }
+  .err-inner {
+    max-width: 600px;
+  }
+  .err-code {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 24px;
+  }
+  .err-title {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 200;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+  .err-title strong {
+    font-weight: 700;
+    color: #B2F0ED;
+  }
+  .err-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin: 0 0 40px;
+    max-width: 460px;
+  }
+  .err-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .err-links {
+    background: var(--paper);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+  .err-links-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+  .err-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .err-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--paper);
+    transition: border-color 150ms, background 150ms;
+  }
+  .err-nav a:hover {
+    border-color: #009090;
+    color: #009090;
+    background: var(--paper-2);
+  }
+  </style>
+
+<div id="main" class="err-hero on-dark">
+  <div class="container">
+    <div class="err-inner">
+      <p class="err-code">404 / Page not found</p>
+      <h1 class="err-title">This page <strong>doesn't exist.</strong></h1>
+      <p class="err-desc">The link may be outdated or mistyped. Try heading back to the homepage or one of the pages below.</p>
+      <div class="err-actions">
+        <a class="btn btn-white btn-arrow" href="/">Go to homepage</a>
+        <a class="btn btn-ghost" href="/contact/">Contact us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="err-links">
+  <div class="container">
+    <p class="err-links-label">Quick links</p>
+    <div class="err-nav">
+      <a href="/">Open Chat Studio</a>
+      <a href="/applications/">Use Cases</a>
+      <a href="/about/">Community</a>
+      <a href="/contact/">Contact</a>
+      <a href="/open-opportunities/">Open Opportunities</a>
+      <a href="/contact/">Contact us</a>
+      <a href={DOCS_URL} target="_blank" rel="noopener">Documentation ↗</a>
+    </div>
+  </div>
+</div>
+
+</BaseLayout>

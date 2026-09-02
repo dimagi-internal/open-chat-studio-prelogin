@@ -22,6 +22,12 @@ interface Props {
   ogType?: string;
   activeNav?: NavKey | null;
   jsonLd?: object | object[];
+  /**
+   * Override the robots meta. Django emitted none, so pages default to
+   * indexable and the tag is left off entirely; /404/ passes 'noindex'.
+   * Preview and *.workers.dev hosts are handled by worker.js, not here.
+   */
+  robots?: string;
 }
 
 const {
@@ -33,6 +39,7 @@ const {
   ogType = 'website',
   activeNav = null,
   jsonLd,
+  robots,
 } = Astro.props;
 
 // Canonical and og:url derive from the page's real route under the production
@@ -59,6 +66,7 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <title>{title}</title>
 
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={pageUrl} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={pageUrl} />
