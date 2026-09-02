@@ -1,0 +1,33 @@
+{
+	"compatibility_date": "2026-06-03",
+	"name": "ocs-prelogin",
+	"main": "worker.js",
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "404-page",
+		"binding": "ASSETS",
+
+		// Which requests invoke worker.js BEFORE Cloudflare matches a static file.
+		// HTML stays Worker-first because the X-Robots-Tag kill-switch below is the
+		// only thing keeping preview hosts out of the index, and it fails silently
+		// if the asset service answers first.
+		//
+		// Build output is exempt: /_astro/* and /assets/* hold no HTML, and Worker
+		// requests are metered while asset requests are not — no reason to put CSS
+		// and images on the same fuse as the pages.
+		"run_worker_first": [
+			"/*",
+			"!/_astro/*",
+			"!/assets/*"
+		]
+	},
+	// Indexing kill-switch. Stays "false" until openchatstudio.dimagi.com is bound
+	// and verified (Phase 4 of docs/MIGRATION_PLAN.md); flip to "true" at go-live.
+	// Preview and *.workers.dev hosts are noindexed regardless — see worker.js.
+	"vars": {
+		"ALLOW_INDEXING": "false"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

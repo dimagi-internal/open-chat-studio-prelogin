@@ -1,0 +1,20 @@
+{
+  "name": "open-chat-studio-prelogin",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "generate-types": "wrangler types"
+  },
+  "devDependencies": {
+    "astro": "^7.1.3",
+    "wrangler": "^4.97.0"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3"
+  }
+}

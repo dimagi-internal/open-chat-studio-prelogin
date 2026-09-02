@@ -1,0 +1,18 @@
+# Binary media tracked via Git LFS, so the normal git pack doesn't accumulate
+# every past version of every image. Mirrors commcare-website; the README's
+# tooling step is where contributors are told to install it.
+#
+# Note: the 22 images already in this repo's history predate this file and stay
+# as ordinary blobs — the filter only applies to content staged after it. That
+# mixed state is fine (LFS passes a non-pointer blob through unchanged); do NOT
+# "fix" it with `git add --renormalize` unless you also rewrite history, or
+# checkouts without LFS installed will start seeing pointer text instead of
+# images.
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.webp filter=lfs diff=lfs merge=lfs -text
+*.avif filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text

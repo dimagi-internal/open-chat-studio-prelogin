@@ -1,0 +1,96 @@
+---
+// The <head> + Nav + Footer frame, ported from open-chat-studio's
+// templates/prelogin/base.html. Its {% block %}s map to props and slots:
+//
+//   {% block title %}        -> title
+//   {% block meta %}         -> description / ogTitle / ogDescription / ogImage / jsonLd
+//   {% block page_styles %}  -> <style is:global slot="head">
+//   {% block content %}      -> the default slot
+//   {% block page_scripts %} -> slot="scripts"
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import type { NavKey } from '../consts';
+
+interface Props {
+  /** Rendered verbatim as <title>. Pages pass the same strings Django did. */
+  title?: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  /** Site-root-relative path, e.g. '/assets/images/uc-personas.jpg'. Made absolute below. */
+  ogImage?: string;
+  ogType?: string;
+  activeNav?: NavKey | null;
+  jsonLd?: object | object[];
+}
+
+const {
+  title = 'Open Chat Studio by Dimagi',
+  description,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogType = 'website',
+  activeNav = null,
+  jsonLd,
+} = Astro.props;
+
+// Canonical and og:url derive from the page's real route under the production
+// domain (Astro.site, set in astro.config.mjs), so every page is self-canonical
+// and matches its deployed URL. Django built these from request.build_absolute_uri,
+// and the static mirror hardcoded https://dimagi.com/open-chat-studio/ on every
+// page — both drifted. Deriving them means no page can drift again.
+const routePath = Astro.url.pathname.replace(/\/?$/, '/');
+const pageUrl = new URL(routePath, Astro.site).href;
+
+// og:image must be an absolute URL; the static mirror used relative paths, which
+// no scraper resolves.
+const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+
+const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/images/ocs-favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:description" content={ogDescription ?? description} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    {jsonLdBlocks.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block, null, 2)} is:inline />
+    ))}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* ⚠️ These three are ordered, not incidental. ocs-theme.css opens with
+        "Load AFTER each page's inline <style> so this wins via cascade", so the
+        page's own styles must land between the two sheets. That is also why both
+        files sit in /public and are linked by hand instead of being imported
+        from src/ — Astro chooses where it injects the <link> for an imported
+        stylesheet, and it will not reliably land on the correct side of a slot. */}
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <slot name="head" />
+    <link rel="stylesheet" href="/assets/ocs-theme.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Nav activeNav={activeNav} />
+    <slot />
+    <Footer />
+    <slot name="scripts" />
+  </body>
+</html>

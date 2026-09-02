@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openchatstudio.dimagi.com/sitemap-index.xml

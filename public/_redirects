@@ -1,0 +1,11 @@
+# Redirects for openchatstudio.dimagi.com. Add a rule when a live page moves.
+#
+# ⚠️ EVERY rule needs BOTH slash forms. Cloudflare serves this file natively and
+# matches the source as a literal string, so /foo and /foo/ are two separate
+# rules; the form you omit returns 404.
+
+# /platform/ has never been a page — it was a redirect stub in the Django app
+# and a meta-refresh stub in the static mirror. It is linked from outside, so it
+# keeps forwarding to the home page's How It Works section.
+/platform/  /#how-it-works  301
+/platform  /#how-it-works  301

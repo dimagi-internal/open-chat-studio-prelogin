@@ -1,0 +1,63 @@
+# Headers Cloudflare applies to every response from the assets service.
+# Trimmed from commcare-website's copy — same policy, fewer asset prefixes.
+
+/*
+  # Force HTTPS for 2 years on openchatstudio.dimagi.com and anything beneath
+  # it. NOT the apex: HSTS only binds the issuing host and its subdomains, so a
+  # policy served from here cannot bind dimagi.com, which sets its own.
+  #
+  # No `preload` token, deliberately. Preload-list inclusion is a manual
+  # submission that only accepts apex domains, and list *removal* takes months
+  # of browser release cycles — whereas max-age is reversible by serving
+  # max-age=0. If preloading is ever wanted it belongs on the apex.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+
+  # Don't let browsers MIME-sniff a response into a different content-type than
+  # the server declared (mitigates a class of XSS).
+  X-Content-Type-Options: nosniff
+
+  # Disallow framing this site except on the same origin.
+  X-Frame-Options: SAMEORIGIN
+
+  # Send only the origin cross-origin, the full URL same-origin.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Disallow APIs we never use. Add to this list as new ones land.
+  # Note: `microphone` is NOT in the list — the chat widget on /applications/
+  # offers voice input, and denying it here kills that silently.
+  Permissions-Policy: geolocation=(), camera=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()
+
+  # Disable Topics / FLoC interest-based ad cohorts on this site.
+  Permissions-Policy: interest-cohort=()
+
+# Astro build output — filenames carry a content hash, so a year is safe.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images live in /public under STABLE filenames and get swapped in place while
+# iterating on the site, so they can't be cached immutably the way /_astro/* is.
+#
+# stale-while-revalidate is the right shape for that: a repeat visit paints from
+# cache with no network wait and the browser refreshes in the background, so a
+# swapped image lands on the visit after next. The short max-age caps the stale
+# window for someone actively browsing, and the ETag short-circuits the
+# background refresh to a 304 when nothing changed.
+#
+# `must-revalidate` is deliberately absent — it forbids serving a stale
+# response, which cancels stale-while-revalidate out entirely.
+/assets/images/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=604800
+
+# The two stylesheets. They live in /public rather than src/ (and so aren't
+# content-hashed) because base.html's cascade contract requires them to bracket
+# each page's own <style> — styles.css, page styles, then ocs-theme.css, which
+# is written to win via cascade. Astro decides where it injects the <link> for
+# an imported stylesheet, so an import can't guarantee that order; explicit
+# <link> tags in BaseLayout can.
+#
+# Same short max-age + stale-while-revalidate shape as the images above: an edit
+# has to reach visitors the same day, not sit stale for a year.
+/assets/styles.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=604800
+/assets/ocs-theme.css
+  Cache-Control: public, max-age=300, stale-while-revalidate=604800

@@ -1,0 +1,64 @@
+---
+// Ported verbatim from open-chat-studio's templates/prelogin/base.html.
+import {
+  ACCEPTABLE_USE_POLICY_URL,
+  DOCS_URL,
+  GITHUB_URL,
+  LOGIN_URL,
+  PRIVACY_POLICY_URL,
+  TERMS_URL,
+} from '../consts';
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img
+            src="/assets/images/ocs-logo.png"
+            width="175"
+            height="78"
+            alt="Open Chat Studio by Dimagi"
+            style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85"
+          />
+        </div>
+        <p>Open-source AI chatbots for global development.</p>
+      </div>
+      <div class="footer-col">
+        <h2>About</h2>
+        <ul>
+          <li><a href="/">Open Chat Studio</a></li>
+          <li><a href="/applications/">Use Cases</a></li>
+          <li><a href="/about/">Community</a></li>
+          <li><a href="/open-opportunities/">Open Opportunities</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href={LOGIN_URL}>Sign In</a></li>
+          <li><a href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href={DOCS_URL} target="_blank" rel="noopener">Documentation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Dimagi</h2>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener">PRIVACY</a>
+        <a href={TERMS_URL} target="_blank" rel="noopener">TERMS</a>
+        <a href={ACCEPTABLE_USE_POLICY_URL} target="_blank" rel="noopener">ACCEPTABLE USE POLICY</a>
+      </span>
+    </div>
+  </div>
+</footer>

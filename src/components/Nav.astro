@@ -1,0 +1,72 @@
+---
+// Ported verbatim from open-chat-studio's templates/prelogin/base.html, so the
+// markup, classes and inline styles match what styles.css / ocs-theme.css were
+// written against. Don't restyle without sign-off — the same CSS still dresses
+// the app's auth pages.
+import { GITHUB_URL, LOGIN_URL, NAV_LINKS, type NavKey } from '../consts';
+
+interface Props {
+  activeNav?: NavKey | null;
+}
+
+const { activeNav = null } = Astro.props;
+---
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="/">
+        <img
+          src="/assets/images/ocs-logo.png"
+          width="175"
+          height="78"
+          alt="Open Chat Studio by Dimagi"
+          style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95"
+        />
+      </a>
+      <div class="nav-links">
+        {NAV_LINKS.map(({ key, label, href }) => (
+          <a
+            href={href}
+            class={activeNav === key ? 'nav-active' : undefined}
+            aria-current={activeNav === key ? 'page' : undefined}
+          >{label}</a>
+        ))}
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href={GITHUB_URL} target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href={LOGIN_URL}>Sign In</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+{/* Mobile nav toggle. is:inline so it stays a classic script running right
+    after the markup above, exactly as it did at the end of base.html's body. */}
+<script is:inline>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      var open = this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
+      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var h = document.querySelector('.nav-hamburger');
+      h.classList.remove('is-open');
+      h.setAttribute('aria-expanded', 'false');
+      h.setAttribute('aria-label', 'Open menu');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
+})();
+</script>
