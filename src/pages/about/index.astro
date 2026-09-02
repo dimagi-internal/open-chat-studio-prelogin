@@ -1,24 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Community | Open Chat Studio</title>
-<meta name="description" content="Open Chat Studio is built in the open with a global community of developers, implementers, and researchers. Read the code, run your own instance, and contribute back.">
+---
+// Ported from open-chat-studio's templates/prelogin/about.html.
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dimagi.com/open-chat-studio/about/">
-<meta property="og:title" content="Community | Open Chat Studio">
-<meta property="og:description" content="Open Chat Studio is built in the open with a global community of developers, implementers, and researchers. Read the code, run your own instance, and contribute back.">
-<meta property="og:image" content="../assets/images/zvandiri-catscoach.webp">
+const DESCRIPTION =
+  'Open Chat Studio is built in the open with a global community of developers, implementers, and researchers. Read the code, run your own instance, and contribute back.';
+---
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=1">
+<BaseLayout
+  title="Community | Open Chat Studio"
+  description={DESCRIPTION}
+  ogImage="/assets/images/zvandiri-catscoach.webp"
+  activeNav="about"
+>
 
-<style>
+  <style is:inline slot="head">
   :root {
     --indigo: #16006D;
     --indigo-soft: #ffffff;
@@ -130,35 +125,7 @@
     #open-opportunities .container > div { grid-template-columns: 1fr !important; }
     #open-opportunities .oo-mockup { display: none; }
   }
-</style>
-<link rel="stylesheet" href="../assets/ocs-theme.css?v=1">
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to main content</a>
-
-<!-- ───── NAV ───── -->
-<div class="nav-wrap">
-  <div class="container">
-    <nav class="primary">
-      <a class="logo" href="../index.html">
-        <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
-      </a>
-      <div class="nav-links">
-        <a href="../index.html">Open Chat Studio</a>
-        <a href="../applications/index.html">Use Cases</a>
-        <a href="index.html" class="nav-active" aria-current="page">Community</a>
-        <a href="../contact/index.html">Contact</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
-      </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </div>
-</div>
+  </style>
 
 <!-- ───── HERO ───── -->
 <section id="main" class="hero-ocs">
@@ -174,7 +141,7 @@
         </div>
       </div>
       <div>
-        <img src="../assets/images/zvandiri-catscoach.webp" width="1094" height="728" alt="Zvandiri CATSCoach peer supporters" style="width:100%;height:460px;object-fit:cover;object-position:center;border-radius:16px;display:block;">
+        <img src="/assets/images/zvandiri-catscoach.webp" width="1094" height="728" alt="Zvandiri CATSCoach peer supporters" style="width:100%;height:460px;object-fit:cover;object-position:center;border-radius:16px;display:block;">
         <p style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.06em;color:var(--muted-soft);margin:8px 0 0;text-align:right;">Zvandiri, CATSCoach</p>
       </div>
     </div>
@@ -298,7 +265,7 @@
         <div class="contribute-card-body">
           <p>Deploy with your community or partner on research. Paid opportunities are open now.</p>
           <div class="contribute-card-links">
-            <a href="../open-opportunities/index.html">See open opportunities →</a>
+            <a href="/open-opportunities/">See open opportunities →</a>
           </div>
         </div>
       </div>
@@ -312,7 +279,7 @@
         <div class="contribute-card-body">
           <p>Have a deployment, a partnership, or an idea in mind? Reach out and let's explore building it together.</p>
           <div class="contribute-card-links">
-            <a href="../contact/index.html">Contact us →</a>
+            <a href="/contact/">Contact us →</a>
           </div>
         </div>
       </div>
@@ -320,77 +287,4 @@
   </div>
 </section>
 
-<!-- ───── FOOTER ───── -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo" style="gap:10px;">
-          <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
-        </div>
-        <p>Open-source AI chatbots for global development.</p>
-      </div>
-      <div class="footer-col">
-        <h2>About</h2>
-        <ul>
-          <li><a href="../index.html">Open Chat Studio</a></li>
-          <li><a href="../applications/index.html">Use Cases</a></li>
-          <li><a href="index.html">Community</a></li>
-          <li><a href="../open-opportunities/index.html">Open Opportunities</a></li>
-          <li><a href="../contact/index.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Resources</h2>
-        <ul>
-          <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
-          <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Dimagi</h2>
-        <ul>
-          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
-          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 DIMAGI, INC.</span>
-      <span style="display:flex;gap:24px;flex-wrap:wrap;">
-        <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
-        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
-        <a href="https://dimagi.com/terms-aup/" target="_blank" rel="noopener">ACCEPTABLE USE POLICY</a>
-      </span>
-    </div>
-  </div>
-</footer>
-
-<script>
-(function () {
-  var ham = document.querySelector('.nav-hamburger');
-  if (ham) {
-    ham.addEventListener('click', function () {
-      var open = this.classList.toggle('is-open');
-      document.querySelector('.nav-links').classList.toggle('is-open');
-      document.querySelector('.nav-cta').classList.toggle('is-open');
-      this.setAttribute('aria-expanded', open ? 'true' : 'false');
-      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
-  }
-  document.querySelectorAll('.nav-links a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var h = document.querySelector('.nav-hamburger');
-      h.classList.remove('is-open');
-      h.setAttribute('aria-expanded', 'false');
-      h.setAttribute('aria-label', 'Open menu');
-      document.querySelector('.nav-links').classList.remove('is-open');
-      document.querySelector('.nav-cta').classList.remove('is-open');
-    });
-  });
-})();
-</script>
-</body>
-</html>
+</BaseLayout>

@@ -1,24 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<link rel="icon" type="image/png" href="../assets/images/ocs-favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Request for EOI | Open Chat Studio</title>
-<meta name="description" content="Request for Expression of Interest for the Open Chat Studio Ecosystem Development Program. Paid deliverables for developers, implementation partners, and researchers building open AI for global development.">
+---
+// Ported from open-chat-studio's templates/prelogin/open_opportunities.html.
+// Not in the nav — linked from the footer and from /about/.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dimagi.com/open-chat-studio/open-opportunities/">
-<meta property="og:title" content="Request for EOI | Open Chat Studio Ecosystem Program">
-<meta property="og:description" content="The OCS Ecosystem Development Program: paid deliverables for developers, implementation partners, and researchers building open AI for global development.">
-<meta property="og:image" content="../assets/images/ocs-device-lineup.png">
+<BaseLayout
+  title="Request for EOI | Open Chat Studio"
+  description="Request for Expression of Interest for the Open Chat Studio Ecosystem Development Program. Paid deliverables for developers, implementation partners, and researchers building open AI for global development."
+  ogTitle="Request for EOI | Open Chat Studio Ecosystem Program"
+  ogDescription="The OCS Ecosystem Development Program: paid deliverables for developers, implementation partners, and researchers building open AI for global development."
+  ogImage="/assets/images/ocs-device-lineup.png"
+>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css?v=1">
-
-<style>
+  <style is:inline slot="head">
   :root {
     --indigo: #16006D;
     --indigo-soft: #F1ECFF;
@@ -363,35 +357,7 @@
     .doc-table { display: block; overflow-x: auto; }
     .doc-cover-meta { flex-direction: column; gap: 6px; }
   }
-</style>
-<link rel="stylesheet" href="../assets/ocs-theme.css?v=1">
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to main content</a>
-
-<!-- ───── NAV ───── -->
-<div class="nav-wrap">
-  <div class="container">
-    <nav class="primary">
-      <a class="logo" href="../index.html">
-        <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
-      </a>
-      <div class="nav-links">
-        <a href="../index.html">Open Chat Studio</a>
-        <a href="../applications/index.html">Use Cases</a>
-        <a href="../about/index.html">Community</a>
-        <a href="../contact/index.html">Contact</a>
-      </div>
-      <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-primary" href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a>
-      </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </div>
-</div>
+  </style>
 
 <!-- ───── DOCUMENT ───── -->
 <main id="main" class="doc-page">
@@ -437,7 +403,7 @@
         </div>
         <p class="doc-body">For over 20 years, Dimagi has built and supported the deployment of inclusive, robust, and scalable digital solutions, primarily through its widely used open-source CommCare platform. Open Chat Studio (OCS) is a new open-source platform by Dimagi that enables organizations to rapidly build, deploy, and evaluate LLM-powered chatbots without requiring AI expertise. In just minutes, non-programmers can iterate on a chatbot and deploy it over WhatsApp, the web, and other channels in text or voice and in their language of choice.</p>
         <div class="doc-resource-links">
-          <a href="../index.html#how-it-works" class="doc-link">Overview: Open Chat Studio →</a>
+          <a href="/#how-it-works" class="doc-link">Overview: Open Chat Studio →</a>
           <a href="https://www.loom.com/share/32924312accf43dd822ed51266a89232" target="_blank" rel="noopener" class="doc-link">Starter Guide: Watch the Video →</a>
         </div>
       </section>
@@ -581,9 +547,9 @@
           <h2 class="doc-h2">Expression of Interest (EOI) Application and Timelines</h2>
         </div>
         <p class="doc-body">Applications are reviewed on a rolling basis. Submit your EOI at any time.</p>
-        <p class="doc-body">To apply, please complete the EOI application form. If you have any questions, please <a href="../contact/index.html" style="color:#16006D;">contact us</a>.</p>
+        <p class="doc-body">To apply, please complete the EOI application form. If you have any questions, please <a href="/contact/" style="color:#16006D;">contact us</a>.</p>
         <div class="doc-apply-cta">
-          <a class="btn btn-indigo btn-arrow" href="../contact/index.html">Submit Expression of Interest</a>
+          <a class="btn btn-indigo btn-arrow" href="/contact/">Submit Expression of Interest</a>
         </div>
       </section>
 
@@ -591,78 +557,9 @@
   </div><!-- /doc-layout -->
 </main>
 
-<!-- ───── FOOTER ───── -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo" style="gap:10px;">
-          <img src="../assets/images/ocs-logo.png" width="175" height="78" alt="Open Chat Studio by Dimagi" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
-        </div>
-        <p>Open-source AI chatbots for global development.</p>
-      </div>
-      <div class="footer-col">
-        <h2>About</h2>
-        <ul>
-          <li><a href="../index.html">Open Chat Studio</a></li>
-          <li><a href="../applications/index.html">Use Cases</a></li>
-          <li><a href="../about/index.html">Community</a></li>
-          <li><a href="index.html">Open Opportunities</a></li>
-          <li><a href="../contact/index.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Resources</h2>
-        <ul>
-          <li><a href="https://chatbots.dimagi.com/accounts/login/" target="_blank" rel="noopener">Sign In</a></li>
-          <li><a href="https://github.com/dimagi/open-chat-studio" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://docs.openchatstudio.com/" target="_blank" rel="noopener">Documentation</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Dimagi</h2>
-        <ul>
-          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
-          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://www.dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 DIMAGI, INC.</span>
-      <span style="display:flex;gap:24px;flex-wrap:wrap;">
-        <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
-        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
-        <a href="https://dimagi.com/terms-aup/" target="_blank" rel="noopener">ACCEPTABLE USE POLICY</a>
-      </span>
-    </div>
-  </div>
-</footer>
-
-<script>
+  <Fragment slot="scripts">
+<script is:inline>
 (function () {
-  // Hamburger nav
-  var ham = document.querySelector('.nav-hamburger');
-  if (ham) {
-    ham.addEventListener('click', function () {
-      var open = this.classList.toggle('is-open');
-      document.querySelector('.nav-links').classList.toggle('is-open');
-      document.querySelector('.nav-cta').classList.toggle('is-open');
-      this.setAttribute('aria-expanded', open ? 'true' : 'false');
-      this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
-  }
-  document.querySelectorAll('.nav-links a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var h = document.querySelector('.nav-hamburger');
-      h.classList.remove('is-open');
-      h.setAttribute('aria-expanded', 'false');
-      h.setAttribute('aria-label', 'Open menu');
-      document.querySelector('.nav-links').classList.remove('is-open');
-      document.querySelector('.nav-cta').classList.remove('is-open');
-    });
-  });
-
   // Scroll spy: highlight active TOC link
   var tocLinks = document.querySelectorAll('.toc-link');
   var sections = Array.from(document.querySelectorAll('.doc-section[id]'));
@@ -684,5 +581,6 @@
   }
 })();
 </script>
-</body>
-</html>
+  </Fragment>
+
+</BaseLayout>
