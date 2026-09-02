@@ -218,6 +218,16 @@
       this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var h = document.querySelector('.nav-hamburger');
+      h.classList.remove('is-open');
+      h.setAttribute('aria-expanded', 'false');
+      h.setAttribute('aria-label', 'Open menu');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 })();
 </script>
 

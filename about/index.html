@@ -362,6 +362,7 @@
       <span style="display:flex;gap:24px;flex-wrap:wrap;">
         <a href="https://dimagi.com/terms-privacy/" target="_blank" rel="noopener">PRIVACY</a>
         <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.com/terms-aup/" target="_blank" rel="noopener">ACCEPTABLE USE POLICY</a>
       </span>
     </div>
   </div>
@@ -379,32 +380,17 @@
       this.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var h = document.querySelector('.nav-hamburger');
+      h.classList.remove('is-open');
+      h.setAttribute('aria-expanded', 'false');
+      h.setAttribute('aria-label', 'Open menu');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 })();
-</script>
-<script>
-  // ── GitHub stats ──
-  fetch('https://api.github.com/repos/dimagi/open-chat-studio')
-    .then(r => r.json())
-    .then(data => {
-      const fmt = n => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
-      const stars = document.getElementById('gh-stars-ocs');
-      const forks = document.getElementById('gh-forks-ocs');
-      if (stars && data.stargazers_count != null) stars.textContent = fmt(data.stargazers_count) + ' stars';
-      if (forks && data.forks_count != null) forks.textContent = fmt(data.forks_count) + ' forks';
-    })
-    .catch(() => {});
-
-  // ── Jump-nav scroll spy ──
-  const jumpLinks = document.querySelectorAll('.jump-link');
-  const spySections = [...jumpLinks].map(l => document.querySelector(l.getAttribute('href')));
-  const onScroll = () => {
-    const offset = 140;
-    let active = 0;
-    spySections.forEach((s, i) => { if (s && s.getBoundingClientRect().top <= offset) active = i; });
-    jumpLinks.forEach((l, i) => l.classList.toggle('active', i === active));
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 </script>
 </body>
 </html>
