@@ -19,7 +19,7 @@ interface DemoBot {
 // changes nothing security-wise. What DOES scope a leaked key to our pages is
 // each widget channel's `extra_data.allowed_domains`, which this host has to be
 // listed in — see Phase 0.4 of docs/MIGRATION_PLAN.md. Never widen that to `*`.
-const demoBots = demoBotData as Record<string, DemoBot | undefined>;
+const demoBots: Record<string, DemoBot> = demoBotData;
 
 // A bot with no entry renders as a static card with no chat, exactly as it did
 // when the Django setting was unset.
@@ -31,7 +31,7 @@ const botCardAttrs = (key: string) =>
     ? {
         class: 'bot-card bot-card-h bot-card-interactive',
         'data-demo-bot-trigger': key,
-        role: 'button',
+        role: 'button' as const,
         tabindex: '0',
       }
     : { class: 'bot-card bot-card-h' };

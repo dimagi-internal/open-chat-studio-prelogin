@@ -1,6 +1,11 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    "./worker-configuration.d.ts"
-  ]
+  // Deliberately NOT commcare-website's `"include": ["./worker-configuration.d.ts"]`.
+  // `include` replaces the base config's list rather than adding to it, so that
+  // narrows type checking to one file and `astro check` reports "0 files". These
+  // are the base defaults, restated so the .astro types and everything under
+  // src/ are actually checked; worker-configuration.d.ts (from `wrangler types`)
+  // is picked up by the glob once generated.
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
