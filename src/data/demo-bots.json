@@ -1,0 +1,17 @@
+{
+  "nanibot": {
+    "id": "6d5abc50-167d-4e78-a2a1-6ff6d3cb229c",
+    "embed_key": "N5kRyySLFPZ62b616KMkMph92qYEqFFD",
+    "header_text": "NaniBot"
+  },
+  "fp_coach": {
+    "id": "d61f49c1-ebea-4d1e-98ec-d0b5cb111c10",
+    "embed_key": "_jnL4BOvE5bDgzWU3F9vX6voe8YUMbLs",
+    "header_text": "Family Planning Coach"
+  },
+  "program_dashboard": {
+    "id": "f4219b24-3f35-45c3-91e8-60949439ce3a",
+    "embed_key": "6LwBOL2el5wU64GK-Zx1UpeAU5nhacrn",
+    "header_text": "Program Dashboard"
+  }
+}
