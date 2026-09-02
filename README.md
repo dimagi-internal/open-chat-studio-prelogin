@@ -11,3 +11,12 @@ Open `index.html` directly in a browser, or serve with any static file server.
 ## Live site
 
 https://dimagi-internal.github.io/open-chat-studio-prelogin/
+
+## Relationship to the OCS app
+
+These pages also live in [open-chat-studio](https://github.com/dimagi/open-chat-studio)
+as Django templates under `apps/prelogin`, and the two are kept in sync.
+
+One intentional divergence: the Use Cases page there embeds the demo bots as live
+chat widgets, which needs per-bot widget channel tokens from deployment config. Here
+the cards link out to the hosted chatbots instead.
