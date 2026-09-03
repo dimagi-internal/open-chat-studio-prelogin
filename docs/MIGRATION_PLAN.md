@@ -207,43 +207,51 @@ this window to days, as planned.
 
 ## Phase 5 — teardown in `open-chat-studio`
 
-Deliberately **after** the new site is live, as its own PR.
+**Done** (Sep 2026) on branch `sk/prelogin-teardown`, four commits:
 
-Keep `apps/prelogin` — the name is still accurate and it keeps every `prelogin:*` reverse
-name working, which matters because `apps/sso/views.py:123`,
-`templates/account/logout.html` and `apps/teams/tests/test_teams_middleware.py` all use
-them. The app shrinks to a landing page plus redirects.
+| Commit | |
+|---|---|
+| `4db2ad15` | Retire the pre-login marketing pages |
+| `63e82e39` | Drop the settings the retired marketing pages read |
+| `b77bac1e` | Delete the pre-login images no page references any more |
+| `6a012e28` | Correct the prelogin entry in the package map |
 
-**Change:**
+`apps/prelogin` stayed, as planned. The plan under-counted who depends on it: besides
+`apps/sso/views.py`, `templates/account/logout.html` and
+`apps/teams/tests/test_teams_middleware.py`, three more views reverse `prelogin:home` —
+`apps/teams/views/{invitation_views,membership_views,manage_team_views}.py`. Only
+`prelogin:home` is reversed from outside the app; the other names are kept anyway so
+every `prelogin:*` reverse still resolves.
 
-- `apps/prelogin/views.py` — `home()` keeps its authenticated-user branch (team →
-  dashboard, no team → create team) and renders a new `prelogin/landing.html` for
-  anonymous users. Delete `applications()`, `contact()`, `_configured_demo_bots()`.
-- `apps/prelogin/urls.py` — `/about/`, `/applications/`, `/contact/`,
-  `/open-opportunities/` become permanent `RedirectView`s to
-  `https://openchatstudio.dimagi.com/<path>/`; `/platform/` redirects there too (the
-  marketing site then sends it on to `/#how-it-works`) — or, better, straight to
-  `https://openchatstudio.dimagi.com/#how-it-works` to avoid a redirect chain.
-- `templates/prelogin/landing.html` — new, small: logo, one-line pitch, Sign In, and
-  outbound links to the marketing site, docs and GitHub.
-- `templates/prelogin/base.html` — nav and footer links now absolute URLs into the
-  marketing site. Keep the frame, the CSS links, the skip link and the hamburger script.
-- `templates/prelogin/auth_base.html` — unchanged.
-- **Delete:** `templates/prelogin/{home,about,applications,contact,open_opportunities}.html`.
-- **Delete:** the `static/prelogin/images/*` no longer referenced — everything except
-  `ocs-logo.png` and `ocs-favicon.png`. Keep both CSS files (the auth pages and the
-  landing page depend on them; trimming them is a separate, optional cleanup).
-- `apps/web/sitemaps.py` — `StaticViewSitemap.items()` drops to `["prelogin:home"]`.
-- `apps/prelogin/tests/test_views.py` — rewrite: landing page renders for anonymous,
-  authenticated still redirects to dashboard, each retired path 301s to the right external
-  URL, sitemap lists one entry. Delete the demo-bot and HubSpot tests.
-- **Settings:** remove `PRELOGIN_CONTACT_EMAIL`, `HUBSPOT_FORM_REGION`,
-  `HUBSPOT_FORM_PORTAL_ID`, `HUBSPOT_FORM_ID`, `PRELOGIN_DEMO_BOTS` from
-  `config/settings.py` and `.env.example`.
-- **`ocs-deploy`:** remove the same four names from `ocs_deploy/config.py` (lines ~102,
-  304–307) and `.env.example`, and remove the SSM parameters once the app no longer reads
-  them. Sequence it after the OCS PR ships, so a deploy never reads a parameter that
-  vanished mid-flight.
+Deviations from the plan as written:
+
+- **`PROJECT_METADATA["MARKETING_SITE_URL"]`** is the single source for the marketing
+  host. Both `apps/prelogin/urls.py` and the pre-login frame need it, and the frame is a
+  template, so a module constant would have needed a context processor. `project_meta` is
+  already in every template's context, so this costs nothing.
+- **`PreloginTemplateView` deleted** as well. Every remaining prelogin route is either the
+  `home` function or a redirect, so it had no users left. `PreloginRedirectView` stays and
+  now serves all five redirects.
+- **The landing page names the marketing site as canonical.** Not in the plan, but the app
+  host serving an uncanonicalised near-duplicate of the marketing home is the exact
+  problem Phase 4 flagged.
+- **`docs/architecture/package-map.md`** described `prelogin` as "Public marketing pages",
+  which this change makes false. Fixed here rather than deferred to Phase 6.
+
+**A trap worth recording:** Django's `{# ... #}` comment is **single-line only**. The
+multi-line ones first written into `base.html` and `landing.html` were not recognised by
+the lexer and rendered as visible body text at the top of every page in the frame,
+including the auth pages. No content assertion caught it — only a screenshot did. They are
+`{% comment %}` blocks now, and
+`test_prelogin_frame_leaks_no_unrendered_template_syntax` asserts no `{#`, `{%` or `{{`
+survives into the rendered landing, login and signup pages.
+
+### Still outstanding
+
+- **`ocs-deploy`** — sequence after the OCS PR ships, as planned. Remove
+  `PRELOGIN_DEMO_BOTS` from the `_validate_json_field` call
+  (`ocs_deploy/config.py:102`), the four names at `ocs_deploy/config.py:304-307`, and
+  lines 22-24 and 28 of its `.env.example`. Then delete the SSM parameters.
 
 ## Phase 6 — docs and handover
 
