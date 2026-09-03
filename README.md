@@ -10,7 +10,7 @@ Open `index.html` directly in a browser, or serve with any static file server.
 
 ## Live site
 
-https://dimagi-internal.github.io/open-chat-studio-prelogin/
+https://openchatstudio.dimagi.com
 
 ## Relationship to the OCS app
 
