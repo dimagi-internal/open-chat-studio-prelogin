@@ -56,10 +56,12 @@ widget version of the Use Cases page.
 
 Nothing here is code; all of it blocks a working deploy.
 
-1. **Cloudflare project.** In the Dimagi Cloudflare account, create a Worker (suggested
-   name `ocs-prelogin`) and connect **Workers Builds** to
-   `dimagi-internal/open-chat-studio-prelogin`, so PRs get isolated preview deployments
-   and `main` ships to production. Mirrors `commcare-prelogin`.
+1. ~~**Cloudflare project.**~~ **Done** — the Worker is `open-chat-studio-prelogin` in
+   the `devops-2cf` account, with **Workers Builds** connected to
+   `dimagi-internal/open-chat-studio-prelogin`. Live at
+   `open-chat-studio-prelogin.devops-2cf.workers.dev`. Note the name is the repo name,
+   not the `ocs-prelogin` originally suggested here — `wrangler.jsonc` has to match it or
+   a local `npm run deploy` creates a second Worker.
 2. **DNS.** `dimagi.com` is already a Cloudflare zone (it serves `commcare.dimagi.com`),
    so `openchatstudio.dimagi.com` is a custom-domain binding on the Worker, not a
    registrar change.

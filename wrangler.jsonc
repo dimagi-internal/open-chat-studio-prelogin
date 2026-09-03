@@ -1,6 +1,9 @@
 {
 	"compatibility_date": "2026-06-03",
-	"name": "ocs-prelogin",
+	// Must match the Worker that Workers Builds deploys to, otherwise a local
+	// `npm run deploy` silently creates a SECOND Worker under this name instead
+	// of updating the live one.
+	"name": "open-chat-studio-prelogin",
 	"main": "worker.js",
 	"assets": {
 		"directory": "./dist",
