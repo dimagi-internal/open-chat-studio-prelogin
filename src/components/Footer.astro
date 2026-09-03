@@ -8,6 +8,12 @@ import {
   PRIVACY_POLICY_URL,
   TERMS_URL,
 } from '../consts';
+
+// Astro renders this at BUILD time, not per request, so the year is baked into
+// the emitted HTML. Every push to main rebuilds, which keeps it current in
+// practice — but a site left undeployed across a new year will show the old one
+// until the next build.
+const year = new Date().getFullYear();
 ---
 
 <footer>
@@ -53,7 +59,7 @@ import {
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 DIMAGI, INC.</span>
+      <span>&copy; {year} DIMAGI, INC.</span>
       <span style="display:flex;gap:24px;flex-wrap:wrap;">
         <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener">PRIVACY</a>
         <a href={TERMS_URL} target="_blank" rel="noopener">TERMS</a>
