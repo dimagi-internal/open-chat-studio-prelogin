@@ -178,13 +178,32 @@ Verify each page against a local `npm run dev` and the current live page side by
 
 ## Phase 4 — cut-over
 
-1. Point `openchatstudio.dimagi.com` at the Worker; verify TLS and that the production
-   host is *not* noindexed while every other host still is.
-2. Retire GitHub Pages for this repo (the README's
-   `dimagi-internal.github.io/open-chat-studio-prelogin/` URL goes away).
-3. Add the 301s on the app host — see Phase 5.
+1. ~~Point `openchatstudio.dimagi.com` at the Worker~~ **Done** (Sep 2026) — live, valid
+   TLS, self-canonical. `ALLOW_INDEXING` is `"true"` and `workers_dev` is `false` with
+   `preview_urls` explicitly `true`; re-verify after the deploy that the production host
+   is *not* noindexed while every preview host still is.
+2. ~~Retire GitHub Pages for this repo.~~ **Done** —
+   `dimagi-internal.github.io/open-chat-studio-prelogin/` 404s.
+3. Add the 301s on the app host — see Phase 5. **This is now the critical path**, see below.
 4. Submit the new host in Google Search Console; keep the old URLs redirecting
    indefinitely, not for a fixed window.
+
+### ⚠️ The two-copy window is worse than "both are live"
+
+`www.openchatstudio.com` still serves all five marketing pages with `200`, no
+`noindex`, and no canonical pointing here — *and* `apps/web/sitemaps.py` actively
+advertises `/about/`, `/applications/`, `/contact/` and `/open-opportunities/` in
+`https://www.openchatstudio.com/sitemap.xml`.
+
+So the older, already-trusted host is submitting the duplicate set to Google while the
+new host has no history. Left alone, the likely outcome is Google keeping the app host
+as canonical and filing `openchatstudio.dimagi.com` as the duplicate — the exact
+inverse of the migration's goal.
+
+The cheapest mitigation is the sitemap change Phase 5 already plans
+(`StaticViewSitemap.items()` → `["prelogin:home"]`), which can ship on its own,
+ahead of the rest of the teardown. The 301s are the real fix. Until both land, keep
+this window to days, as planned.
 
 ## Phase 5 — teardown in `open-chat-studio`
 

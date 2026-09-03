@@ -24,11 +24,26 @@
 			"!/assets/*"
 		]
 	},
-	// Indexing kill-switch. Stays "false" until openchatstudio.dimagi.com is bound
-	// and verified (Phase 4 of docs/MIGRATION_PLAN.md); flip to "true" at go-live.
-	// Preview and *.workers.dev hosts are noindexed regardless — see worker.js.
+	// The workers.dev route. Disabled because openchatstudio.dimagi.com is live and
+	// bound (Sep 2026), and a second public copy of the site earns nothing — the
+	// Worker noindexes it, but the URL is still shareable and still serves the page.
+	//
+	// ⚠️ preview_urls MUST stay explicitly true. Cloudflare defaults Preview URLs to
+	// match workers_dev, so `workers_dev: false` on its own silently takes the
+	// per-branch Workers Builds preview URLs down with it — and reviewing a PR on a
+	// real preview URL is the whole publishing workflow. Preview hosts are still
+	// noindexed: worker.js only exempts the exact production hostname.
+	"workers_dev": false,
+	"preview_urls": true,
+	// Indexing kill-switch, flipped to "true" at go-live (Sep 2026), so
+	// openchatstudio.dimagi.com is indexable. Every other host stays noindexed via
+	// the hostname check in worker.js.
+	//
+	// Set back to "false" only to pull the whole site out of the index — a big
+	// hammer once the app host's marketing URLs 301 here (Phase 5), since that
+	// strands those redirects pointing at noindexed pages.
 	"vars": {
-		"ALLOW_INDEXING": "false"
+		"ALLOW_INDEXING": "true"
 	},
 	"observability": {
 		"enabled": true
