@@ -6,7 +6,17 @@ Static pre-login website for [Open Chat Studio by Dimagi](https://dimagi.com/).
 
 ## Local development
 
-Open `index.html` directly in a browser, or serve with any static file server.
+Install dependencies once with `npm install`, then use one of:
+
+- `npm run dev` starts the Astro dev server at http://localhost:4321 and reloads
+  on change. Use it for editing pages. It does not apply `public/_redirects` or
+  `public/_headers`, and unknown paths show Astro's 404 rather than ours.
+- `npm run preview` builds the site and serves it with `wrangler dev` at
+  http://localhost:8787, the same Cloudflare setup used in production. Use it to
+  check redirects, headers and the 404 page, e.g.
+  `curl -sI http://localhost:8787/contact/` should return a 301 to `/`.
+
+`npm run build` type-checks and builds into `dist/`.
 
 ## Live site
 
