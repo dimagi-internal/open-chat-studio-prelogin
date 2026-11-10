@@ -9,3 +9,9 @@
 # keeps forwarding to the home page's How It Works section.
 /platform/  /#how-it-works  301
 /platform  /#how-it-works  301
+
+# /contact/ and /open-opportunities/ were removed; external links land on home.
+/contact/  /  301
+/contact  /  301
+/open-opportunities/  /  301
+/open-opportunities  /  301

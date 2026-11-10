@@ -16,14 +16,6 @@ export const LOGIN_URL = `${APP_URL}/accounts/login/`;
 export const GITHUB_URL = 'https://github.com/dimagi/open-chat-studio';
 export const DOCS_URL = 'https://docs.openchatstudio.com/';
 
-/** Shown on the contact page, alongside the HubSpot form. */
-export const CONTACT_EMAIL = 'ocs-info@dimagi.com';
-
-// HubSpot contact form embed (v2). Previously HUBSPOT_FORM_* in Django settings.
-export const HUBSPOT_FORM_REGION = 'na1';
-export const HUBSPOT_FORM_PORTAL_ID = '503070';
-export const HUBSPOT_FORM_ID = 'ab84dc67-539d-40d3-b9ac-466d8b8348bf';
-
 // Legal links in the footer. Previously project_meta.* in Django settings. The
 // Django footer wrapped these in {% if %} guards so the span disappeared when
 // they were unset; committed as constants, that conditional has no purpose and
@@ -42,11 +34,10 @@ export const WIDGET_SCRIPT_URL =
   '/dist/open-chat-studio-widget/open-chat-studio-widget.esm.js';
 
 /** Which nav item renders as current. Pages pass this to BaseLayout. */
-export type NavKey = 'home' | 'applications' | 'about' | 'contact';
+export type NavKey = 'home' | 'applications' | 'about';
 
 export const NAV_LINKS: { key: NavKey; label: string; href: string }[] = [
   { key: 'home', label: 'Open Chat Studio', href: '/' },
   { key: 'applications', label: 'Use Cases', href: '/applications/' },
   { key: 'about', label: 'Community', href: '/about/' },
-  { key: 'contact', label: 'Contact', href: '/contact/' },
 ];
